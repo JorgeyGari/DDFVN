@@ -22,7 +22,7 @@ label start:
 
     $ renpy.movie_cutscene("movie/pr_title.webm")
 
-label camión:
+label camion:
     show bg truck with fade
 
     "{color=#8cf}Cuando me desperté, todo estaba oscuro.{/color}"
