@@ -3,31 +3,29 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("Eileen")
-
-
 # The game starts here.
 
 label start:
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
+    "{color=#009900}¡Alerta! ¡Alerta!{/color}"
 
-    scene bg room
+    scene cg pr_breaking with fade
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
+    "{color=#009900}¡Caos en la ciudad! En las últimas 24 horas se ha desatado una gran cantidad de incidentes en la zona este, oeste y centro de la ciudad de Gekkou.{/color}"
+    "{color=#009900}La intensidad de estos ataques va aumentando con el paso de las horas, se recomienda...{/color}"
 
-    show eileen happy
+    show cg pr_static
 
-    # These display lines of dialogue.
+    "{color=#009900}(...){/color}"
 
-    e "You've created a new Ren'Py game."
+    scene black with fade
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    $ renpy.movie_cutscene("movie/pr_title.webm")
 
-    # This ends the game.
+
+label camión:
+    scene black
+
+    "{color=#8888ff}(...){/color}"
 
     return
