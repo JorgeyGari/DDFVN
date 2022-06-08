@@ -1,28 +1,52 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 34, in script
-    show ryu concern with disolve
-  File "game/script.rpy", line 34, in <module>
-    show ryu concern with disolve
-NameError: name 'disolve' is not defined
+  File "game/script.rpy", line 50, in script
+    call screen inv_pr_truck
+  File "renpy/common/000statements.rpy", line 569, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "renpy/common/00action_control.rpy", line 126, in __call__
+    renpy.show_screen(self.screen, *self.args, **self.kwargs)
+Exception: Screen displayTextScreen is not known.
+
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 34, in script
-    show ryu concern with disolve
-  File "renpy/ast.py", line 1439, in execute
-    paired = renpy.python.py_eval(self.paired)
-  File "renpy/python.py", line 2276, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "renpy/python.py", line 2269, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 34, in <module>
-    show ryu concern with disolve
-NameError: name 'disolve' is not defined
+  File "game/script.rpy", line 50, in script
+    call screen inv_pr_truck
+  File "renpy/ast.py", line 2015, in execute
+    self.call("execute")
+  File "renpy/ast.py", line 2003, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "renpy/statements.py", line 278, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 569, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "renpy/exports.py", line 3136, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "renpy/ui.py", line 298, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "renpy/display/core.py", line 3325, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
+  File "renpy/display/core.py", line 4155, in interact_core
+    rv = renpy.display.focus.mouse_handler(ev, x, y)
+  File "renpy/display/focus.py", line 440, in mouse_handler
+    return change_focus(new_focus, default=default)
+  File "renpy/display/focus.py", line 396, in change_focus
+    rv = widget.focus(default=default)
+  File "renpy/display/behavior.py", line 840, in focus
+    rv = run(self.hovered)
+  File "renpy/display/behavior.py", line 330, in run
+    return action(*args, **kwargs)
+  File "renpy/common/00action_control.rpy", line 126, in __call__
+    renpy.show_screen(self.screen, *self.args, **self.kwargs)
+  File "renpy/display/screen.py", line 1131, in show_screen
+    raise Exception("Screen %s is not known.\n" % (name[0],))
+Exception: Screen displayTextScreen is not known.
+
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 Dystopian Future 1.0
-Wed Jun  8 16:56:46 2022
+Wed Jun  8 18:56:27 2022

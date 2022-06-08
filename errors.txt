@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 37: expected 'image_name_component' not found.
-    show 
-         ^
+File "game/script.rpy", line 66: Line is indented, but the preceding unhovered statement does not expect a block. Please check this line's indentation.
+    Hide("displayTextScreen")
+    ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Wed Jun  8 16:56:29 2022
+Wed Jun  8 18:52:30 2022
