@@ -1,46 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 26, in script
-    $ renpy.movie_cutscene("movie\\pr_title.mp4")
-  File "game/script.rpy", line 26, in <module>
-    $ renpy.movie_cutscene("movie\\pr_title.mp4")
-Exception: Backslash in filename, use '/' instead: u'movie\\pr_title.mp4'
+  File "game/script.rpy", line 34, in script
+    show ryu concern with disolve
+  File "game/script.rpy", line 34, in <module>
+    show ryu concern with disolve
+NameError: name 'disolve' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 26, in script
-    $ renpy.movie_cutscene("movie\\pr_title.mp4")
-  File "C:\Users\jorge\Downloads\renpy-7.4.11-sdk/renpy/ast.py", line 928, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\jorge\Downloads\renpy-7.4.11-sdk/renpy/python.py", line 2245, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/script.rpy", line 26, in <module>
-    $ renpy.movie_cutscene("movie\\pr_title.mp4")
-  File "C:\Users\jorge\Downloads\renpy-7.4.11-sdk/renpy/exports.py", line 1621, in movie_cutscene
-    roll_forward=roll_forward)
-  File "C:\Users\jorge\Downloads\renpy-7.4.11-sdk/renpy/ui.py", line 298, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Users\jorge\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 3325, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
-  File "C:\Users\jorge\Downloads\renpy-7.4.11-sdk/renpy/display/core.py", line 4025, in interact_core
-    renpy.audio.audio.periodic()
-  File "C:\Users\jorge\Downloads\renpy-7.4.11-sdk/renpy/audio/audio.py", line 1162, in periodic
-    raise_(exc[0], exc[1], exc[2])
-  File "C:\Users\jorge\Downloads\renpy-7.4.11-sdk/renpy/audio/audio.py", line 1140, in periodic_thread_main
-    periodic_pass()
-  File "C:\Users\jorge\Downloads\renpy-7.4.11-sdk/renpy/audio/audio.py", line 1082, in periodic_pass
-    c.periodic()
-  File "C:\Users\jorge\Downloads\renpy-7.4.11-sdk/renpy/audio/audio.py", line 518, in periodic
-    topf = load(filename)
-  File "C:\Users\jorge\Downloads\renpy-7.4.11-sdk/renpy/audio/audio.py", line 69, in load
-    rv = renpy.loader.load(fn)
-  File "C:\Users\jorge\Downloads\renpy-7.4.11-sdk/renpy/loader.py", line 789, in load
-    raise Exception("Backslash in filename, use '/' instead: %r" % name)
-Exception: Backslash in filename, use '/' instead: u'movie\\pr_title.mp4'
+  File "game/script.rpy", line 34, in script
+    show ryu concern with disolve
+  File "renpy/ast.py", line 1439, in execute
+    paired = renpy.python.py_eval(self.paired)
+  File "renpy/python.py", line 2276, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "renpy/python.py", line 2269, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 34, in <module>
+    show ryu concern with disolve
+NameError: name 'disolve' is not defined
 
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 Dystopian Future 1.0
-Wed Jun  8 15:21:50 2022
+Wed Jun  8 16:56:46 2022
