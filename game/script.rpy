@@ -22,12 +22,8 @@ label start:
 
     $ renpy.movie_cutscene("movie/pr_title.webm")
 
-<<<<<<< HEAD
 label truck:
 
-=======
-label camion:
->>>>>>> 7f3189e79f8fca8c04b35c20c03d3d80703ac9d9
     show bg truck with fade
 
     "{color=#8cf}Cuando me desperté, todo estaba oscuro.{/color}"
@@ -68,7 +64,7 @@ label inv_pr_truck_ryu:
 
 label inv_pr_truck_jaeke:
     "hola"
-    
+
     $ inv.remove("jaeke")
     if not inv:
         jump inv_pr_truck_end
