@@ -1516,3 +1516,13 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 600
+
+# DISPLAYTEXTSCREEN
+# Muestra una caja de texto superpuesto (útil para imagebuttons)
+screen displayTextScreen:  
+    default displayText = ""
+    vbox:
+        xalign 0.5
+        yalign 0.5
+        frame:
+            text displayText
