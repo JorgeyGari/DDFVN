@@ -4,4 +4,4 @@ traceback.txt
 game/saves
 game/cache
 *.rpyc
-#.vscode
+.vscode
