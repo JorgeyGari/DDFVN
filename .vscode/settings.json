@@ -1,5 +1,8 @@
 {
     "files.exclude": {
-        "**/*.rpyc": true
+        "**/*.rpyc": true,
+        "**/errors.txt": true,
+        "**/log.txt": true,
+        "**/traceback.txt": true
     }
 }
