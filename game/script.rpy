@@ -180,8 +180,27 @@ label inv_pr_truck_jaeke:
     "{color=#8cf}En una esquina del vehículo se encontraba un chico con cara de pocos amigos."
     "{color=#8cf}Otro muchacho con ropa llamativa se le acercó."
 
-    show takahiro ask
+    show takahiro ask at right
     "Llamativo" "Eh, ¿y tú eres...?"
+
+    show jaeke annoyed at left
+    "{color=#8cf}El moreno le devolvió una fría mirada y no medió palabra."
+
+    "Llamativo" "Ya veo que eres alguien con quien es fácil hablar..."
+
+    "{color=#8cf}Nada más oír eso, el mudo se levantó, se le acercó y empezó a susurrar."
+
+    "Antipático" "Ten cuidado conmigo, chaval.\nNo sabes con quién estás hablando."
+
+    show takahiro laugh
+    "Llamativo" "Pues claro que no sé con quién estoy hablando, ni siquiera me has dicho tu nombre."
+
+    "Antipático" "Los comediantes como tú solo le hacen gracia a los pringados de la cárcel."
+    "Antipático" "Mejor haz algo productivo, porque no tienes ninguna gracia, fracasado."
+
+    "{color=#8cf}Vaya humos se gasta..."
+
+    "{color=#090}¡Pam!"
 
     python:
         if "jaeke" in inv:
