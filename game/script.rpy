@@ -47,8 +47,9 @@ label truck:
     "{color=#090}¡Pam!"
 
     "{color=#8cf}Un bache en el camino despertó a casi todos los que seguían dormidos..."
-    "{color=#8cf}Las gafas de la chica salieron despedidas."
     "{color=#8cf}Ahora que hay más gente despierta, tal vez debería fijarme en quiénes son mis compañeros de viaje..."
+
+    hide sevony with dissolve
 
     "{color=#090}Haz clic en el icono del personaje en quien te quieras fijar."
 
@@ -59,9 +60,11 @@ label truck:
 
 label inv_pr_truck_ryu:
 
+    "{color=#8cf}Las gafas de la chica de pelo violeta habían salido despedidas por culpa del bache."
+
     show ryu stand at left with dissolve
 
-    "{color=#8cf}El rubio se agachó al oír caer las gafas de la chica de pelo morado. Habían caído cerca de él."
+    "{color=#8cf}El rubio se agachó al oírlas caer. Habían aterrizado cerca de él."
     show sevony surprise at right with dissolve
     "{color=#8cf}Gateó un poco hasta alcanzarlas y se las acercó a su dueña, con una cálida sonrisa."
 
@@ -153,6 +156,10 @@ label inv_pr_truck_ryu:
 
     "{color=#8cf}¿Será este el inicio de una agradable amistad?"
 
+    "{color=#090}¡Pam!"
+
+    "{color=#8cf}¡¿Otro bache?!"
+
     hide ryu with dissolve
     hide gaelg with dissolve
 
@@ -166,7 +173,15 @@ label inv_pr_truck_ryu:
         call screen inv_pr_truck
 
 label inv_pr_truck_jaeke:
-    "hola"
+
+    show jaeke stand at left with dissolve
+    show takahiro stand at right with dissolve
+
+    "{color=#8cf}En una esquina del vehículo se encontraba un chico con cara de pocos amigos."
+    "{color=#8cf}Otro muchacho con ropa llamativa se le acercó."
+
+    show takahiro ask
+    "Llamativo" "Eh, ¿y tú eres...?"
 
     python:
         if "jaeke" in inv:
