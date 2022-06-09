@@ -1,14 +1,9 @@
-﻿# The script of the game goes in this file.
-
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
-
+﻿# Definición de personajes
 define ryu = Character('Ryu Itsuki', color = '#a33')
 define gaelg = Character('Gael García', color = '#f8882d')
 define sevony = Character('Sevony', color = '#9c3e9c')
 
-# The game starts here.
-
+# Inicio del juego
 label start:
 
     "{color=#090}¡Alerta! ¡Alerta!\n¡Caos en la ciudad!{/color}"
@@ -26,6 +21,7 @@ label start:
 
     $ renpy.movie_cutscene("movie/pr_title.webm")
 
+# Despertar en el camión
 label truck:
 
     show bg truck with fade
@@ -58,7 +54,8 @@ label truck:
 
     call screen inv_pr_truck
 
-label inv_pr_truck_ryu:
+# Investigación: Camión
+label inv_pr_truck_ryu: # Chico rubio
 
     "{color=#8cf}Las gafas de la chica de pelo violeta habían salido despedidas por culpa del bache."
 
@@ -168,11 +165,11 @@ label inv_pr_truck_ryu:
             inv.remove("ryu")
 
     if not inv:
-        jump inv_pr_truck_end
+        jump truck_end
     else:
         call screen inv_pr_truck
 
-label inv_pr_truck_jaeke:
+label inv_pr_truck_jaeke: # Chico antipático
 
     show jaeke stand at left with dissolve
     show takahiro stand at right with dissolve
@@ -202,16 +199,69 @@ label inv_pr_truck_jaeke:
 
     "{color=#090}¡Pam!"
 
+    hide jaeke with dissolve
+    hide takahiro with dissolve
+
     python:
         if "jaeke" in inv:
             inv.remove("jaeke")
 
     if not inv:
-        jump inv_pr_truck_end
+        jump truck_end
     else:
         call screen inv_pr_truck
 
-label inv_pr_truck_end:
+# Posinvestigación
+label truck_end:
+    
+    "{color=#8cf}Creo que ya he escuchado suficiente...\nNo parece que nadie sepa cómo hemos llegado hasta aquí."
+    "{color=#8cf}¿Cómo ha podido pasar esto?\n¿Habré hecho algo para acabar aquí...?"
+
+    "Yo" "Esto... ¿Alguien sabe dónde estamos?"
+
+    show umi stand with dissolve
+    "{color=#8cf}Una chica muy guapa vestida con un gorro de marinero me dirigió la mirada al oírme."
+
+    "Marinera" "No lo sé, pero es un vehículo en movimiento, así que tampoco tiene sentido preguntarse eso hasta que lleguemos."
+    "Marinera" "Lo mejor será mantener la calma."
+
+    "Yo" "Supongo que tienes razón, pero quería preguntar por si alguien lo sabía..."
+
+    hide umi with dissolve
+    show emiko ask with dissolve
+    "Coletas" "¿Eh? Espera... ¿entonces de verdad nadie sabe hacia dónde vamos o siquiera dónde estamos?"
+
+    hide emiko with dissolve
+    show raiden annoyed with dissolve
+    "Pañuelo" "Si lo supiéramos, ya habría contestado alguien, ¿no?\nA menos que se lo quiera callar."
+    show raiden laugh
+    "Pañuelo" "Imaginaos que nos han secuestrado o algo y pretenden deshacerse de nosotros, ¡ja, ja!"
+
+    "Yo" "¡¿Secuestrarnos?! ¡¿Y qué se supone que hemos hecho para que nos metan en una situación así?!"
+
+    "Pañuelo" "Vamos, solo era una broma."
+    "Pañuelo" "Yo, al menos, no he hecho nada malo. Los demás, no sé."
+
+    show raiden surprise
+    "{color=#090}¡Pam!"
+
+    hide raiden with dissolve
+    "{color=#090}¡Pum, pum, pam, pom!"
+    
+    "{color=#8cf}Por culpa de todos esos baches, me golpeé la cabeza con el techo del vehículo."
+
+    show umi concern with dissolve
+    "Marinera" "¿Te encuentras bien?"
+
+    "Yo" "S-sí... P-por cierto, ¿cómo te lla...?"
+
+    "{color=#8cf}Pero no pude acabar de formular mi pregunta."
+    hide umi with dissolve
+    "{color=#8cf}El vehículo comenzó a serpentear, arrojándonos a mí y a los demás pasajeros de un lado a otro."
+    "{color=#8cf}Cada vez más rápido, vi que algunos se sostenían a sus asientos como podían, yo me vi forzada a hacer lo mismo..."
+    "{color=#8cf}Hasta que, al fin, paró."
+    "{color=#8cf}Yo había acabado en el suelo, pero no era la única..."
+
     "FIN"
     return
 
@@ -223,7 +273,7 @@ screen inv_pr_truck:
         auto "icon/ryu_%s.png"
         action [Hide("displayTextScreen"), Jump("inv_pr_truck_ryu")]
 
-        hovered Show("displayTextScreen", displayText = "Hablar con el chico rubio")
+        hovered Show("displayTextScreen", displayText = "Chico rubio")
         unhovered Hide("displayTextScreen")
 
     imagebutton:    # Icono de Jaeke
@@ -232,5 +282,5 @@ screen inv_pr_truck:
         auto "icon/jaeke_%s.png"
         action [Hide("displayTextScreen"), Jump("inv_pr_truck_jaeke")]
 
-        hovered Show("displayTextScreen", displayText = "Hablar con el chico antipático")
+        hovered Show("displayTextScreen", displayText = "Chico antipático")
         unhovered Hide("displayTextScreen")
