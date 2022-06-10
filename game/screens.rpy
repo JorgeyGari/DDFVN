@@ -1517,8 +1517,14 @@ style slider_slider:
     variant "small"
     xsize 600
 
-# DISPLAYTEXTSCREEN
-# Muestra una caja de texto superpuesto (útil para imagebuttons)
+## Display Text screen ###################################
+##
+## Muestra una caja de texto superpuesto
+## (útil para imagebuttons en la investigación)
+##
+## https://www.renpy.org/doc/html/screen_special.html#nvl
+
+
 screen displayTextScreen:  
     default displayText = ""
     vbox:
