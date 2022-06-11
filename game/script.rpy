@@ -5,9 +5,9 @@
             return
 
         if event == "show_done":
-            renpy.sound.play("audio/talk.ogg", loop=True)
+            renpy.sound.play("audio/talk2.ogg", loop=True)
         elif event == "slow_done":
-            renpy.sound.stop(fadeout=0.5)
+            renpy.sound.stop(fadeout = 0.5)
 
 # Definición de personajes
 define ryu = Character('Rubio', color = '#aa3333', callback = beepy_voice)
@@ -58,13 +58,13 @@ label truck:
     "{color=#8cf}Echó una mirada a su alrededor, justo antes de..."
 
     show sevony surprise
+    play sound "audio/truck_bump.ogg"
     "{color=#090}¡Pam!"
 
     "{color=#8cf}Un bache en el camino despertó a casi todos los que seguían dormidos..."
     "{color=#8cf}Ahora que hay más gente despierta, tal vez debería fijarme en quiénes son mis compañeros de viaje..."
 
     hide sevony with dissolve
-
     "{color=#090}Haz clic en el icono del personaje en quien te quieras fijar."
 
     # Elementos a investigar

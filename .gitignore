@@ -5,3 +5,4 @@ game/saves
 game/cache
 *.rpyc
 .vscode
+game/audio/originales

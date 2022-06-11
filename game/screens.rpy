@@ -756,46 +756,46 @@ screen preferences():
 
                 vbox:
 
-                    label _("Text Speed")
+                    label _("Velocidad del texto")
 
                     bar value Preference("text speed")
 
-                    label _("Auto-Forward Time")
+                    label _("Velocidad del avance automático")
 
                     bar value Preference("auto-forward time")
 
                 vbox:
 
                     if config.has_music:
-                        label _("Music Volume")
+                        label _("Volumen de la música")
 
                         hbox:
                             bar value Preference("music volume")
 
                     if config.has_sound:
 
-                        label _("Sound Volume")
+                        label _("Volumen de los efectos de sonido")
 
                         hbox:
                             bar value Preference("sound volume")
 
                             if config.sample_sound:
-                                textbutton _("Test") action Play("sound", config.sample_sound)
+                                textbutton _("Probar") action Play("sound", config.sample_sound)
 
 
                     if config.has_voice:
-                        label _("Voice Volume")
+                        label _("Volumen de las voces")
 
                         hbox:
                             bar value Preference("voice volume")
 
                             if config.sample_voice:
-                                textbutton _("Test") action Play("voice", config.sample_voice)
+                                textbutton _("Probar") action Play("voice", config.sample_voice)
 
                     if config.has_music or config.has_sound or config.has_voice:
                         null height gui.pref_spacing
 
-                        textbutton _("Mute All"):
+                        textbutton _("Silenciar todo"):
                             action Preference("all mute", "toggle")
                             style "mute_all_button"
 
@@ -914,7 +914,7 @@ screen history():
                     substitute False
 
         if not _history_list:
-            label _("The dialogue history is empty.")
+            label _("No hay historial.")
 
 
 ## This determines what tags are allowed to be displayed on the history screen.
