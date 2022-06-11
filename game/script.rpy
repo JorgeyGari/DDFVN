@@ -10,9 +10,15 @@
             renpy.sound.stop(fadeout=0.5)
 
 # Definición de personajes
-define ryu = Character('Rubio', color = '#a33', callback = beepy_voice)
-define gaelg = Character('Chamán', color = '#f8882d', callback = beepy_voice)
-define sevony = Character('Gafas', color = '#9c3e9c', callback = beepy_voice)
+define ryu = Character('Rubio', color = '#aa3333', callback = beepy_voice)
+define gaelg = Character('Chamán', color = '#ae5323', callback = beepy_voice)
+define sevony = Character('Gafas', color = '#946894', callback = beepy_voice)
+define jaeke = Character('Antipático', color = '#696969', callback = beepy_voice)
+define takahiro = Character('Llamativo', color = '#9a7818', callback = beepy_voice)
+define akane = Character('Yo', color = '#a2135c', callback = beepy_voice)
+define umi = Character('Marinera', color = '#185a9a', callback = beepy_voice)
+define emiko = Character('Coletas', color = '#d86d9e', callback = beepy_voice)
+define luc = Character('Pañuelo', color = '#5a49b4', callback = beepy_voice)
 
 # Inicio del juego
 label start:
@@ -199,22 +205,22 @@ label inv_pr_truck_jaeke: # Chico antipático
     "{color=#8cf}Otro muchacho con ropa llamativa se le acercó."
 
     show takahiro ask at right
-    "Llamativo" "Eh, ¿y tú eres...?"
+    takahiro "Eh, ¿y tú eres...?"
 
     show jaeke annoyed at left
     "{color=#8cf}El moreno le devolvió una fría mirada y no medió palabra."
 
-    "Llamativo" "Ya veo que eres alguien con quien es fácil hablar..."
+    takahiro "Ya veo que eres alguien con quien es fácil hablar..."
 
     "{color=#8cf}Nada más oír eso, el mudo se levantó, se le acercó y empezó a susurrar."
 
-    "Antipático" "Ten cuidado conmigo, chaval.\nNo sabes con quién estás hablando."
+    jaeke "Ten cuidado conmigo, chaval.\nNo sabes con quién estás hablando."
 
     show takahiro laugh
-    "Llamativo" "Pues claro que no sé con quién estoy hablando, ni siquiera me has dicho tu nombre."
+    takahiro "Pues claro que no sé con quién estoy hablando, ni siquiera me has dicho tu nombre."
 
-    "Antipático" "Los comediantes como tú solo le hacen gracia a los pringados de la cárcel."
-    "Antipático" "Mejor haz algo productivo, porque no tienes ninguna gracia, fracasado."
+    jaeke "Los comediantes como tú solo le hacen gracia a los pringados de la cárcel."
+    jaeke "Mejor haz algo productivo, porque no tienes ninguna gracia, fracasado."
 
     "{color=#8cf}Vaya humos se gasta..."
 
@@ -238,30 +244,30 @@ label truck_end:
     "{color=#8cf}Creo que ya he escuchado suficiente...\nNo parece que nadie sepa cómo hemos llegado hasta aquí."
     "{color=#8cf}¿Cómo ha podido pasar esto?\n¿Habré hecho algo para acabar aquí...?"
 
-    "Yo" "Esto... ¿Alguien sabe dónde estamos?"
+    akane "Esto... ¿Alguien sabe dónde estamos?"
 
     show umi stand with dissolve
     "{color=#8cf}Una chica muy guapa vestida con un gorro de marinero me dirigió la mirada al oírme."
 
-    "Marinera" "No lo sé, pero es un vehículo en movimiento, así que tampoco tiene sentido preguntarse eso hasta que lleguemos."
-    "Marinera" "Lo mejor será mantener la calma."
+    umi "No lo sé, pero es un vehículo en movimiento, así que tampoco tiene sentido preguntarse eso hasta que lleguemos."
+    umi "Lo mejor será mantener la calma."
 
-    "Yo" "Supongo que tienes razón, pero quería preguntar por si alguien lo sabía..."
+    akane "Supongo que tienes razón, pero quería preguntar por si alguien lo sabía..."
 
     hide umi with dissolve
     show emiko ask with dissolve
-    "Coletas" "¿Eh? Espera... ¿entonces de verdad nadie sabe hacia dónde vamos o siquiera dónde estamos?"
+    emiko "¿Eh? Espera... ¿entonces de verdad nadie sabe hacia dónde vamos o siquiera dónde estamos?"
 
     hide emiko with dissolve
     show raiden annoyed with dissolve
-    "Pañuelo" "Si lo supiéramos, ya habría contestado alguien, ¿no?\nA menos que se lo quiera callar."
+    luc "Si lo supiéramos, ya habría contestado alguien, ¿no?\nA menos que se lo quiera callar."
     show raiden laugh
-    "Pañuelo" "Imaginaos que nos han secuestrado o algo y pretenden deshacerse de nosotros, ¡ja, ja!"
+    luc "Imaginaos que nos han secuestrado o algo y pretenden deshacerse de nosotros, ¡ja, ja!"
 
-    "Yo" "¡¿Secuestrarnos?! ¡¿Y qué se supone que hemos hecho para que nos metan en una situación así?!"
+    akane "¡¿Secuestrarnos?! ¡¿Y qué se supone que hemos hecho para que nos metan en una situación así?!"
 
-    "Pañuelo" "Vamos, solo era una broma."
-    "Pañuelo" "Yo, al menos, no he hecho nada malo. Los demás, no sé."
+    luc "Vamos, solo era una broma."
+    luc "Yo, al menos, no he hecho nada malo. Los demás, no sé."
 
     show raiden surprise
     "{color=#090}¡Pam!"
@@ -272,9 +278,9 @@ label truck_end:
     "{color=#8cf}Por culpa de todos esos baches, me golpeé la cabeza con el techo del vehículo."
 
     show umi concern with dissolve
-    "Marinera" "¿Te encuentras bien?"
+    umi "¿Te encuentras bien?"
 
-    "Yo" "S-sí... P-por cierto, ¿cómo te lla...?"
+    akane "S-sí... P-por cierto, ¿cómo te lla...?"
 
     "{color=#8cf}Pero no pude acabar de formular mi pregunta."
     hide umi with dissolve
