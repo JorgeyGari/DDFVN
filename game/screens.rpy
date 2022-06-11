@@ -1088,7 +1088,7 @@ screen gamepad_help():
 
 
     hbox:
-        label _("D-Pad, Sticks")
+        label _("Cruceta, palancas")
         text _("Navega la interfaz.")
 
     hbox:
@@ -1532,3 +1532,23 @@ screen displayTextScreen:
         yalign 0.5
         frame:
             text displayText
+
+## Investigation screen ##################################
+##
+## Muestra los iconos de los personajes con los que puedes
+## hablar durante una investigación.
+##
+## https://www.renpy.org/doc/html/screen_special.html#nvl
+
+screen investigation(inv_name, talk):
+    $ y = 0 # El primer botón lo ponemos arriba del todo
+    for char in talk:
+        imagebutton:
+            xpos 0
+            ypos y
+            auto "icon/"+char+"_%s.png"
+            action [Hide("displayTextScreen"), Jump(inv_name+"_"+char)]
+
+            hovered Show("displayTextScreen", displayText = talk[char])
+            unhovered Hide("displayTextScreen")
+        $ y += 120  # El siguiente botón irá 120 px debajo del anterior

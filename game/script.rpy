@@ -22,19 +22,25 @@ define luc = Character('Pañuelo', color = '#5a49b4', callback = beepy_voice)
 
 # Inicio del juego
 label start:
+    play sound "audio/tv_on.ogg"
+    pause(2)
+    play music "audio/breaking.ogg"
 
     "{color=#090}¡Alerta! ¡Alerta!\n¡Caos en la ciudad!{/color}"
 
-    scene cg pr_breaking with fade
+    scene cg c0_breaking with fade
 
     "{color=#090}En las últimas 24 horas se ha desatado una gran cantidad de incidentes en el este, oeste y centro de la ciudad de Gekkou.{/color}"
     "{color=#090}La intensidad de estos ataques va aumentando con el paso de las horas, se recomienda...{/color}"
 
-    show cg pr_static
+    stop music fadeout 0.3
+    play sound "audio/tv_static.ogg" fadein 0.5
+    show cg c0_static
 
     "{color=#090}(...){/color}"
 
     scene black with fade
+    stop sound fadeout 1.5
 
     $ renpy.movie_cutscene("movie/pr_title.webm")
 
@@ -50,7 +56,7 @@ label truck:
 
     show ryu concern with dissolve   
     "{color=#8cf}Un chico de pelo claro permanecía sentado, abrazado a sus piernas, en silencio al fondo del camión.{/color}"
-    "{color=#8cf}Lo oí soltar un respiro de angustia justo antes de hundir la cabeza entre las piernas."
+    "{color=#8cf}Lo oí soltar un suspiro de angustia justo antes de hundir la cabeza entre las piernas."
     hide ryu with dissolve
 
     show sevony concern with dissolve
@@ -69,12 +75,14 @@ label truck:
     "{color=#090}Haz clic en el icono del personaje en quien te quieras fijar."
 
     # Elementos a investigar
-    $ inv = ["jaeke", "ryu"]
+    define inv_name = "inv_c0_truck"
+    $ talk = {"ryu": "Chico rubio", "jaeke": "Chico antipático"}
+    call screen investigation(inv_name, talk)
+    $ talk = {"ryu": "Chico rubio", "jaeke": "Chico antipático"}    # Lo definimos dos veces para que el usuario pueda volver atrás y sus opciones sean restauradas
 
-    call screen inv_pr_truck
 
 # Investigación: Camión
-label inv_pr_truck_ryu: # Chico rubio
+label inv_c0_truck_ryu:
     $ ryu.name = "Rubio"
     $ gaelg.name = "Chamán"
     $ sevony.name = "Gafas"
@@ -195,15 +203,15 @@ label inv_pr_truck_ryu: # Chico rubio
     hide gaelg with dissolve
 
     python:
-        if "ryu" in inv:
-            inv.remove("ryu")
+        if "ryu" in talk:
+            del talk["ryu"]
 
-    if not inv:
+    if not talk:
         jump truck_end
     else:
-        call screen inv_pr_truck
+        call screen investigation(inv_name, talk)
 
-label inv_pr_truck_jaeke: # Chico antipático
+label inv_c0_truck_jaeke: # Chico antipático
 
     show jaeke stand at left with dissolve
     show takahiro stand at right with dissolve
@@ -239,13 +247,13 @@ label inv_pr_truck_jaeke: # Chico antipático
     hide takahiro with dissolve
 
     python:
-        if "jaeke" in inv:
-            inv.remove("jaeke")
+        if "jaeke" in talk:
+            del talk["jaeke"]
 
-    if not inv:
+    if not talk:
         jump truck_end
     else:
-        call screen inv_pr_truck
+        call screen investigation(inv_name, talk)
 
 # Posinvestigación
 label truck_end:
@@ -290,7 +298,7 @@ label truck_end:
     with vpunch
     play sound "audio/truck_bump.ogg" volume 1.0 fadein 0.1 fadeout 0.3
     with vpunch
-    "{color=#090}¡Pum, pum, pam, pom!"
+    "{color=#090}{sc}{color=#090}¡Pum, pam, pom, pum!{/sc}"
     
     "{color=#8cf}Por culpa de todos esos baches, me golpeé la cabeza con el techo del vehículo."
 
@@ -310,24 +318,3 @@ label truck_end:
 
     "FIN"
     return
-
-# TODO: Seguro que se pueden generalizar las pantallas de investigación pasándole una lista con las cosas a investigar
-screen inv_pr_truck:
-
-    imagebutton:    # Icono de Ryu
-        xpos 0
-        ypos 0
-        auto "icon/ryu_%s.png"
-        action [Hide("displayTextScreen"), Jump("inv_pr_truck_ryu")]
-
-        hovered Show("displayTextScreen", displayText = "Chico rubio")
-        unhovered Hide("displayTextScreen")
-
-    imagebutton:    # Icono de Jaeke
-        xpos 0
-        ypos 120
-        auto "icon/jaeke_%s.png"
-        action [Hide("displayTextScreen"), Jump("inv_pr_truck_jaeke")]
-
-        hovered Show("displayTextScreen", displayText = "Chico antipático")
-        unhovered Hide("displayTextScreen")
