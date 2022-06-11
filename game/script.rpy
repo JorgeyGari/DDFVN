@@ -352,7 +352,7 @@ label truck_end:
 
     show raiden hurt
     with vpunch
-    raiden "¡AAH, LA LUZ! ¡Mis ojos!"
+    luc "¡AAH, LA LUZ! ¡Mis ojos!"
 
     akane "¿Estás bie...?{nw}"
     with flash
