@@ -59,6 +59,7 @@ label truck:
 
     show sevony surprise
     play sound "audio/truck_bump.ogg"
+    with vpunch
     "{color=#090}¡Pam!"
 
     "{color=#8cf}Un bache en el camino despertó a casi todos los que seguían dormidos..."
@@ -74,6 +75,9 @@ label truck:
 
 # Investigación: Camión
 label inv_pr_truck_ryu: # Chico rubio
+    $ ryu.name = "Rubio"
+    $ gaelg.name = "Chamán"
+    $ sevony.name = "Gafas"
 
     "{color=#8cf}Las gafas de la chica de pelo violeta habían salido despedidas por culpa del bache."
 
@@ -181,6 +185,8 @@ label inv_pr_truck_ryu: # Chico rubio
 
     "{color=#8cf}¿Será este el inicio de una agradable amistad?"
 
+    play sound "audio/truck_bump.ogg"
+    with vpunch
     "{color=#090}¡Pam!"
 
     "{color=#8cf}¡¿Otro bache?!"
@@ -225,6 +231,8 @@ label inv_pr_truck_jaeke: # Chico antipático
 
     "{color=#8cf}Vaya humos se gasta..."
 
+    play sound "audio/truck_bump.ogg"
+    with vpunch
     "{color=#090}¡Pam!"
 
     hide jaeke with dissolve
@@ -271,9 +279,17 @@ label truck_end:
     luc "Yo, al menos, no he hecho nada malo. Los demás, no sé."
 
     show raiden surprise
+    play sound "audio/truck_bump.ogg"
+    with vpunch
     "{color=#090}¡Pam!"
 
     hide raiden with dissolve
+    play sound "audio/truck_bump.ogg" volume 0.6 fadeout 0.3
+    with vpunch
+    play sound "audio/truck_bump2.ogg" volume 1.0 fadein 0.1 fadeout 0.3
+    with vpunch
+    play sound "audio/truck_bump.ogg" volume 1.0 fadein 0.1 fadeout 0.3
+    with vpunch
     "{color=#090}¡Pum, pum, pam, pom!"
     
     "{color=#8cf}Por culpa de todos esos baches, me golpeé la cabeza con el techo del vehículo."
