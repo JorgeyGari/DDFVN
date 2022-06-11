@@ -15,10 +15,12 @@ define gaelg = Character('Chamán', color = '#ae5323', callback = beepy_voice)
 define sevony = Character('Gafas', color = '#946894', callback = beepy_voice)
 define jaeke = Character('Antipático', color = '#696969', callback = beepy_voice)
 define takahiro = Character('Llamativo', color = '#9a7818', callback = beepy_voice)
-define akane = Character('Yo', color = '#a2135c', callback = beepy_voice)
+define akane = Character('Yo', color = '#13a28f', callback = beepy_voice)
 define umi = Character('Marinera', color = '#185a9a', callback = beepy_voice)
 define emiko = Character('Coletas', color = '#d86d9e', callback = beepy_voice)
 define luc = Character('Pañuelo', color = '#5a49b4', callback = beepy_voice)
+define axiom = Character('Mascarilla', color = '#a2135c', callback = beepy_voice)
+define danny = Character('Dormilón', color = '#66b103', callback = beepy_voice)
 
 # Inicio del juego
 label start:
@@ -80,7 +82,6 @@ label truck:
     call screen investigation(inv_name, talk)
     $ talk = {"ryu": "Chico rubio", "jaeke": "Chico antipático"}    # Lo definimos dos veces para que el usuario pueda volver atrás y sus opciones sean restauradas
 
-
 # Investigación: Camión
 label inv_c0_truck_ryu:
     $ ryu.name = "Rubio"
@@ -108,8 +109,9 @@ label inv_c0_truck_ryu:
     show ryu stand at left
     ryu "Pues... sí, la verdad."
 
-    hide sevony with dissolve
-    hide ryu with dissolve
+    hide sevony
+    hide ryu
+    with dissolve
 
     show gaelg stand with dissolve
     "{color=#8cf}Un chico que parecía nervioso y confundido observaba la conversación."
@@ -130,8 +132,9 @@ label inv_c0_truck_ryu:
     ryu "¿Y vosotros, chica de las gafas, chico moreno?"
     hide ryu with dissolve
 
-    show sevony stand at right with dissolve
-    show gaelg stand at left with dissolve
+    show sevony stand at right
+    show gaelg stand at left
+    with dissolve
 
     $ sevony.name = "Sevony"
     sevony "Un gusto, Itsuki-kun. Mi nombre es Sevony."
@@ -199,8 +202,9 @@ label inv_c0_truck_ryu:
 
     "{color=#8cf}¡¿Otro bache?!"
 
-    hide ryu with dissolve
-    hide gaelg with dissolve
+    hide ryu
+    hide gaelg
+    with dissolve
 
     python:
         if "ryu" in talk:
@@ -213,8 +217,9 @@ label inv_c0_truck_ryu:
 
 label inv_c0_truck_jaeke: # Chico antipático
 
-    show jaeke stand at left with dissolve
-    show takahiro stand at right with dissolve
+    show jaeke stand at left
+    show takahiro stand at right
+    with dissolve
 
     "{color=#8cf}En una esquina del vehículo se encontraba un chico con cara de pocos amigos."
     "{color=#8cf}Otro muchacho con ropa llamativa se le acercó."
@@ -243,8 +248,9 @@ label inv_c0_truck_jaeke: # Chico antipático
     with vpunch
     "{color=#090}¡Pam!"
 
-    hide jaeke with dissolve
-    hide takahiro with dissolve
+    hide jaeke
+    hide takahiro
+    with dissolve
 
     python:
         if "jaeke" in talk:
@@ -260,6 +266,7 @@ label truck_end:
     
     "{color=#8cf}Creo que ya he escuchado suficiente...\nNo parece que nadie sepa cómo hemos llegado hasta aquí."
     "{color=#8cf}¿Cómo ha podido pasar esto?\n¿Habré hecho algo para acabar aquí...?"
+    "{color=#8cf}Me decidí a intentar obtener información yo misma."
 
     akane "Esto... ¿Alguien sabe dónde estamos?"
 
@@ -311,10 +318,47 @@ label truck_end:
 
     "{color=#8cf}Pero no pude acabar de formular mi pregunta."
     hide umi with dissolve
-    "{color=#8cf}El vehículo comenzó a serpentear, arrojándonos a mí y a los demás pasajeros de un lado a otro."
+    "{color=#8cf}El vehículo comenzó a serpentear repentinamente, arrojándonos a mí y a los demás pasajeros de un lado a otro."
     "{color=#8cf}Cada vez más rápido, vi que algunos se sostenían a sus asientos como podían, yo me vi forzada a hacer lo mismo..."
+    stop music fadeout 1.0
     "{color=#8cf}Hasta que, al fin, paró."
+    "{color=#8cf}Joder... Qué daño..."
     "{color=#8cf}Yo había acabado en el suelo, pero no era la única..."
+
+    show axiom hurt with dissolve
+    axiom "(...)"
+
+    akane "¡Aah! ¿Estás bien?"
+    "{color=#8cf}Fui a buscar mi pañuelo, pero la marinera fue más rápida que yo."
+    
+    show axiom hurt at left with move
+    show umi concern at right with dissolve
+    umi "¿Necesitas ayuda?\nToma, ponte esto para taponar la herida..." 
+
+    hide umi 
+    hide axiom
+    with dissolve
+
+    show guppy sleep at right
+    show danny sleep at left
+    with dissolve
+    "{color=#8cf}Y también había dos personas durmiendo en el suelo..."
+    "{color=#8cf}Tener buen dormir es una cosa, pero no despertarte con todos esos baches es otra..."
+
+    hide guppy
+    hide danny
+    with dissolve
+    "{color=#8cf}Y entonces, la puerta se abrió."
+
+    show raiden hurt
+    with vpunch
+    raiden "¡AAH, LA LUZ! ¡Mis ojos!"
+
+    akane "¿Estás bie...?{nw}"
+    with flash
+    with vpunch
+    akane "¡AGH, MIS OJOS!"
+    "{color=#8cf}La luz entró de golpe en el interior de la parte trasera del camión, acompañado de una corriente de aire refrescante."
 
     "FIN"
     return
