@@ -160,7 +160,7 @@ label inv_pr_truck_ryu: # Chico rubio
     gaelg "Ryu... ¿Igual que «dragón» en japonés?"
 
     show ryu happy at left
-    ryu "Efectivamente. No sé muy bien por qué escogieron ese nombre para mí..."
+    ryu "{bt=a1-p10-s1}Efectivamente.{/bt} No sé muy bien por qué escogieron ese nombre para mí..."
     show ryu concern at left
     ryu "Un dragón da mucho miedo y escupe... fuego..."
 
