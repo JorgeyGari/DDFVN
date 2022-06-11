@@ -41,11 +41,12 @@ label start:
 # Despertar en el camión
 label truck:
 
+    play music "audio/truck_engine.ogg" fadein 1.0
     show bg truck with fade
 
     "{color=#8cf}Cuando me desperté, todo estaba oscuro.{/color}"
     "{color=#8cf}Me encontraba en lo que parecía ser un camión de transporte.{/color}"
-    "{color=#8cf}Podía escuchar las ruedas del vehículo y, a mi alrededor, pude distinguir a más gente despertar como yo.{/color}"
+    "{color=#8cf}Podía escuchar el motor del vehículo y, a mi alrededor, pude distinguir a más gente despertar como yo.{/color}"
 
     show ryu concern with dissolve   
     "{color=#8cf}Un chico de pelo claro permanecía sentado, abrazado a sus piernas, en silencio al fondo del camión.{/color}"
@@ -280,7 +281,9 @@ label truck_end:
     show umi concern with dissolve
     umi "¿Te encuentras bien?"
 
-    akane "S-sí... P-por cierto, ¿cómo te lla...?"
+    akane "S-sí..." 
+    "{color=#8cf}Tal vez yo también debería entablar conversación con alguien..."
+    akane "P-por cierto, ¿cómo te lla...?"
 
     "{color=#8cf}Pero no pude acabar de formular mi pregunta."
     hide umi with dissolve
