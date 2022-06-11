@@ -1,7 +1,18 @@
-﻿# Definición de personajes
-define ryu = Character('Ryu Itsuki', color = '#a33')
-define gaelg = Character('Gael García', color = '#f8882d')
-define sevony = Character('Sevony', color = '#9c3e9c')
+﻿init python:
+    def beepy_voice(event, interact=True, **kwargs): # Para que suenen los pitidos mientras habla un personaje
+    # TODO: Descubrir cómo pasar un argumento para que cada personaje tenga su propio sonido
+        if not interact:
+            return
+
+        if event == "show_done":
+            renpy.sound.play("audio/talk.ogg", loop=True)
+        elif event == "slow_done":
+            renpy.sound.stop(fadeout=0.5)
+
+# Definición de personajes
+define ryu = Character('Rubio', color = '#a33', callback = beepy_voice)
+define gaelg = Character('Chamán', color = '#f8882d', callback = beepy_voice)
+define sevony = Character('Gafas', color = '#9c3e9c', callback = beepy_voice)
 
 # Inicio del juego
 label start:
@@ -66,17 +77,17 @@ label inv_pr_truck_ryu: # Chico rubio
     "{color=#8cf}Gateó un poco hasta alcanzarlas y se las acercó a su dueña, con una cálida sonrisa."
 
     show ryu smile at left
-    "Rubio" "Toma, ve con cuidado... Sería una pena que se te rompieran."
+    ryu "Toma, ve con cuidado... Sería una pena que se te rompieran."
 
     "{color=#8cf}Lo dijo flojito, como si no quisiera llamar demasiado la atención en un ambiente tan tenso."
 
     show sevony smile at right
-    "Gafas" "(...)\nMuchas gracias."
+    sevony "(...)\nMuchas gracias."
     show sevony concern at right
-    "Gafas" "Vaya carretera en la que nos han metido."
+    sevony "Vaya carretera en la que nos han metido."
 
     show ryu stand at left
-    "Rubio" "Pues... sí, la verdad."
+    ryu "Pues... sí, la verdad."
 
     hide sevony with dissolve
     hide ryu with dissolve
@@ -85,16 +96,17 @@ label inv_pr_truck_ryu: # Chico rubio
     "{color=#8cf}Un chico que parecía nervioso y confundido observaba la conversación."
     "{color=#8cf}Los miraba mientras murmuraba para sí mismo."
 
-    "Mi chamanismo me sacará de esta.\nEscaparé de aquí."
+    gaelg "Mi chamanismo me sacará de esta.\nEscaparé de aquí."
 
     "{color=#8cf}Finalmente, consiguió reunir valor para hablarle a los presentes en lugar de al cuello de la camisa."
 
-    "Chamán" "Hum... ¿C-cómo te llamas?"
+    gaelg "Hum... ¿C-cómo te llamas?"
     hide gaelg with dissolve
 
     show ryu surprise with dissolve
-    "Rubio" "¿Y-yo? V-vaya por dios."
+    ryu "¿Y-yo? V-vaya por dios."
     show ryu stand
+    $ ryu.name = "Ryu Itsuki"
     ryu "Mi nombre... es Ryu Itsuki.\nSoy un simple desempleado."
     ryu "¿Y vosotros, chica de las gafas, chico moreno?"
     hide ryu with dissolve
@@ -102,20 +114,23 @@ label inv_pr_truck_ryu: # Chico rubio
     show sevony stand at right with dissolve
     show gaelg stand at left with dissolve
 
+    $ sevony.name = "Sevony"
     sevony "Un gusto, Itsuki-kun. Mi nombre es Sevony."
 
-    "Gabriel" "A-ah... yo soy... Gabriel..."
+    $ gaelg.name = "Gabriel"
+    gaelg "A-ah... yo soy... Gabriel..."
 
     "{color=#8cf}Gabriel se quedó bloqueado por un momento."
 
     show gaelg surprise at left
+    $ gaelg.name = "Gael García"
     gaelg "¡QUIERO DECIR! Gael. Gael García, a tu servicio."
 
     "{color=#8cf}¿En serio se le ha olvidado su propio nombre?"
     hide gaelg with dissolve
 
     show ryu stand at left with dissolve
-    "Sevony y Gael... Tenéis nombres exóticos, son bonitos."
+    ryu "Sevony y Gael... Tenéis nombres exóticos, son bonitos."
 
     "{color=#8cf}La expresión de Ryu se había apagado."
 
@@ -131,9 +146,15 @@ label inv_pr_truck_ryu: # Chico rubio
 
     hide sevony with dissolve
     show gaelg happy at right with dissolve
-    gaelg "Ryu... ¿Igual que «dragón» en japonés? ¡Mola!"
+    gaelg "Ryu... ¿Igual que «dragón» en japonés?"
+
+    show ryu happy at left
+    ryu "Efectivamente. No sé muy bien por qué escogieron ese nombre para mí..."
+    show ryu concern at left
+    ryu "Un dragón da mucho miedo y escupe... fuego..."
+
     show gaelg stand at right
-    gaelg "Y usted, señorita Sevony, ¿de dónde es?"
+    gaelg "¡Yo creo que mola!\nY usted, señorita Sevony, ¿de dónde es?"
 
     hide ryu with dissolve
     show sevony smile at left with dissolve
@@ -265,6 +286,7 @@ label truck_end:
     "FIN"
     return
 
+# TODO: Seguro que se pueden generalizar las pantallas de investigación pasándole una lista con las cosas a investigar
 screen inv_pr_truck:
 
     imagebutton:    # Icono de Ryu
