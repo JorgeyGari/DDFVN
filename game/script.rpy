@@ -318,7 +318,7 @@ label truck_end:
 
     hide umi with dissolve
     "{color=#8cf}Pero no pude acabar de formular mi pregunta."
-    show bg truck_move
+    show bg truck_move with vpunch
     "{color=#8cf}El vehículo comenzó a serpentear repentinamente, arrojándonos a mí y a los demás pasajeros de un lado a otro."
     "{color=#8cf}Cada vez más rápido, vi que algunos se sostenían a sus asientos como podían, yo me vi forzada a hacer lo mismo..."
     stop music fadeout 1.0
@@ -348,7 +348,7 @@ label truck_end:
     "{color=#8cf}Tener buen dormir es una cosa, pero no despertarte con todos esos baches es otra..."
 
     scene bg truck_light with dissolve
-    play sound "open_door.ogg"
+    play sound "open_door.ogg"  # TODO: Este efecto de sonido no existe aún
     "{color=#8cf}Y entonces, la puerta se abrió."
 
     show raiden hurt
