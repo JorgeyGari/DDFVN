@@ -125,7 +125,7 @@ label inv_c0_truck_ryu:
     hide gaelg with dissolve
 
     show ryu surprise with dissolve
-    ryu "¿Y-yo? V-vaya por dios."
+    ryu "¿Y-yo? V-vaya por Dios."
     show ryu stand
     $ ryu.name = "Ryu Itsuki"
     ryu "Mi nombre... es Ryu Itsuki.\nSoy un simple desempleado."
@@ -288,7 +288,7 @@ label truck_end:
     show raiden laugh
     luc "Imaginaos que nos han secuestrado o algo y pretenden deshacerse de nosotros, ¡ja, ja!"
 
-    akane "¡¿Secuestrarnos?! ¡¿Y qué se supone que hemos hecho para que nos metan en una situación así?!"
+    akane "¡¿Secuestrarnos?! ¡¿Y qué se supone que hemos hecho para acabar en una situación así?!"
 
     luc "Vamos, solo era una broma."
     luc "Yo, al menos, no he hecho nada malo. Los demás, no sé."
@@ -316,11 +316,13 @@ label truck_end:
     "{color=#8cf}Tal vez yo también debería entablar conversación con alguien..."
     akane "P-por cierto, ¿cómo te lla...?"
 
-    "{color=#8cf}Pero no pude acabar de formular mi pregunta."
     hide umi with dissolve
+    "{color=#8cf}Pero no pude acabar de formular mi pregunta."
+    show bg truck_move
     "{color=#8cf}El vehículo comenzó a serpentear repentinamente, arrojándonos a mí y a los demás pasajeros de un lado a otro."
     "{color=#8cf}Cada vez más rápido, vi que algunos se sostenían a sus asientos como podían, yo me vi forzada a hacer lo mismo..."
     stop music fadeout 1.0
+    show bg truck
     "{color=#8cf}Hasta que, al fin, paró."
     "{color=#8cf}Joder... Qué daño..."
     "{color=#8cf}Yo había acabado en el suelo, pero no era la única..."
@@ -345,16 +347,15 @@ label truck_end:
     "{color=#8cf}Y también había dos personas durmiendo en el suelo..."
     "{color=#8cf}Tener buen dormir es una cosa, pero no despertarte con todos esos baches es otra..."
 
-    hide guppy
-    hide danny
-    with dissolve
+    scene bg truck_light with dissolve
+    play sound "open_door.ogg"
     "{color=#8cf}Y entonces, la puerta se abrió."
 
     show raiden hurt
-    with vpunch
     luc "¡AAH, LA LUZ! ¡Mis ojos!"
 
     akane "¿Estás bie...?{nw}"
+    play sound "audio/sfx-stab2.wav"
     with flash
     with vpunch
     akane "¡AGH, MIS OJOS!"
@@ -362,3 +363,4 @@ label truck_end:
 
     "FIN"
     return
+
