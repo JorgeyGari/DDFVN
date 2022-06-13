@@ -77,7 +77,7 @@ label truck:
     "{color=#090}Haz clic en el icono del personaje en quien te quieras fijar."
 
     # Elementos a investigar
-    define inv_name = "inv_c0_truck"
+    $ inv_name = "inv_c0_truck"
     $ talk = {"ryu": "Chico rubio", "jaeke": "Chico antipático"}
     call screen investigation(inv_name, talk)
     $ talk = {"ryu": "Chico rubio", "jaeke": "Chico antipático"}    # Lo definimos dos veces para que el usuario pueda volver atrás y sus opciones sean restauradas
@@ -318,8 +318,9 @@ label truck_end:
 
     hide umi with dissolve
     "{color=#8cf}Pero no pude acabar de formular mi pregunta."
-    show bg truck_move with vpunch
-    "{color=#8cf}El vehículo comenzó a serpentear repentinamente, arrojándonos a mí y a los demás pasajeros de un lado a otro."
+    show bg truck_move
+    play music "audio/truck_speed.ogg" fadein 1.0 fadeout 0.5
+    "{color=#8cf}El vehículo comenzó a serpentear repentinamente, arrojándonos a mí y a los demás pasajeros de un lado a otro." with vpunch
     "{color=#8cf}Cada vez más rápido, vi que algunos se sostenían a sus asientos como podían, yo me vi forzada a hacer lo mismo..."
     stop music fadeout 1.0
     show bg truck
@@ -347,11 +348,12 @@ label truck_end:
     "{color=#8cf}Y también había dos personas durmiendo en el suelo..."
     "{color=#8cf}Tener buen dormir es una cosa, pero no despertarte con todos esos baches es otra..."
 
+    play sound "audio/truck_door.ogg"
+    pause(2)
     scene bg truck_light with dissolve
-    play sound "open_door.ogg"  # TODO: Este efecto de sonido no existe aún
     "{color=#8cf}Y entonces, la puerta se abrió."
 
-    show raiden hurt
+    show raiden hurt with vpunch
     luc "¡AAH, LA LUZ! ¡Mis ojos!"
 
     akane "¿Estás bie...?{nw}"
@@ -360,6 +362,37 @@ label truck_end:
     with vpunch
     akane "¡AGH, MIS OJOS!"
     "{color=#8cf}La luz entró de golpe en el interior de la parte trasera del camión, acompañado de una corriente de aire refrescante."
+
+    show raiden annoyed
+    luc "¿Por fin nos dejan salir del autobús?"
+    
+    show takahiro ask at right with dissolve
+    takahiro "Yo pensaba que era una furgoneta."
+    
+    show danny sleepy at left with dissolve
+    danny "Agh, qué luz tan fuerte...\n¿Ya ha llegado a puerto el barco?"
+    
+    "{color=#8cf}Se ha despertado y todo..."
+
+    takahiro "En cualquier caso, yo me piro de aquí..."
+    play sound "audio/footsteps.ogg"
+    hide takahiro with dissolve
+
+    hide raiden with dissolve
+    hide danny with dissolve
+    "{color=#8cf}Uno a uno, los demás siguieron al chico y fueron saliendo del camión."
+
+    pause(2)
+    show guppy sleep with dissolve
+    "{color=#8cf}¿Debería despertarla...?"
+    show guppy sleepy
+    "{color=#8cf}¡Ah! Acaba de despertarse. Pobre niña, parece confusa..."
+
+    play sound "audio/footsteps.ogg"
+    hide guppy with dissolve
+
+    "{color=#8cf}(...)\nBueno, pues ahora sí que estamos todos."
+    "{color=#8cf}Seguí a los demás..."
 
     "FIN"
     return
