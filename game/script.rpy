@@ -24,44 +24,6 @@ define danny = Character('Dormilón', color = '#66b103', callback = beepy_voice)
 
 # Inicio del juego
 label start:
-    scene void
-    show raiden at t11
-    pause(1)
-    show raiden at t21
-    pause(1)
-    show raiden at t22
-    pause(1)
-    show raiden at t31
-    pause(1)
-    show raiden at t32
-    pause(1)
-    show raiden at t33
-    pause(1)
-    show raiden at t41
-    pause(1)
-    show raiden at t42
-    pause(1)
-    show raiden at t43
-    pause(1)
-    show raiden at t44
-    luc "jaja"
-    show raiden at focus
-    luc "hola"
-    show raiden at h11
-    pause(1)
-    show raiden at l11
-    pause(1)
-    show raiden at s11
-    pause(1)
-    show raiden at f11
-    pause(1)
-    show raiden at i11
-    pause(1)
-    show raiden at d11
-    pause(1)
-    show raiden at hf11
-    pause(1)
-    hide raiden with dissolve
 
     play sound "audio/tv_on.ogg"
     pause(2)
