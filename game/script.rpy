@@ -25,7 +25,7 @@ define danny = Character('Dormilón', color = '#66b103', callback = beepy_voice)
 # Inicio del juego
 label start:
 
-    play sound "audio/tv_on.ogg"
+    play sound "audio/tv_on.ogg"    #FIXME: Ajustar la resolución
     pause(2)
     play music "audio/breaking.ogg"
 
