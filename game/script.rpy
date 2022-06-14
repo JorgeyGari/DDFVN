@@ -44,11 +44,23 @@ label start:
     show raiden at t43
     pause(1)
     show raiden at t44
-    pause(1)
-    show raiden at hop
     luc "jaja"
     show raiden at focus
     luc "hola"
+    show raiden at h11
+    pause(1)
+    show raiden at l11
+    pause(1)
+    show raiden at s11
+    pause(1)
+    show raiden at f11
+    pause(1)
+    show raiden at i11
+    pause(1)
+    show raiden at d11
+    pause(1)
+    show raiden at hf11
+    pause(1)
     hide raiden with dissolve
 
     play sound "audio/tv_on.ogg"
@@ -83,16 +95,16 @@ label truck:
     "{color=#8cf}Me encontraba en lo que parecía ser un camión de transporte.{/color}"
     "{color=#8cf}Podía escuchar el motor del vehículo y, a mi alrededor, pude distinguir a más gente despertar como yo.{/color}"
 
-    show ryu concern with dissolve   
+    show ryu concern at t11
     "{color=#8cf}Un chico de pelo claro permanecía sentado, abrazado a sus piernas, en silencio al fondo del camión.{/color}"
     "{color=#8cf}Lo oí soltar un suspiro de angustia justo antes de hundir la cabeza entre las piernas."
     hide ryu with dissolve
 
-    show sevony concern with dissolve
+    show sevony concern at t11
     "{color=#8cf}También había una chica con gafas que inhaló y espiró en un claro intento de tranquilizarse."
     "{color=#8cf}Echó una mirada a su alrededor, justo antes de..."
 
-    show sevony surprise
+    show sevony surprise at h11
     play sound "audio/truck_bump.ogg"
     with vpunch
     "{color=#090}¡Pam!"
@@ -110,117 +122,130 @@ label truck:
     $ talk = {"ryu": "Chico rubio", "jaeke": "Chico antipático"}    # Lo definimos dos veces para que el usuario pueda volver atrás y sus opciones sean restauradas
 
 # Investigación: Camión
-label inv_c0_truck_ryu:
+label inv_c0_truck_ryu: # Chico rubio
     $ ryu.name = "Rubio"
     $ gaelg.name = "Chamán"
     $ sevony.name = "Gafas"
 
+    show ryu stand at t21
+    show sevony surprise at t22
     "{color=#8cf}Las gafas de la chica de pelo violeta habían salido despedidas por culpa del bache."
-
-    show ryu stand at left with dissolve
-
+    show ryu stand at s21
     "{color=#8cf}El rubio se agachó al oírlas caer. Habían aterrizado cerca de él."
-    show sevony surprise at right with dissolve
+    show ryu stand at t32
     "{color=#8cf}Gateó un poco hasta alcanzarlas y se las acercó a su dueña, con una cálida sonrisa."
 
-    show ryu smile at left
+    show ryu smile at f32
     ryu "Toma, ve con cuidado... Sería una pena que se te rompieran."
 
     "{color=#8cf}Lo dijo flojito, como si no quisiera llamar demasiado la atención en un ambiente tan tenso."
 
-    show sevony smile at right
+    show ryu smile at t21
+    show sevony smile at f22
     sevony "(...)\nMuchas gracias."
-    show sevony concern at right
+    show sevony concern
     sevony "Vaya carretera en la que nos han metido."
 
-    show ryu stand at left
+    show sevony concern at t22
+    show ryu stand at f21
     ryu "Pues... sí, la verdad."
 
     hide sevony
     hide ryu
     with dissolve
 
-    show gaelg stand with dissolve
+    show gaelg stand at t11
     "{color=#8cf}Un chico que parecía nervioso y confundido observaba la conversación."
     "{color=#8cf}Los miraba mientras murmuraba para sí mismo."
 
+    show gaelg stand at s11
     gaelg "Mi chamanismo me sacará de esta.\nEscaparé de aquí."
 
     "{color=#8cf}Finalmente, consiguió reunir valor para hablarle a los presentes en lugar de al cuello de la camisa."
 
+    show gaelg stand at hf11
     gaelg "Hum... ¿C-cómo te llamas?"
-    hide gaelg with dissolve
 
-    show ryu surprise with dissolve
+    show gaelg stand at t31
+    pause(0.2)
+    show ryu surprise at t32
+    show sevony stand at t33
+    pause(0.5)
+    show ryu surprise at hf32
     ryu "¿Y-yo? V-vaya por Dios."
-    show ryu stand
+    show ryu smile
     $ ryu.name = "Ryu Itsuki"
     ryu "Mi nombre... es Ryu Itsuki.\nSoy un simple desempleado."
     ryu "¿Y vosotros, chica de las gafas, chico moreno?"
-    hide ryu with dissolve
-
-    show sevony stand at right
-    show gaelg stand at left
-    with dissolve
+    show ryu smile at t32
 
     $ sevony.name = "Sevony"
+    show sevony smile at f33
     sevony "Un gusto, Itsuki-kun. Mi nombre es Sevony."
+    show sevony smile at t33
 
     $ gaelg.name = "Gabriel"
+    show gaelg stand at f31
     gaelg "A-ah... yo soy... Gabriel..."
 
     "{color=#8cf}Gabriel se quedó bloqueado por un momento."
 
-    show gaelg surprise at left
+    show gaelg surprise at hf31
     $ gaelg.name = "Gael García"
     gaelg "¡QUIERO DECIR! Gael. Gael García, a tu servicio."
+    show gaelg surprise at t31
 
     "{color=#8cf}¿En serio se le ha olvidado su propio nombre?"
-    hide gaelg with dissolve
 
-    show ryu stand at left with dissolve
+    show ryu stand at f32
     ryu "Sevony y Gael... Tenéis nombres exóticos, son bonitos."
 
     "{color=#8cf}La expresión de Ryu se había apagado."
 
     ryu "Sevony... Me recuerdas a alguien, ¿sabes? Aunque tal vez solo sea mi imaginación."
+    show ryu stand at t32
 
+    show sevony smile at hf33
     sevony "Más que seguro, su imaginación. Mucha gente pasa por la ciudad."
 
     "{color=#8cf}Sevony ha contestado muy rápido..."
-
-    show ryu think at left
+    show sevony smile at t33
+    show ryu think at f32
     ryu "Hum... Seguramente sea eso."
     ryu "He conocido a mucha gente a lo largo de mi vida, no sería la primera vez que me ocurre."
 
-    hide sevony with dissolve
-    show gaelg happy at right with dissolve
+    show ryu think at t32
+    show gaelg happy at f31
     gaelg "Ryu... ¿Igual que «dragón» en japonés?"
 
-    show ryu happy at left
+    show gaelg happy at t31
+    show ryu happy at hf32
     ryu "{bt=a1-p10-s1}Efectivamente.{/bt} No sé muy bien por qué escogieron ese nombre para mí..."
-    show ryu concern at left
+    show ryu concern at s32
     ryu "Un dragón da mucho miedo y escupe... fuego..."
 
-    show gaelg stand at right
+    show gaelg stand at hf31
     gaelg "¡Yo creo que mola!\nY usted, señorita Sevony, ¿de dónde es?"
 
-    hide ryu with dissolve
-    show sevony smile at left with dissolve
+    show gaelg stand at t31
+    show sevony smile at f33
     sevony "Soy de Gekkou, una ciudad un poco al norte de aquí."
 
     "{color=#8cf}Su sonrisa amable contrastaba con el tono frío, seguramente involuntario, de su voz."
 
-    show gaelg happy at right
+    show sevony smile at t33
+    show gaelg happy at f31
     gaelg "O sea que sois japoneses... ¡Entonces... podré aprender mucho de otras culturas!"
     gaelg "Hoy es una victoria para el {b}chamán definitivo{/b}."
 
-    hide sevony with dissolve
-    show ryu surprise at left with dissolve
+    show ryu surprise at t32
     "{color=#8cf}Al oír el talento definitivo de Gael, Ryu lo miró con mucho interés."
 
+    show gaelg happy at t31
+    show ryu surprise at f32
     ryu "Chamán... Qué interesante."
 
+    show ryu surprise at t32
     "{color=#8cf}¿Será este el inicio de una agradable amistad?"
 
     play sound "audio/truck_bump.ogg"
@@ -231,6 +256,7 @@ label inv_c0_truck_ryu:
 
     hide ryu
     hide gaelg
+    hide sevony
     with dissolve
 
     python:
@@ -244,30 +270,41 @@ label inv_c0_truck_ryu:
 
 label inv_c0_truck_jaeke: # Chico antipático
 
-    show jaeke stand at left
-    show takahiro stand at right
+    show jaeke stand at t21
+    show takahiro stand at t22
     with dissolve
 
     "{color=#8cf}En una esquina del vehículo se encontraba un chico con cara de pocos amigos."
     "{color=#8cf}Otro muchacho con ropa llamativa se le acercó."
 
-    show takahiro ask at right
+    show takahiro ask at f22
     takahiro "Eh, ¿y tú eres...?"
+    show takahiro ask at t22
 
-    show jaeke annoyed at left
+    show jaeke annoyed
     "{color=#8cf}El moreno le devolvió una fría mirada y no medió palabra."
 
+    show takahiro ask at f22
     takahiro "Ya veo que eres alguien con quien es fácil hablar..."
+    show takahiro ask at t22
 
+    show jaeke annoyed at t32
     "{color=#8cf}Nada más oír eso, el mudo se levantó, se le acercó y empezó a susurrar."
 
+    show jaeke annoyed at f32
     jaeke "Ten cuidado conmigo, chaval.\nNo sabes con quién estás hablando."
+    show jaeke annoyed at t32
 
-    show takahiro laugh
+    show takahiro laugh at f22
     takahiro "Pues claro que no sé con quién estoy hablando, ni siquiera me has dicho tu nombre."
+    show takahiro laugh at t22
 
-    jaeke "Los comediantes como tú solo le hacen gracia a los pringados de la cárcel."
+    show jaeke annoyed at t21
+    pause(0.5)
+    show jaeke annoyed at f21
+    jaeke "Los comediantes como tú solo les hacen gracia a los pringados de la cárcel."
     jaeke "Mejor haz algo productivo, porque no tienes ninguna gracia, fracasado."
+    show jaeke annoyed at t21
 
     "{color=#8cf}Vaya humos se gasta..."
 
@@ -297,35 +334,45 @@ label truck_end:
 
     akane "Esto... ¿Alguien sabe dónde estamos?"
 
-    show umi stand with dissolve
+    show umi stand at t11
     "{color=#8cf}Una chica muy guapa vestida con un gorro de marinero me dirigió la mirada al oírme."
 
+    show umi stand at f11
     umi "No lo sé, pero es un vehículo en movimiento, así que tampoco tiene sentido preguntarse eso hasta que lleguemos."
     umi "Lo mejor será mantener la calma."
 
+    show umi stand at t11
     akane "Supongo que tienes razón, pero quería preguntar por si alguien lo sabía..."
 
-    hide umi with dissolve
-    show emiko ask with dissolve
+    show umi stand at t21
+    show emiko ask at f22
     emiko "¿Eh? Espera... ¿entonces de verdad nadie sabe hacia dónde vamos o siquiera dónde estamos?"
 
-    hide emiko with dissolve
-    show raiden annoyed with dissolve
+    show umi stand at t31
+    show emiko ask at t32
+    show raiden annoyed at f33
     luc "Si lo supiéramos, ya habría contestado alguien, ¿no?\nA menos que se lo quiera callar."
-    show raiden laugh
+    show raiden laugh at hf33
     luc "Imaginaos que nos han secuestrado o algo y pretenden deshacerse de nosotros, ¡ja, ja!"
 
+    show raiden laugh at t33
     akane "¡¿Secuestrarnos?! ¡¿Y qué se supone que hemos hecho para acabar en una situación así?!"
 
+    show raiden smile at f33
     luc "Vamos, solo era una broma."
     luc "Yo, al menos, no he hecho nada malo. Los demás, no sé."
 
-    show raiden surprise
+    show umi surprise at h31
+    show emiko surprise at h32
+    show raiden surprise at h33
     play sound "audio/truck_bump.ogg"
     with vpunch
     "{color=#090}¡Pam!"
 
-    hide raiden with dissolve
+    hide raiden
+    hide emiko
+    hide umi
+    with dissolve
     play sound "audio/truck_bump.ogg" volume 0.6 fadeout 0.3
     with vpunch
     play sound "audio/truck_bump2.ogg" volume 1.0 fadein 0.1 fadeout 0.3
@@ -336,9 +383,10 @@ label truck_end:
     
     "{color=#8cf}Por culpa de todos esos baches, me golpeé la cabeza con el techo del vehículo."
 
-    show umi concern with dissolve
+    show umi concern at focus
     umi "¿Te encuentras bien?"
 
+    show umi concern at t11
     akane "S-sí..." 
     "{color=#8cf}Tal vez yo también debería entablar conversación con alguien..."
     akane "P-por cierto, ¿cómo te lla...?"
@@ -355,22 +403,24 @@ label truck_end:
     "{color=#8cf}Joder... Qué daño..."
     "{color=#8cf}Yo había acabado en el suelo, pero no era la única..."
 
-    show axiom hurt with dissolve
+    show axiom hurt at s11
     axiom "(...)"
 
     akane "¡Aah! ¿Estás bien?"
     "{color=#8cf}Fui a buscar mi pañuelo, pero la marinera fue más rápida que yo."
     
-    show axiom hurt at left with move
-    show umi concern at right with dissolve
+    show axiom hurt at t21
+    show umi concern at t22
+    pause(0.3)
+    show umi concern at f22
     umi "¿Necesitas ayuda?\nToma, ponte esto para taponar la herida..." 
 
     hide umi 
     hide axiom
     with dissolve
 
-    show guppy sleep at right
-    show danny sleep at left
+    show guppy sleep at s22
+    show danny sleep at s21
     with dissolve
     "{color=#8cf}Y también había dos personas durmiendo en el suelo..."
     "{color=#8cf}Tener buen dormir es una cosa, pero no despertarte con todos esos baches es otra..."
@@ -380,9 +430,10 @@ label truck_end:
     scene bg truck_light with dissolve
     "{color=#8cf}Y entonces, la puerta se abrió."
 
-    show raiden hurt with vpunch
+    show raiden hurt at hf11 with vpunch
     luc "¡AAH, LA LUZ! ¡Mis ojos!"
 
+    show raiden hurt at t11
     akane "¿Estás bie...?{nw}"
     play sound "audio/sfx-stab2.wav"
     with flash
@@ -390,17 +441,22 @@ label truck_end:
     akane "¡AGH, MIS OJOS!"
     "{color=#8cf}La luz entró de golpe en el interior de la parte trasera del camión, acompañado de una corriente de aire refrescante."
 
-    show raiden annoyed
+    show raiden annoyed at f11
     luc "¿Por fin nos dejan salir del autobús?"
     
-    show takahiro ask at right with dissolve
+    show raiden annoyed at t21
+    show takahiro ask at f22
     takahiro "Yo pensaba que era una furgoneta."
     
-    show danny sleepy at left with dissolve
+    show raiden annoyed at t31
+    show takahiro ask at t32
+    show danny sleepy at f33
     danny "Agh, qué luz tan fuerte...\n¿Ya ha llegado a puerto el barco?"
     
     "{color=#8cf}Se ha despertado y todo..."
 
+    show danny sleepy at t33
+    show takahiro stand at f32
     takahiro "En cualquier caso, yo me piro de aquí..."
     play sound "audio/footsteps.ogg"
     hide takahiro with dissolve
@@ -409,15 +465,16 @@ label truck_end:
     hide danny with dissolve
     "{color=#8cf}Uno a uno, los demás siguieron al chico y fueron saliendo del camión."
 
-    pause(2)
-    show guppy sleep with dissolve
+    show guppy sleep at s11
+    pause(1)
     "{color=#8cf}¿Debería despertarla...?"
-    show guppy sleepy
+    show guppy sleepy at t11
     "{color=#8cf}¡Ah! Acaba de despertarse. Pobre niña, parece confusa..."
 
     play sound "audio/footsteps.ogg"
     hide guppy with dissolve
 
+    pause(1)
     "{color=#8cf}(...)\nBueno, pues ahora sí que estamos todos."
     "{color=#8cf}Seguí a los demás..."
 

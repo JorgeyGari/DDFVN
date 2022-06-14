@@ -544,3 +544,5 @@ init python:
 transform malpha(a=1.00):
     i11
     alpha a
+
+# TODO: Muchas de estas transformaciones no las necesitamos. Habrá que hacer limpieza.
