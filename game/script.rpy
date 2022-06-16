@@ -59,7 +59,7 @@ define guppy = Character('Niña pez', color = '#ffc039', callback = beepy_voice_
 # Inicio del juego
 label start:
 
-    play sound "audio/tv_on.ogg"    #FIXME: Ajustar la resolución
+    play sound "audio/tv_on.ogg"
     pause(2)
     play music "audio/breaking.ogg"
 

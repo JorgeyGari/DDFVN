@@ -1540,6 +1540,10 @@ screen displayTextScreen:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#nvl
 
+transform move_in_right:    # Esta transformación es para los botones en la pantalla de investigación
+    xoffset -15 alpha 0
+    linear 0.5 xoffset 0 alpha 1
+    
 screen investigation(inv_name, talk):
     $ y = 0 # El primer botón lo ponemos arriba del todo
     for char in talk:
@@ -1551,4 +1555,6 @@ screen investigation(inv_name, talk):
 
             hovered Show("displayTextScreen", displayText = talk[char])
             unhovered Hide("displayTextScreen")
+            at move_in_right
         $ y += 120  # El siguiente botón irá 120 px debajo del anterior
+    # FIXME: Estaría bien que los botones aparecieran uno a uno, no todos a la vez
