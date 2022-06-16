@@ -1,26 +1,42 @@
 ﻿init python:
-    def beepy_voice(event, interact=True, **kwargs): # Para que suenen los pitidos mientras habla un personaje
+    def beepy_voice_deep(event, interact=True, **kwargs): # Para que suenen los pitidos mientras habla un personaje
     # TODO: Descubrir cómo pasar un argumento para que cada personaje tenga su propio sonido
         if not interact:
             return
 
         if event == "show_done":
-            renpy.sound.play("audio/talk2.ogg", loop=True)
+            beep = []
+            for x in range(1,10):
+                beep.append(random.choice(["audio/talk2.ogg", "audio/talk3.ogg"]))  # Construimos una lista de sonidos agudos y graves aleatorios
+            renpy.sound.play(beep, loop = True)
+        elif event == "slow_done":
+            renpy.sound.stop(fadeout = 0.5)
+    
+    def beepy_voice_high(event, interact=True, **kwargs):
+        if not interact:
+            return
+
+        if event == "show_done":
+            beep = []
+            for x in range(1,10):
+                beep.append(random.choice(["audio/talk1.ogg", "audio/talk2.ogg"]))
+            renpy.sound.play(beep, loop = True)
         elif event == "slow_done":
             renpy.sound.stop(fadeout = 0.5)
 
 # Definición de personajes
-define ryu = Character('Rubio', color = '#aa3333', callback = beepy_voice)
-define gaelg = Character('Chamán', color = '#ae5323', callback = beepy_voice)
-define sevony = Character('Gafas', color = '#946894', callback = beepy_voice)
-define jaeke = Character('Antipático', color = '#696969', callback = beepy_voice)
-define takahiro = Character('Llamativo', color = '#9a7818', callback = beepy_voice)
-define akane = Character('Yo', color = '#13a28f', callback = beepy_voice)
-define umi = Character('Marinera', color = '#185a9a', callback = beepy_voice)
-define emiko = Character('Coletas', color = '#d86d9e', callback = beepy_voice)
-define luc = Character('Pañuelo', color = '#5a49b4', callback = beepy_voice)
-define axiom = Character('Mascarilla', color = '#a2135c', callback = beepy_voice)
-define danny = Character('Dormilón', color = '#66b103', callback = beepy_voice)
+define ryu = Character('Rubio', color = '#aa3333', callback = beepy_voice_deep)
+define gaelg = Character('Chamán', color = '#ae5323', callback = beepy_voice_deep)
+define sevony = Character('Gafas', color = '#946894', callback = beepy_voice_high)
+define jaeke = Character('Antipático', color = '#696969', callback = beepy_voice_deep)
+define takahiro = Character('Llamativo', color = '#9a7818', callback = beepy_voice_deep)
+define akane = Character('Yo', color = '#13a28f', callback = beepy_voice_high)
+define umi = Character('Marinera', color = '#185a9a', callback = beepy_voice_high)
+define emiko = Character('Coletas', color = '#d86d9e', callback = beepy_voice_high)
+define luc = Character('Pañuelo', color = '#5a49b4', callback = beepy_voice_deep)
+define axiom = Character('Mascarilla', color = '#a2135c', callback = beepy_voice_deep)
+define danny = Character('Dormilón', color = '#66b103', callback = beepy_voice_deep)
+define guppy = Character('Niña pez', color = '#ffc039', callback = beepy_voice_high)
 
 # Inicio del juego
 label start:
@@ -427,10 +443,10 @@ label truck_end:
     hide danny with dissolve
     "{color=#8cf}Uno a uno, los demás siguieron al chico y fueron saliendo del camión."
 
-    show guppy sleep at s11
+    show guppy sleep at t11
     pause(1)
     "{color=#8cf}¿Debería despertarla...?"
-    show guppy sleepy at t11
+    show guppy sleepy at hop
     "{color=#8cf}¡Ah! Acaba de despertarse. Pobre niña, parece confusa..."
 
     play sound "audio/footsteps.ogg"
@@ -442,4 +458,3 @@ label truck_end:
 
     "FIN"
     return
-
