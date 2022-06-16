@@ -1,10 +1,10 @@
-﻿init python:
-
+﻿init python:    # Pausas automáticas en el texto con cada signo de puntuación
     def alter_say_strings( str_to_test ):
         str_map = {
             ". " : ". {w=0.25}", 
             "? " : "? {w=0.25}", 
             ".\n" : ".\n{w=0.25}", 
+            "(...)\n" : "(...)\n{w=0.3}",
             "! " : "! {w=0.25}", 
             ", " : ", {w=0.05}",
         }
@@ -431,7 +431,7 @@ label truck_end:
 
     show raiden hurt at t11
     akane "¿Estás bie...?{nw}"
-    play sound "audio/sfx-stab2.wav"
+    play sound "audio/sfx-stab2.wav"    #FIXME: Hay que retocar este sonido o encontrar un sustituto para él
     with flash
     with vpunch
     akane "¡AGH, MIS OJOS!"
@@ -465,7 +465,7 @@ label truck_end:
     pause(1)
     "{color=#8cf}¿Debería despertarla...?"
     show guppy sleepy at hop
-    "{color=#8cf}¡Ah! Acaba de despertarse. Pobre niña, parece confusa..."
+    "{color=#8cf}¡Ah! Pobre niña, parece confusa..."
 
     play sound "audio/footsteps.ogg"
     hide guppy with dissolve
