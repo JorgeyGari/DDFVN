@@ -56,7 +56,7 @@ define guppy = Character('Niña pez', color = '#ffc039', callback = beepy_voice_
 # TODO: Introducir a Ichika, Gael M., Ghiang y Kiiro en el guion
 
 #region Definición de música
-define audio.beautiful_lament = "<loop 14.5>audio/BSO/Beautiful Lament.mp3"
+define audio.beautiful_lament = "<loop 15.6859>audio/BSO/Beautiful Lament.mp3"
 #endregion
 
 # Inicio del juego
@@ -120,7 +120,7 @@ label truck:
     $ talk = {"ryu": "Chico rubio", "jaeke": "Chico antipático"}    # Lo definimos dos veces para que el usuario pueda volver atrás y sus opciones sean restauradas
 
 # Investigación: Camión
-label inv_c0_truck_ryu: # Chico rubio
+label inv_c0_truck_ryu:     # Chico rubio
     $ ryu.name = "Rubio"
     $ gaelg.name = "Chamán"
     $ sevony.name = "Gafas"
@@ -266,7 +266,7 @@ label inv_c0_truck_ryu: # Chico rubio
     else:
         call screen investigation(inv_name, talk)
 
-label inv_c0_truck_jaeke: # Chico antipático
+label inv_c0_truck_jaeke:   # Chico antipático
 
     show jaeke stand at t21
     show takahiro stand at t22
@@ -433,7 +433,7 @@ label truck_end:
 
     show raiden hurt at t11
     akane "¿Estás bie...?{nw}"
-    play sound sfx_stab2    #FIXME: Hay que retocar este sonido o encontrar un sustituto para él
+    play sound sfx_stab2    #FIXME: Hay que retocar este sonido o encontrarle un sustituto
     with flash
     with vpunch
     akane "¡AGH, MIS OJOS!"
@@ -511,11 +511,35 @@ label entrance:
     "{color=#8cf}Si ya van a ir ellos, yo me quedo aquí..."
     
     $ inv_name = "inv_c0_entrance"
-    $ talk = {"umi": "Hablar con la marinera", "takahiro": "Fijarse en el chico llamativo"}
+    $ talk = {"umi": "Hablar con la marinera"}
     call screen investigation(inv_name, talk)
-    $ talk = {"umi": "Hablar con la marinera", "takahiro": "Fijarse en el chico llamativo"}
+    $ talk = {"umi": "Hablar con la marinera"}
+    # TODO: En esta investigación también pondremos algunos detalles del fondo, pero por ahora no podemos porque no tenemos la ilustración
 
-label inv_c0_entrance_umi:
+label inv_c0_entrance_umi:      # Hablar con la marinera
+
+    show umi stand at t11
+    "{color=#8cf}Me acerqué tímidamente a la chica del gorro..."
+    akane "Mmm, perdona...\nNo he podido preguntarte tu nombre al final."
+
+    show umi think at f11
+    umi "¿Eh? Ah, sí, cierto, fue antes de que el camión acelerara."
+    show umi stand at f11
+    $ umi.name = "Umi Yoshiharu"
+    umi "Me llamo Umi Yoshiharu, ¿y tú?"
+
+    show umi stand at t11
+    $ akane.name = "Akane Yamamoto"
+    akane "Akane, Akane Yamamoto."
+
+    show umi smile at f11
+    umi "Encantada, Akane."
+    
+    "{color=#8cf}Umi me observó de abajo a arriba y esbozó una sonrisa."
+    show umi smile at t11
+    "{color=#8cf}No la conozco, pero... me transmite tranquilidad."
+
+    hide umi with dissolve
 
     python:
         if "umi" in talk:
@@ -526,17 +550,45 @@ label inv_c0_entrance_umi:
     else:
         call screen investigation(inv_name, talk)
 
-label inv_c0_entrance_takahiro:
-    
-    python:
-        if "takahiro" in talk:
-            del talk["takahiro"]
-
-    if not talk:
-        jump fex_shadow
-    else:
-        call screen investigation(inv_name, talk)
-
 label fex_shadow:
+    play audio footsteps
+    show ryu concern at t21
+    show sevony stand at t22
+    "{color=#8cf}En ese momento llegaron Sevony y Ryu de vuelta."
+
+    show ryu concern at f21
+    ryu "El asiento del conductor estaba vacío... y tampoco hemos encontrado la llave para arrancar el vehículo."
+    ryu "Sevony... ¿qué deberíamos hacer?"
+
+    show ryu concern at t21
+    show sevony concern at f22
+    sevony "Parece que tenemos que explorar."
+
+    show sevony concern at t22
+    "{color=#8cf}Sevony echó una mirada alrededor y yo la imité.\nHabía algunos caminos que podíamos examinar."
+    
+    show sevony concern at f22
+    sevony "Qué lugar más extraño."
+
+    hide sevony
+    hide ryu
+    with dissolve
+
+    show raiden annoyed at f21
+    show takahiro annoyed at t22
+    luc "Eeeh, ¿pues qué hacemos?\nYo estoy empezando a aburrirme."
+    
+    show raiden annoyed at t21
+    show takahiro annoyed at f22
+    takahiro "Vaya por Dios... \nYo quería irme de aquí cuanto antes. En fin."
+
+    show raiden surprise at h21
+    show takahiro surprise at h22
+    play sound fex_run
+    show fex shadow at leftin(x=1500)
+    pause 0.5
+
+    "Desde el costado del camión salió una pequeña sombra que echó a correr hacia uno de los caminos."
+
     "FIN"
     return
