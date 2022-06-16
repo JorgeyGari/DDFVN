@@ -1,4 +1,20 @@
 ﻿init python:
+
+    def alter_say_strings( str_to_test ):
+        str_map = {
+            ". " : ". {w=0.25}", 
+            "? " : "? {w=0.25}", 
+            ".\n" : ".\n{w=0.25}", 
+            "! " : "! {w=0.25}", 
+            ", " : ", {w=0.05}",
+        }
+        for key in str_map:
+            str_to_test = str_to_test.replace( key, str_map[ key ] ) 
+        return str_to_test
+
+define config.say_menu_text_filter = alter_say_strings
+
+init python:
     def beepy_voice_deep(event, interact=True, **kwargs): # Para que suenen los pitidos mientras habla un personaje
     # TODO: Descubrir cómo pasar un argumento para que cada personaje tenga su propio sonido
         if not interact:
@@ -37,6 +53,8 @@ define luc = Character('Pañuelo', color = '#5a49b4', callback = beepy_voice_dee
 define axiom = Character('Mascarilla', color = '#a2135c', callback = beepy_voice_deep)
 define danny = Character('Dormilón', color = '#66b103', callback = beepy_voice_deep)
 define guppy = Character('Niña pez', color = '#ffc039', callback = beepy_voice_high)
+
+# TODO: Introducir a Ichika, Gael M., Ghiang y Kiiro en el guion
 
 # Inicio del juego
 label start:
