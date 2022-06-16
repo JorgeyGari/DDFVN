@@ -1,20 +1,4 @@
 ﻿init python:    # Pausas automáticas en el texto con cada signo de puntuación
-    def alter_say_strings( str_to_test ):
-        str_map = {
-            ". " : ". {w=0.25}", 
-            "? " : "? {w=0.25}", 
-            ".\n" : ".\n{w=0.25}", 
-            "(...)\n" : "(...)\n{w=0.3}",
-            "! " : "! {w=0.25}", 
-            ", " : ", {w=0.05}",
-        }
-        for key in str_map:
-            str_to_test = str_to_test.replace( key, str_map[ key ] ) 
-        return str_to_test
-
-define config.say_menu_text_filter = alter_say_strings
-
-init python:
     def beepy_voice_deep(event, interact=True, **kwargs): # Para que suenen los pitidos mientras habla un personaje
     # TODO: Descubrir cómo pasar un argumento para que cada personaje tenga su propio sonido
         if not interact:
@@ -40,7 +24,22 @@ init python:
         elif event == "slow_done":
             renpy.sound.stop(fadeout = 0.5)
 
-# Definición de personajes
+    def alter_say_strings( str_to_test ):
+        str_map = {
+            ". " : ". {w=0.25}", 
+            "? " : "? {w=0.25}", 
+            ".\n" : ".\n{w=0.25}", 
+            "(...)\n" : "(...)\n{w=0.3}",
+            "! " : "! {w=0.25}", 
+            ", " : ", {w=0.05}",
+        }
+        for key in str_map:
+            str_to_test = str_to_test.replace( key, str_map[ key ] ) 
+        return str_to_test
+
+define config.say_menu_text_filter = alter_say_strings
+    
+#region Definición de personajes
 define ryu = Character('Rubio', color = '#aa3333', callback = beepy_voice_deep)
 define gaelg = Character('Chamán', color = '#ae5323', callback = beepy_voice_deep)
 define sevony = Character('Gafas', color = '#946894', callback = beepy_voice_high)
@@ -53,15 +52,19 @@ define luc = Character('Pañuelo', color = '#5a49b4', callback = beepy_voice_dee
 define axiom = Character('Mascarilla', color = '#a2135c', callback = beepy_voice_deep)
 define danny = Character('Dormilón', color = '#66b103', callback = beepy_voice_deep)
 define guppy = Character('Niña pez', color = '#ffc039', callback = beepy_voice_high)
-
+#endregion
 # TODO: Introducir a Ichika, Gael M., Ghiang y Kiiro en el guion
+
+#region Definición de música
+define audio.beautiful_lament = "<loop 14.5>audio/BSO/Beautiful Lament.mp3"
+#endregion
 
 # Inicio del juego
 label start:
 
-    play sound "audio/tv_on.ogg"
-    pause(2)
-    play music "audio/breaking.ogg"
+    play sound tv_on
+    pause 2.0
+    play music breaking
 
     "{color=#090}¡Alerta! ¡Alerta!\n¡Caos en la ciudad!{/color}"
 
@@ -71,7 +74,7 @@ label start:
     "{color=#090}La intensidad de estos ataques va aumentando con el paso de las horas, se recomienda...{/color}"
 
     stop music fadeout 0.3
-    play sound "audio/tv_static.ogg" fadein 0.5
+    play sound tv_static fadein 0.5
     show cg c0_static
 
     "{color=#090}(...){/color}"
@@ -111,9 +114,8 @@ label truck:
     hide sevony with dissolve
     "{color=#090}Haz clic en el icono del personaje en quien te quieras fijar."
 
-    # Elementos a investigar
     $ inv_name = "inv_c0_truck"
-    $ talk = {"ryu": "Chico rubio", "jaeke": "Chico antipático"}
+    $ talk = {"ryu": "Chico rubio", "jaeke": "Chico antipático"}    # Elementos a investigar
     call screen investigation(inv_name, talk)
     $ talk = {"ryu": "Chico rubio", "jaeke": "Chico antipático"}    # Lo definimos dos veces para que el usuario pueda volver atrás y sus opciones sean restauradas
 
@@ -163,10 +165,10 @@ label inv_c0_truck_ryu: # Chico rubio
     gaelg "Hum... ¿C-cómo te llamas?"
 
     show gaelg stand at t31
-    pause(0.2)
+    pause 0.2
     show ryu surprise at t32
     show sevony stand at t33
-    pause(0.5)
+    pause 0.5
     show ryu surprise at hf32
     ryu "¿Y-yo? V-vaya por Dios."
     show ryu smile
@@ -296,7 +298,7 @@ label inv_c0_truck_jaeke: # Chico antipático
     show takahiro laugh at t22
 
     show jaeke annoyed at t21
-    pause(0.5)
+    pause 0.5
     show jaeke annoyed at f21
     jaeke "Los comediantes como tú solo les hacen gracia a los pringados de la cárcel."
     jaeke "Mejor haz algo productivo, porque no tienes ninguna gracia, fracasado."
@@ -304,7 +306,7 @@ label inv_c0_truck_jaeke: # Chico antipático
 
     "{color=#8cf}Vaya humos se gasta..."
 
-    play sound "audio/truck_bump.ogg"
+    play sound truck_bump
     with vpunch
     "{color=#090}¡Pam!"
 
@@ -361,7 +363,7 @@ label truck_end:
     show umi surprise at h31
     show emiko surprise at h32
     show raiden surprise at h33
-    play sound "audio/truck_bump.ogg"
+    play sound truck_bump
     with vpunch
     "{color=#090}¡Pam!"
 
@@ -369,11 +371,11 @@ label truck_end:
     hide emiko
     hide umi
     with dissolve
-    play sound "audio/truck_bump.ogg" volume 0.6 fadeout 0.3
+    play sound truck_bump volume 0.6 fadeout 0.3
     with vpunch
-    play sound "audio/truck_bump2.ogg" volume 1.0 fadein 0.1 fadeout 0.3
+    play sound truck_bump2 volume 1.0 fadein 0.1 fadeout 0.3
     with vpunch
-    play sound "audio/truck_bump.ogg" volume 1.0 fadein 0.1 fadeout 0.3
+    play sound truck_bump volume 1.0 fadein 0.1 fadeout 0.3
     with vpunch
     "{color=#090}{sc}{color=#090}¡Pum, pam, pom, pum!{/sc}"
     
@@ -390,7 +392,7 @@ label truck_end:
     hide umi with dissolve
     "{color=#8cf}Pero no pude acabar de formular mi pregunta."
     show bg truck_move
-    play music "audio/truck_speed.ogg" fadein 1.0 fadeout 0.5
+    play music truck_speed fadein 1.0 fadeout 0.5
     "{color=#8cf}El vehículo comenzó a serpentear repentinamente, arrojándonos a mí y a los demás pasajeros de un lado a otro." with vpunch
     "{color=#8cf}Cada vez más rápido, vi que algunos se sostenían a sus asientos como podían, yo me vi forzada a hacer lo mismo..."
     stop music fadeout 1.0
@@ -407,7 +409,7 @@ label truck_end:
     
     show axiom hurt at t21
     show umi concern at t22
-    pause(0.3)
+    pause 0.3
     show umi concern at f22
     umi "¿Necesitas ayuda?\nToma, ponte esto para taponar la herida..." 
 
@@ -421,8 +423,8 @@ label truck_end:
     "{color=#8cf}Y también había dos personas durmiendo en el suelo..."
     "{color=#8cf}Tener buen dormir es una cosa, pero no despertarte con todos esos baches es otra..."
 
-    play sound "audio/truck_door.ogg"
-    pause(2)
+    play sound truck_door
+    pause 2.0
     scene bg truck_light with dissolve
     "{color=#8cf}Y entonces, la puerta se abrió."
 
@@ -431,7 +433,7 @@ label truck_end:
 
     show raiden hurt at t11
     akane "¿Estás bie...?{nw}"
-    play sound "audio/sfx-stab2.wav"    #FIXME: Hay que retocar este sonido o encontrar un sustituto para él
+    play sound sfx_stab2    #FIXME: Hay que retocar este sonido o encontrar un sustituto para él
     with flash
     with vpunch
     akane "¡AGH, MIS OJOS!"
@@ -454,7 +456,7 @@ label truck_end:
     show danny sleepy at t33
     show takahiro stand at f32
     takahiro "En cualquier caso, yo me piro de aquí..."
-    play sound "audio/footsteps.ogg"
+    play sound footsteps
     hide takahiro with dissolve
 
     hide raiden with dissolve
@@ -462,17 +464,79 @@ label truck_end:
     "{color=#8cf}Uno a uno, los demás siguieron al chico y fueron saliendo del camión."
 
     show guppy sleep at t11
-    pause(1)
+    pause 1.0
     "{color=#8cf}¿Debería despertarla...?"
     show guppy sleepy at hop
     "{color=#8cf}¡Ah! Pobre niña, parece confusa..."
 
-    play sound "audio/footsteps.ogg"
+    play sound footsteps
     hide guppy with dissolve
 
-    pause(1)
+    pause 1.0
     "{color=#8cf}(...)\nBueno, pues ahora sí que estamos todos."
-    "{color=#8cf}Seguí a los demás..."
+    "{color=#8cf}Seguí a los demás...{w=0.5}{nw}"
 
+    jump entrance
+
+# Entrando en el recinto
+label entrance:
+    play sound footsteps
+    scene black with fade
+
+    pause 1.0
+    play music beautiful_lament
+    scene bg entrance with dissolve
+
+    pause 2.0
+    "{color=#8cf}Ante nosotros se encontraba un recinto considerablemente grande."
+    "{color=#8cf}Parecía algún tipo de campus extraño..."
+
+    show ryu surprise at t21
+    show sevony stand at t22
+    "{color=#8cf}Ryu respiraba hondo, como si intentara recuperar ahora todo el aire que no había podido inhalar mientras estaba en el camión con tanta gente."
+    "{color=#8cf}Sevony observaba sus alrededores, al lado de Ryu, mientras se acomodaba las gafas."
+    
+    show sevony stand at f22
+    sevony "Curioso..."
+    
+    show sevony stand at t22
+    show ryu stand at f21
+    ryu "Cuanto menos...\nEste lugar es extraño, ¿no está todo muy preparado?"
+    show ryu think at f21 
+    ryu "Voy a buscar al conductor del autobús."
+    hide ryu with dissolve
+    hide sevony with dissolve
+    "{color=#8cf}Sevony siguió a Ryu."
+    "{color=#8cf}Ryu desprendía una energía melancólica, pero decidida, como si estuviera capacitado para moverse en este tipo de situaciones..."
+    "{color=#8cf}Si ya van a ir ellos, yo me quedo aquí..."
+    
+    $ inv_name = "inv_c0_entrance"
+    $ talk = {"umi": "Hablar con la marinera", "takahiro": "Fijarse en el chico llamativo"}
+    call screen investigation(inv_name, talk)
+    $ talk = {"umi": "Hablar con la marinera", "takahiro": "Fijarse en el chico llamativo"}
+
+label inv_c0_entrance_umi:
+
+    python:
+        if "umi" in talk:
+            del talk["umi"]
+
+    if not talk:
+        jump fex_shadow
+    else:
+        call screen investigation(inv_name, talk)
+
+label inv_c0_entrance_takahiro:
+    
+    python:
+        if "takahiro" in talk:
+            del talk["takahiro"]
+
+    if not talk:
+        jump fex_shadow
+    else:
+        call screen investigation(inv_name, talk)
+
+label fex_shadow:
     "FIN"
     return

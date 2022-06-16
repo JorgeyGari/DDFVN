@@ -419,6 +419,8 @@ style main_menu_version:
 
 screen game_menu(title, scroll=None, yinitial=0.0):
 
+    on "show" action Stop("sound")  # Detiene los sonidos al llamar al menú durante el juego
+
     style_prefix "game_menu"
 
     if main_menu:
