@@ -1,4 +1,4 @@
-﻿init python:    # Pausas automáticas en el texto con cada signo de puntuación
+﻿init python:
     def beepy_voice_deep(event, interact=True, **kwargs): # Para que suenen los pitidos mientras habla un personaje
     # TODO: Descubrir cómo pasar un argumento para que cada personaje tenga su propio sonido
         if not interact:
@@ -24,7 +24,7 @@
         elif event == "slow_done":
             renpy.sound.stop(fadeout = 0.5)
 
-    def alter_say_strings( str_to_test ):
+    def alter_say_strings( str_to_test ): # Pausas automáticas en el texto con cada signo de puntuación
         str_map = {
             ". " : ". {w=0.25}", 
             "? " : "? {w=0.25}", 
@@ -51,12 +51,14 @@ define emiko = Character('Coletas', color = '#d86d9e', callback = beepy_voice_hi
 define luc = Character('Pañuelo', color = '#5a49b4', callback = beepy_voice_deep)
 define axiom = Character('Mascarilla', color = '#a2135c', callback = beepy_voice_deep)
 define danny = Character('Dormilón', color = '#66b103', callback = beepy_voice_deep)
-define guppy = Character('Niña pez', color = '#ffc039', callback = beepy_voice_high)
+define guppy = Character('Niña pez', color = '#ff8b3d', callback = beepy_voice_high)
+define ichika = Character('Elegante', color = '#2ece49', callback = beepy_voice_high)
 #endregion
 # TODO: Introducir a Ichika, Gael M., Ghiang y Kiiro en el guion
 
 #region Definición de música
-define audio.beautiful_lament = "<loop 15.6859>audio/BSO/Beautiful Lament.mp3"
+define audio.beautiful_lament = "<loop 15.6859>audio/BSO/Beautiful Lament.ogg"
+define audio.kitsune_to_tanuki = "<loop 51.128>audio/BSO/Kitsune to Tanuki no Omanuke na Bakashi Ai.ogg"
 #endregion
 
 # Inicio del juego
@@ -551,24 +553,12 @@ label inv_c0_entrance_umi:      # Hablar con la marinera
         call screen investigation(inv_name, talk)
 
 label fex_shadow:
-    play audio footsteps
     show ryu concern at t21
     show sevony stand at t22
     "{color=#8cf}En ese momento llegaron Sevony y Ryu de vuelta."
 
     show ryu concern at f21
     ryu "El asiento del conductor estaba vacío... y tampoco hemos encontrado la llave para arrancar el vehículo."
-    ryu "Sevony... ¿qué deberíamos hacer?"
-
-    show ryu concern at t21
-    show sevony concern at f22
-    sevony "Parece que tenemos que explorar."
-
-    show sevony concern at t22
-    "{color=#8cf}Sevony echó una mirada alrededor y yo la imité.\nHabía algunos caminos que podíamos examinar."
-    
-    show sevony concern at f22
-    sevony "Qué lugar más extraño."
 
     hide sevony
     hide ryu
@@ -576,19 +566,146 @@ label fex_shadow:
 
     show raiden annoyed at f21
     show takahiro annoyed at t22
-    luc "Eeeh, ¿pues qué hacemos?\nYo estoy empezando a aburrirme."
+    luc "Eeeh, pues yo estoy empezando a aburrirme."
     
     show raiden annoyed at t21
     show takahiro annoyed at f22
     takahiro "Vaya por Dios... \nYo quería irme de aquí cuanto antes. En fin."
 
-    show raiden surprise at h21
-    show takahiro surprise at h22
+    hide raiden
+    hide takahiro
+    with dissolve
+
+    show ryu concern at f21
+    show sevony stand at t22
+    ryu "Sevony... ¿qué deberíamos hacer?"
+
+    show ryu concern at t21
+    show sevony concern at f22
+    sevony "Parece que tenemos que explorar."
+
+    show sevony concern at t22
+    "{color=#8cf}Sevony echó una mirada alrededor.\nHabía algunos caminos que podíamos examinar."
+    
+    show sevony concern at f22
+    sevony "Qué lugar más extraño."
+
+    show ryu surprise at h21
+    show sevony surprise at h22
     play sound fex_run
     show fex shadow at leftin(x=1500)
     pause 0.5
 
-    "Desde el costado del camión salió una pequeña sombra que echó a correr hacia uno de los caminos."
+    "{color=#8cf}Desde el costado del camión salió una pequeña sombra que echó a correr hacia uno de los caminos."
+
+    show guppy happy at f32
+    show sevony surprise at t33
+    show ryu hurt at t31
+    guppy "{sc}¡OOOOH!{/sc}" with vpunch
+
+    play sound footsteps
+    hide guppy with dissolve
+    "{color=#8cf}La niña del pez en la cabeza se abrió paso a empujones entre Sevony y Ryu, tirando al suelo al segundo. Corrió tras la sombra."
+    
+    show ryu hurt at s31
+    ryu "{sc}¡Ay!{/sc}{w=0.25} ¡O-oye...!"
+
+    "{color=#8cf}Le ha hecho una herida en la rodilla...\nNada grave, pero sangra un poco."
+
+    show sevony surprise at f22
+    sevony "¡Itsuki!"
+
+    show sevony surprise at t22
+    show ryu hurt at f31
+    ryu "N-necesito agua..."
+
+    show ryu hurt at t31
+    show sevony stand at f22
+    sevony "García... Perdón si es mucho pedir, pero... ¿puedes intentar conseguirle agua? Deberíamos limpiarle la herida."
+
+    show gaelg think at f33
+    show ryu hurt at t31
+    show sevony stand at t32
+    gaelg "¡Claro! Pero... ¿dónde puedo conseguir agua?"
+
+    show gaelg think at t33
+    show ryu hurt at f31
+    ryu "Eres muy amable, Sevony...\nVeo desde aquí que hay una fuente en la plaza.\n¿Podrías conseguirme el agua en una botella, Gael?"
+
+    show gaelg think at f33
+    show ryu hurt at t31
+    show sevony stand at t32
+    gaelg "¡De acuerdo!"
+
+    show sevony stand at t43
+    show gaelg stand at t42
+    show gaelg stand at f42
+    gaelg "Ah, toma. Un amuleto. Te protegerá de todo mal.\n¡Cualquier cosa, grita! Cazaré salvajes demonios si es necesario para proteger a mis amigos."
+
+    play sound footsteps
+    hide gaelg with dissolve
+
+    pause 0.5
+
+    show sevony stand at t43
+    show ryu smile at f41
+    ryu "G-gracias...\nVaya."
+
+    show ryu smile at t31
+    show sevony stand at t33
+    show axiom stand at f32
+
+    axiom "Toma."
+
+    show ryu surprise at f31
+    ryu "Oh... Un pañuelo."
+    ryu "Gracias... Podré usarlo cuando tenga agua."
+
+    show sevony stand at f33
+    show ryu surprise at s31
+    sevony "Y-yo me encargo de él. Creo que... lo mejor es que los demás vayáis a buscar esa sombra."
+    sevony "Si la sombra es el conductor, seguro que sabe dónde estamos."
+
+    hide sevony
+    hide ryu
+    hide axiom
+    with dissolve
+
+    show raiden annoyed at t31
+    show ichika stand at t32
+    show danny stand at t33
+
+    show raiden annoyed at f31
+    luc "En fin..."
+
+    show raiden annoyed at t31
+    show danny stand at f33
+    danny "No sé qué coño era eso, pero deberíamos ir..."
+
+    show danny stand at t33
+    akane "¡E-esperad! ¿Y si no es el conductor?"
+
+
+    show ichika stand at f32
+    ichika "¡Da igual lo que fuera, será mejor que vayamos tras él!"
+    
+    play audio footsteps
+
+    hide raiden
+    hide danny
+    hide ichika
+    with dissolve
+
+    "{color=#8cf}Algunos con más prisa que otros, todos dejaron atrás a Ryu y Sevony para perseguir a la silueta."
+    "{color=#8cf}Yo también lo hice, para no separarme del grupo."
+
+    stop music fadeout 1.0
+    scene black with fade
+
+    jump fex_chase
+
+label fex_chase:
+    play music kitsune_to_tanuki
 
     "FIN"
     return
