@@ -1540,7 +1540,6 @@ screen displayTextScreen:
 ## Muestra los iconos de los personajes con los que puedes
 ## hablar durante una investigación.
 ##
-## https://www.renpy.org/doc/html/screen_special.html#nvl
 
 transform move_in_right:    # Esta transformación es para los botones en la pantalla de investigación
     xoffset -15 alpha 0

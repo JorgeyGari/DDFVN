@@ -325,7 +325,7 @@ label inv_c0_truck_jaeke:   # Chico antipático
     else:
         call screen investigation(inv_name, talk)
 
-# Posinvestigación
+# Posinvestigación: El camión acelera
 label truck_end:
     
     "{color=#8cf}Creo que ya he escuchado suficiente...\nNo parece que nadie sepa cómo hemos llegado hasta aquí."
@@ -518,6 +518,7 @@ label entrance:
     $ talk = {"umi": "Hablar con la marinera"}
     # TODO: En esta investigación también pondremos algunos detalles del fondo, pero por ahora no podemos porque no tenemos la ilustración
 
+# Investigación: Entrada del recinto extraño
 label inv_c0_entrance_umi:      # Hablar con la marinera
 
     show umi stand at t11
@@ -552,6 +553,7 @@ label inv_c0_entrance_umi:      # Hablar con la marinera
     else:
         call screen investigation(inv_name, talk)
 
+# Posinvestigación: No hay conductor
 label fex_shadow:
     show ryu concern at t21
     show sevony stand at t22
@@ -704,6 +706,7 @@ label fex_shadow:
 
     jump fex_chase
 
+# Persiguiendo a la sombra en la plaza
 label fex_chase:
     play music kitsune_to_tanuki
 
