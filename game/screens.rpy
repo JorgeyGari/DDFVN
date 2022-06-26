@@ -1545,8 +1545,21 @@ transform move_in_right:    # Esta transformación es para los botones en la pan
     xoffset -15 alpha 0
     linear 0.5 xoffset 0 alpha 1
     
-screen investigation(inv_name, talk):
+screen investigation(inv_name, talk={}, obj={}, place=""):
     $ y = 0 # El primer botón lo ponemos arriba del todo
+    for o in obj:
+        imagebutton:
+            xpos obj[o][0]  # El elemento 0 de la tupla es la posición en X
+            ypos obj[o][1] - 46  # El 1, la posición en Y
+            # Le restamos 46 px porque Ren'Py es rarito, no sé, pero funciona
+            idle "button/"+place+"/"+o+".png"
+            hover "button/"+place+"/"+o+".png"
+            action [Hide("displayTextScreen"), Jump(inv_name+"_"+o)]
+            focus_mask True
+
+            hovered Show("displayTextScreen", displayText = obj[o][2])
+            unhovered Hide("displayTextScreen")
+
     for char in talk:
         imagebutton:
             xpos 0

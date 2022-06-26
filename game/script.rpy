@@ -1,4 +1,4 @@
-﻿init python:
+init python:
     def beepy_voice_deep(event, interact=True, **kwargs): # Para que suenen los pitidos mientras habla un personaje
     # TODO: Descubrir cómo pasar un argumento para que cada personaje tenga su propio sonido
         if not interact:
@@ -38,7 +38,7 @@
         return str_to_test
 
 define config.say_menu_text_filter = alter_say_strings
-    
+
 #region Definición de personajes
 define ryu = Character('Rubio', color = '#aa3333', callback = beepy_voice_deep)
 define gaelg = Character('Chamán', color = '#ae5323', callback = beepy_voice_deep)
@@ -54,7 +54,7 @@ define danny = Character('Dormilón', color = '#66b103', callback = beepy_voice_
 define guppy = Character('Niña pez', color = '#ff8b3d', callback = beepy_voice_high)
 define ichika = Character('Elegante', color = '#2ece49', callback = beepy_voice_high)
 #endregion
-# TODO: Introducir a Ichika, Gael M., Ghiang y Kiiro en el guion
+# TODO: Incluir a Ichika, Gael M., Ghiang y Kiiro en el guion
 
 #region Definición de música
 define audio.beautiful_lament = "<loop 15.6859>audio/BSO/Beautiful Lament.ogg"
@@ -701,12 +701,51 @@ label fex_shadow:
     "{color=#8cf}Algunos con más prisa que otros, todos dejaron atrás a Ryu y Sevony para perseguir a la silueta."
     "{color=#8cf}Yo también lo hice, para no separarme del grupo."
 
-    stop music fadeout 1.0
     scene black with fade
+
+    jump fex_search
+
+# Persiguiendo a la sombra en la plaza
+label fex_search:
+    show bg plaza with fade
+    "{color=#8cf}En el centro del recinto había situada una plaza tranquila."
+    "{color=#8cf}De ella salían varios caminos."
+    "{color=#8cf}Los demás ya están investigando por ahí."
+    $ inv_name = "inv_c0_plaza"
+    $ talk = {"umi": "Umi Yoshiharu", "takahiro": "Chico llamativo"}
+    $ obj = {"tree": (755, 149, "Árbol"), "fountain": (179, 349, "Fuente")}
+    call screen investigation(inv_name, talk, obj, "plaza")
+    $ talk = {"umi": "Umi Yoshiharu", "takahiro": "Chico llamativo"}
+
+label inv_c0_plaza_umi:
+    "Texto de ejemplo"
+    python:
+        if "umi" in talk:
+            del talk["umi"]
+
+    call screen investigation(inv_name, talk, obj, "plaza")
+
+label inv_c0_plaza_takahiro:
+    "Texto de ejemplo"
+    python:
+        if "takahiro" in talk:
+            del talk["takahiro"]
+
+    call screen investigation(inv_name, talk, obj, "plaza")
+
+label inv_c0_plaza_tree:
+    "Guppy persigue a Fex, etc."
 
     jump fex_chase
 
-# Persiguiendo a la sombra en la plaza
+label inv_c0_plaza_fountain:
+    "Texto de ejemplo"
+    python:
+        if "fountain" in obj:
+            del obj["fountain"]
+
+    call screen investigation(inv_name, talk, obj, "plaza")
+
 label fex_chase:
     play music kitsune_to_tanuki
 
