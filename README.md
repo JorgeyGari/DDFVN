@@ -1,4 +1,4 @@
 # Danganronpa: Dystopian Future - The Visual Novel
 Adaptación a novela visual de Danganronpa: Dystopian Future.
 
-Por JorgeyGari y Niter2003.
+Creado con Ren'Py 8.0.0 por JorgeyGari y Niter2003.
