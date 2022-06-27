@@ -53,6 +53,7 @@ define axiom = Character('Mascarilla', color = '#a2135c', callback = beepy_voice
 define danny = Character('Dormilón', color = '#66b103', callback = beepy_voice_deep)
 define guppy = Character('Niña pez', color = '#ff8b3d', callback = beepy_voice_high)
 define ichika = Character('Elegante', color = '#2ece49', callback = beepy_voice_high)
+define ghiang = Character('Moños', color = '#1398a2', callback = beepy_voice_high)
 #endregion
 # TODO: Incluir a Ichika, Gael M., Ghiang y Kiiro en el guion
 
@@ -590,7 +591,7 @@ label fex_shadow:
     "{color=#8cf}Sevony echó una mirada alrededor.\nHabía algunos caminos que podíamos examinar."
     
     show sevony concern at f22
-    sevony "Qué lugar más extraño."
+    sevony "Qué lugar más extraño.{nw}"
 
     show ryu surprise at h21
     show sevony surprise at h22
@@ -705,40 +706,47 @@ label fex_shadow:
 
     jump fex_search
 
-# Persiguiendo a la sombra en la plaza
+# Buscando a la sombra en la plaza
 label fex_search:
     show bg plaza with fade
     "{color=#8cf}En el centro del recinto había situada una plaza tranquila."
     "{color=#8cf}De ella salían varios caminos."
     "{color=#8cf}Los demás ya están investigando por ahí."
     $ inv_name = "inv_c0_plaza"
-    $ talk = {"umi": "Umi Yoshiharu", "takahiro": "Chico llamativo"}
+    $ talk = {"umi": "Umi Yoshiharu", "ghiang": "Chica de los moños"}
     $ obj = {"tree": (755, 149, "Árbol"), "fountain": (179, 349, "Fuente")}
     call screen investigation(inv_name, talk, obj, "plaza")
-    $ talk = {"umi": "Umi Yoshiharu", "takahiro": "Chico llamativo"}
+    $ talk = {"umi": "Umi Yoshiharu", "ghiang": "Chica de los moños"}
 
-label inv_c0_plaza_umi:
-    "Texto de ejemplo"
+# Investigación: Plaza
+label inv_c0_plaza_umi:         # Umi Yoshiharu
+    show umi think at focus
+    umi "¿Cuánta pasta tienen los dueños de este sitio?"
+    hide umi with dissolve
+    
     python:
         if "umi" in talk:
             del talk["umi"]
 
     call screen investigation(inv_name, talk, obj, "plaza")
 
-label inv_c0_plaza_takahiro:
-    "Texto de ejemplo"
+label inv_c0_plaza_ghiang:      # Chica de los moños
+    show ghiang yell at focus
+    ghiang "Veeenga, conductor, ¿dónde te has metido?"
+    hide ghiang with dissolve
+
     python:
-        if "takahiro" in talk:
-            del talk["takahiro"]
+        if "ghiang" in talk:
+            del talk["ghiang"]
 
     call screen investigation(inv_name, talk, obj, "plaza")
 
-label inv_c0_plaza_tree:
+label inv_c0_plaza_tree:        # Árbol
     "Guppy persigue a Fex, etc."
 
     jump fex_chase
 
-label inv_c0_plaza_fountain:
+label inv_c0_plaza_fountain:    # Fuente
     "Texto de ejemplo"
     python:
         if "fountain" in obj:

@@ -1554,21 +1554,31 @@ screen investigation(inv_name, talk={}, obj={}, place=""):
             # Le restamos 46 px porque Ren'Py es rarito, no sé, pero funciona
             idle "button/"+place+"/"+o+".png"
             hover "button/"+place+"/"+o+".png"
-            action [Hide("displayTextScreen"), Jump(inv_name+"_"+o)]
+            action Jump(inv_name+"_"+o)
+            tooltip obj[o][2]
             focus_mask True
 
-            hovered Show("displayTextScreen", displayText = obj[o][2])
-            unhovered Hide("displayTextScreen")
 
     for char in talk:
         imagebutton:
             xpos 0
             ypos y
             auto "icon/"+char+"_%s.png"
-            action [Hide("displayTextScreen"), Jump(inv_name+"_"+char)]
-
-            hovered Show("displayTextScreen", displayText = talk[char])
-            unhovered Hide("displayTextScreen")
+            action Jump(inv_name+"_"+char)
+            tooltip talk[char]
             at move_in_right
         $ y += 120  # El siguiente botón irá 120 px debajo del anterior
     # FIXME: Estaría bien que los botones aparecieran uno a uno, no todos a la vez
+
+# Para que la tooltip se muestre al frente:
+    $ tooltip = GetTooltip()
+
+    if tooltip:
+
+        nearrect:
+            focus "tooltip"
+            prefer_top True
+
+            frame:
+                xalign 0.5
+                text tooltip
