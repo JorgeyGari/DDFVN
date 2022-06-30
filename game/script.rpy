@@ -1,3 +1,6 @@
+# Color del pensamiento: azul #8cf
+# Color del sistema: verde #090
+
 init python:
     def beepy_voice_deep(event, interact=True, **kwargs): # Para que suenen los pitidos mientras habla un personaje
     # TODO: Descubrir cómo pasar un argumento para que cada personaje tenga su propio sonido
@@ -710,11 +713,10 @@ label fex_shadow:
 label fex_search:
     show bg plaza with fade
     "{color=#8cf}En el centro del recinto había situada una plaza tranquila."
-    "{color=#8cf}De ella salían varios caminos."
     "{color=#8cf}Los demás ya están investigando por ahí."
     $ inv_name = "inv_c0_plaza"
     $ talk = {"umi": "Umi Yoshiharu", "ghiang": "Chica de los moños"}
-    $ obj = {"tree": (755, 149, "Árbol"), "fountain": (179, 349, "Fuente")}
+    $ obj = {"tree": (755, 149, "Árbol"), "fountain": (179, 349, "Fuente"), "buildings": (165, 217, "Edificios en la distancia"), "street": (405, 475, "Camino")}
     call screen investigation(inv_name, talk, obj, "plaza")
     $ talk = {"umi": "Umi Yoshiharu", "ghiang": "Chica de los moños"}
 
@@ -742,20 +744,88 @@ label inv_c0_plaza_ghiang:      # Chica de los moños
     call screen investigation(inv_name, talk, obj, "plaza")
 
 label inv_c0_plaza_tree:        # Árbol
-    "Guppy persigue a Fex, etc."
+    "{color=#8cf}La vegetación de la plaza hace que corra el aire fresco. Ideal para crear un ambiente calmado."
+
+    play sound tree_shake
+    "{color=#090}Fras, fras..." with flash
+
+    "{color=#8cf}¿Eh? ¿Se ha movido algo por ahí?"
 
     jump fex_chase
 
 label inv_c0_plaza_fountain:    # Fuente
-    "Texto de ejemplo"
+    "{color=#8cf}En el centro de la plaza hay una fuente muy bonita."
     python:
         if "fountain" in obj:
             del obj["fountain"]
 
     call screen investigation(inv_name, talk, obj, "plaza")
 
+label inv_c0_plaza_street:      # Camino
+    "{color=#8cf}Varios caminos salen de la plaza y comunican con los edificios que hay en el horizonte."
+
+    python:
+        if "street" in obj:
+            del obj["street"]
+
+    call screen investigation(inv_name, talk, obj, "plaza")
+
+label inv_c0_plaza_buildings:   # Edificios en la distancia
+    "{color=#8cf}Desde aquí se ven todos los edificios que hay repartidos por el lugar, pero no puedo distinguir qué son..."
+
+    python:
+        if "buildings" in obj:
+            del obj["buildings"]
+
+    call screen investigation(inv_name, talk, obj, "plaza")
+
 label fex_chase:
+    show guppy stare at focus
+    stop music fadeout 2.0
+    guppy "({w=0.4}.{w=0.4}.{w=0.4}.{w=0.4})"
+
+    play sound footsteps
+    hide guppy with dissolve
+    
+    pause 0.5
+    akane "¿Qué está haciendo...?"
     play music kitsune_to_tanuki
+    play sound tree_shake
+    "{color=#8cf}La niña escaló el árbol con gran agilidad, igual que un animal persiguiendo a su presa."
+
+    play sound [tree_shake, fex_run]
+    "{color=#090}Fras, fras...{w=0.6} ¡Hop!"
+    "{color=#8cf}¡Y su presa, la sombra, ha escapado saltando a otro árbol cercano!"
+    play sound [fex_run, tree_shake]
+    "{color=#090}¡Hop!"
+    pause 1.0
+
+    show takahiro laugh at f21
+    show umi smile at t22
+    takahiro "Sí que se lo pasa bien."
+    
+    show takahiro laugh at t21
+    show umi smile at f22
+    umi "Está tanteando el terreno."
+
+    show umi smile at t22
+    "{color=#8cf}Si sigue saltando a lo loco, se podría caer y hacer daño..."
+
+    menu:   # TODO: Cambiar la pantalla del menú de elecciones
+        "¿No deberíamos hacer algo...?":
+            akane "¿No deberíamos hacer algo...?"
+            
+            show umi smile at t22
+            show takahiro laugh at f21
+            takahiro "Qué va, es más divertido dejarlo estar."
+            
+            show takahiro laugh at t21
+            show umi smile at f22
+            umi "Estará bien. Parece bastante ágil."
+
+        "(...)":
+            akane "(...)"
+            "{color=#8cf}Bueno, parece bastante ágil... Estará bien."
 
     "FIN"
     return

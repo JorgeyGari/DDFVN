@@ -1,2 +1,2 @@
 init:
-    $ flash = Fade(.05, 0, .05, color="#fff")
+    $ flash = Fade(.05, 0, .07, color="#fff")
