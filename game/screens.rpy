@@ -222,11 +222,12 @@ style choice_button is button
 style choice_button_text is button_text
 
 style choice_vbox:
-    xalign 0.5
-    ypos 270
-    yanchor 0.5
+    xalign gui.dialogue_text_xalign
+    yalign gui.textbox_yalign
+    xpos gui.dialogue_xpos
+    ypos gui.dialogue_ypos
 
-    spacing gui.choice_spacing
+
 
 style choice_button is default:
     properties gui.button_properties("choice_button")
