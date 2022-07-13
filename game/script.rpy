@@ -27,7 +27,7 @@ init python:
         elif event == "slow_done":
             renpy.sound.stop(fadeout = 0.5)
 
-    def alter_say_strings( str_to_test ): # Pausas automáticas en el texto con cada signo de puntuación
+    def alter_say_strings(str_to_test): # Pausas automáticas en el texto con cada signo de puntuación
         str_map = {
             ". " : ". {w=0.25}", 
             "? " : "? {w=0.25}", 
@@ -57,6 +57,7 @@ define danny = Character('Dormilón', color = '#66b103', callback = beepy_voice_
 define guppy = Character('Niña pez', color = '#ff8b3d', callback = beepy_voice_high)
 define ichika = Character('Elegante', color = '#2ece49', callback = beepy_voice_high)
 define ghiang = Character('Moños', color = '#1398a2', callback = beepy_voice_high)
+define fex = Character('(?)', color = '#6b7d4a', callback = beepy_voice_high)
 #endregion
 # TODO: Incluir a Ichika, Gael M., Ghiang y Kiiro en el guion
 
@@ -121,9 +122,15 @@ label truck:
     "{color=#090}Haz clic en el icono del personaje en quien te quieras fijar."
 
     $ inv_name = "inv_c0_truck"
-    $ talk = {"ryu": "Chico rubio", "jaeke": "Chico antipático"}    # Elementos a investigar
+    $ talk = {
+        "ryu": "Chico rubio",
+        "jaeke": "Chico antipático"
+    }    # Elementos a investigar
     call screen investigation(inv_name, talk)
-    $ talk = {"ryu": "Chico rubio", "jaeke": "Chico antipático"}    # Lo definimos dos veces para que el usuario pueda volver atrás y sus opciones sean restauradas
+    $ talk = {
+        "ryu": "Chico rubio",
+        "jaeke": "Chico antipático"
+    }    # Lo definimos dos veces para que el usuario pueda volver atrás y sus opciones sean restauradas
 
 # Investigación: Camión
 label inv_c0_truck_ryu:     # Chico rubio
@@ -162,7 +169,7 @@ label inv_c0_truck_ryu:     # Chico rubio
     "{color=#8cf}Un chico que parecía nervioso y confundido observaba la conversación."
     "{color=#8cf}Los miraba mientras murmuraba para sí mismo."
 
-    show gaelg stand at s11
+    show gaelg stand at d11
     gaelg "Mi chamanismo me sacará de esta.\nEscaparé de aquí."
 
     "{color=#8cf}Finalmente, consiguió reunir valor para hablarle a los presentes en lugar de al cuello de la camisa."
@@ -439,7 +446,7 @@ label truck_end:
 
     show raiden hurt at t11
     akane "¿Estás bie...?{nw}"
-    play sound sfx_stab2    #FIXME: Hay que retocar este sonido o encontrarle un sustituto
+    play sound feed1
     with flash
     with vpunch
     akane "¡AGH, MIS OJOS!"
@@ -517,9 +524,13 @@ label entrance:
     "{color=#8cf}Si ya van a ir ellos, yo me quedo aquí..."
     
     $ inv_name = "inv_c0_entrance"
-    $ talk = {"umi": "Hablar con la marinera"}
+    $ talk = {
+        "umi": "Hablar con la marinera"
+    }
     call screen investigation(inv_name, talk)
-    $ talk = {"umi": "Hablar con la marinera"}
+    $ talk = {
+        "umi": "Hablar con la marinera"
+    }
     # TODO: En esta investigación también pondremos algunos detalles del fondo, pero por ahora no podemos porque no tenemos la ilustración
 
 # Investigación: Entrada del recinto extraño
@@ -607,6 +618,8 @@ label fex_shadow:
     show guppy happy at f32
     show sevony surprise at t33
     show ryu hurt at t31
+    play sound feed1
+    pause 0.2
     guppy "{sc}¡OOOOH!{/sc}" with vpunch
 
     play sound footsteps
@@ -715,10 +728,23 @@ label fex_search:
     "{color=#8cf}En el centro del recinto había situada una plaza tranquila."
     "{color=#8cf}Los demás ya están investigando por ahí."
     $ inv_name = "inv_c0_plaza"
-    $ talk = {"umi": "Umi Yoshiharu", "ghiang": "Chica de los moños"}
-    $ obj = {"tree": (755, 149, "Árbol"), "fountain": (179, 349, "Fuente"), "buildings": (165, 217, "Edificios en la distancia"), "street": (405, 475, "Camino")}
+    $ talk = {
+        "umi": "Umi Yoshiharu",
+        "ghiang": "Chica de los moños",
+        "jaeke": "Chico antipático"
+    }
+    $ obj = {
+        "tree": (755, 149, "Árbol"),
+        "fountain": (179, 349, "Fuente"),
+        "buildings": (165, 217, "Edificios en la distancia"),
+        "street": (405, 475, "Camino")
+    }
     call screen investigation(inv_name, talk, obj, "plaza")
-    $ talk = {"umi": "Umi Yoshiharu", "ghiang": "Chica de los moños"}
+    $ talk = {
+        "umi": "Umi Yoshiharu",
+        "ghiang": "Chica de los moños",
+        "jaeke": "Chico antipático"
+    }
 
 # Investigación: Plaza
 label inv_c0_plaza_umi:         # Umi Yoshiharu
@@ -743,6 +769,45 @@ label inv_c0_plaza_ghiang:      # Chica de los moños
 
     call screen investigation(inv_name, talk, obj, "plaza")
 
+label inv_c0_plaza_jaeke:       # Chico antipático
+    show takahiro stand at t21
+    show jaeke stand at f22
+    jaeke "Eh."
+    jaeke "¿Sabéis algo de la situación actual?"
+
+    show takahiro joke at f21
+    show jaeke stand at t22
+    takahiro "Vaya, vaya. Veo que te dignas por fin a hablarme."
+    show takahiro think at f21
+    takahiro "Lo único que sé es que hay gente... bastante peculiar."
+    
+    show takahiro think at t21
+    show jaeke annoyed at f22
+    jaeke "Antes has estado hablando con ellos... ¿No has sido capaz de preguntar absolutamente nada que nos sea de utilidad?"
+
+    show jaeke annoyed at t22
+    show takahiro think at f21
+    takahiro "Diría que todos sabemos lo mismo de este lugar, así que no creo que nadie tenga información realmente útil."
+
+    show takahiro think at t21
+    show jaeke facepalm at f22
+    jaeke "Pues tampoco perdías nada por preguntar por lo menos, estúpido."
+    show jaeke annoyed at f22
+    jaeke "Agh... Está bien. A partir de ahora, trabajarás para mí. A ver si así consigues hacer algo bien."
+
+    show jaeke annoyed at t22
+    "{color=#8cf}Si sigo escuchando a ese chico, me va a acabar dando dolor de cabeza."
+    
+    hide jaeke
+    hide takahiro
+    with dissolve
+
+    python:
+        if "jaeke" in talk:
+            del talk["jaeke"]
+
+    call screen investigation(inv_name, talk, obj, "plaza")
+
 label inv_c0_plaza_tree:        # Árbol
     "{color=#8cf}La vegetación de la plaza hace que corra el aire fresco. Ideal para crear un ambiente calmado."
 
@@ -755,6 +820,26 @@ label inv_c0_plaza_tree:        # Árbol
 
 label inv_c0_plaza_fountain:    # Fuente
     "{color=#8cf}En el centro de la plaza hay una fuente muy bonita."
+
+    show raiden stand at t21
+    show gaelg think at t22
+    pause 0.4
+    show gaelg think at f22
+    gaelg "Fuente, fuente... ¿No había una fuente por aquí?"
+    show gaelg think at t22
+    luc "(...)"
+    show gaelg think at f22
+    gaelg "Decían que había una fuente, pero..."
+
+    play sound feed1
+    show gaelg surprise at h22
+    show raiden yell at hf21
+    luc "¡GAEL! ¡AQUÍ HAY AGUA!" with hpunch
+
+    hide raiden
+    hide gaelg
+    with dissolve
+
     python:
         if "fountain" in obj:
             del obj["fountain"]
@@ -806,12 +891,12 @@ label fex_chase:
     
     show takahiro laugh at t21
     show umi smile at f22
-    umi "Está tanteando el terreno."
+    umi "Está tanteando el terreno, comprobando si el sitio es seguro."
 
     show umi smile at t22
     "{color=#8cf}Si sigue saltando a lo loco, se podría caer y hacer daño..."
 
-    menu:   # TODO: Cambiar la pantalla del menú de elecciones
+    menu:
         "¿No deberíamos hacer algo...?":
             akane "¿No deberíamos hacer algo...?"
             
@@ -826,6 +911,34 @@ label fex_chase:
         "(...)":
             akane "(...)"
             "{color=#8cf}Bueno, parece bastante ágil... Estará bien."
+
+    hide takahiro
+    hide umi
+    with dissolve
+
+    play sound feed1
+    "{color=#090}Paf." with hpunch
+
+    "{color=#8cf}¡Pero si se acaba de chocar contra un tronco!"
+
+    show guppy hurt at t11
+    guppy "(...)"
+    show guppy panic at h11
+    guppy "({sc}!!!{/sc})"
+
+    "{color=#8cf}Pobrecita, se ha llevado un buen golpe... Y parece asustada..."
+    "{color=#8cf}El ruido de los árboles ha parado."
+
+    stop music fadeout 1.0
+    play sound announcement
+    pause 5.0
+
+    show guppy earscovered at h11
+    fex "{color=#090}¡Ejem, ejem! Atención todo el mundo. ¡Atención!"
+
+    "{color=#8cf}Empezó a sonar una voz chillona incorpórea. A juzgar por la calidad del sonido, provenía de los altavoces de un sistema de megafonía."
+
+    fex "{color=#090}Me gustaría que, por favor, volviérais por donde vinisteis...\n{bt=a1-p10-s1}{color=#090}El espectáculo comenzará pronto.{/bt}"
 
     "FIN"
     return
