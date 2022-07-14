@@ -58,6 +58,7 @@ define guppy = Character('Niña pez', color = '#ff8b3d', callback = beepy_voice_
 define ichika = Character('Elegante', color = '#2ece49', callback = beepy_voice_high)
 define ghiang = Character('Moños', color = '#1398a2', callback = beepy_voice_high)
 define fex = Character('(?)', color = '#6b7d4a', callback = beepy_voice_high)
+define gaelm = Character('Nervioso', color = '#87a0bd', callback = beepy_voice_deep)
 #endregion
 # TODO: Incluir a Ichika, Gael M., Ghiang y Kiiro en el guion
 
@@ -927,7 +928,7 @@ label fex_chase:
     guppy "({sc}!!!{/sc})"
 
     "{color=#8cf}Pobrecita, se ha llevado un buen golpe... Y parece asustada..."
-    "{color=#8cf}El ruido de los árboles ha parado."
+    "{color=#8cf}El ruido de los árboles ha parado. Fuera lo que sea, ya habrá escapado."
 
     stop music fadeout 1.0
     play sound announcement
@@ -938,7 +939,157 @@ label fex_chase:
 
     "{color=#8cf}Empezó a sonar una voz chillona incorpórea. A juzgar por la calidad del sonido, provenía de los altavoces de un sistema de megafonía."
 
+    hide guppy with dissolve
+
     fex "{color=#090}Me gustaría que, por favor, volviérais por donde vinisteis...\n{bt=a1-p10-s1}{color=#090}El espectáculo comenzará pronto.{/bt}"
 
+    akane "¿Qué...? ¿Un espectáculo?"
+
+    show ichika happy at f21
+    ichika "¡Qué bien! ¡Nos han preparado un espectáculo de bienvenida y todo!"
+    
+    show ichika happy at t21
+    show ghiang think at f22
+    ghiang "No sé yo... A mí me huele a chamusquina."
+
+    show ghiang think at t22
+    akane "Tampoco tenemos mucho más que hacer, ¿no? Y seguramente consigamos nueva información una vez vayamos allí..."
+    akane "Esa voz... tiene que ser la persona que nos ha traído hasta aquí."
+
+    show ichika happy at t31
+    show ghiang think at t32
+    show gaelm nervous at f33
+
+    gaelm "S-sí... Yo diría que lo mejor es que hagamos caso... S-si queréis, claro."
+
+    hide ichika
+    hide ghiang
+    hide gaelm
+    with dissolve
+
+    play sound footsteps
+    "{color=#8cf}No hay más remedio. Regresamos a la entrada, con paso pesado y una extraña sensación..."
+
+    scene black with fade
+    call sevony_exec
+
+# Bienvenidos al juego de matanza mutua
+label sevony_exec:
+    show bg entrance with fade
+    
+    show sevony stand at t22
+    show ryu hurt at t21    
+    "{color=#8cf}Sevony está usando el pañuelo que le dio el de la mascarilla para limpiar la herida."
+
+    show ryu hurt at f21
+    ryu "A-ay... Eres muy amable, Sevony..."
+    ryu "Estoy seguro de que me recuerdas a alguien..."
+    ryu "¿Cuál es tu apellido, a todo esto? Ya que tú me llamas Itsuki..."
+
+    show ryu hurt at t21
+    show sevony smile at f22
+    sevony "Ah... Siento mis modales por eso... Es cierto que no me he presentado adecuadamente."
+    show sevony serious at f22
+    sevony "{b}Maáz{/b}." with flash
+
+    show sevony serious at t22
+    show ryu shock at f21
+    ryu "¿P-perdona?"
+
+    scene cg c0_sevonyknife with fade
+    play sound knife_slide
+    pause 0.5
+    $ sevony.name = "Sevony Maáz"
+    sevony "Mi apellido...{w=0.5} es Maáz."
+    sevony "Pero en el fondo ya lo sabías... ¿verdad, Ryu?"
+
+    ryu "(...)"
+    ryu "Maldita..."
+    ryu "Je, je. Supongo que no todo podía salir bien, ¿verdad?"
+
+    show cg c0_ryubutton with fade
+    #"{color=#8cf}Ryu sacó algo de su bolsillo..."
+    play sound button_click
+    "{color=#090}Clic." with flash
+    show black
+    play sound cannon
+    "{color=#8cf}Sevony fue propulsada hacia el cielo en un vuelo sin destino por una plataforma del suelo."
+    play sound countdown
+    queue sound countdown volume 0.8
+    queue sound countdown volume 0.4
+    queue sound countdown volume 0.2
+    pause 2.0
+    play sound explosion3
+    scene cg c0_skyexplosion with vpunch
+    pause 2.0
+    "{color=#8cf}Explotó en un baño de sangre en el cielo."
+    "{color=#8cf}Todos los demás estábamos... sin palabras. Inmóviles. Incrédulos."
+
+    show bg entrance with fade
+    show ryu sick at f11
+    ryu "Imbécil... Siempre tiene que salir algo mal... ¿Cómo se me pudo pasar? Malditas... cucarachas entrometidas."
+
+    play sound fex_run
+    show fex angry at l21
+    pause 0.5
+    show fex angry at f21
+    show ryu sick at t11
+    fex "¡Pero cómo se te ocurre hacer una ejecución sin mí!"
+
+    show fex angry at t21
+    "{color=#8cf}¿Eso es... un zorro que habla?"
+    play sound feed1
+    show ryu hurt at t22 with flash
+    "{color=#8cf}¡Ha golpeado a Ryu con esa fusta que lleva!"
+
+    show fex cry at f21
+    fex "¡Ni me has esperado! ¡EL DOLOOOR...!"
+
+    "{color=#8cf}¿Pero qué está pasando...?"
+
+    hide ryu
+    hide fex
+    with dissolve
+
+    $ inv_name = "inv_c0_welcome"
+    $ talk = {
+        "ryu": "Ryu Itsuki",
+        "luc": "Chico del pañuelo",
+        "gaelg": "Gael García"
+    }
+    call screen investigation(inv_name, talk)
+    $ talk = {
+        "ryu": "Ryu Itsuki",
+        "luc": "Chico del pañuelo",
+        "gaelg": "Gael García"
+    }
+
+# Investigación: Ryu y Monofex
+label inv_c0_welcome_luc:
+    show raiden stand at f11
+    luc "(...)"
+    show raiden laugh at f11
+    luc "¡Ja, ja, ja! ¡¡Cómo mola!! ¡¿Cómo ha hecho eso?!" with hpunch
+
+    hide raiden with dissolve
+
+    python:
+        if "luc" in talk:
+            del talk["luc"]
+
+    call screen investigation(inv_name, talk)
+
+label inv_c0_welcome_gaelg:
+
+    python:
+        if "gaelg" in talk:
+            del talk["gaelg"]
+
+    call screen investigation(inv_name, talk)
+
+label inv_c0_welcome_ryu:
+
+    jump game_rules
+
+label game_rules:
     "FIN"
-    return
