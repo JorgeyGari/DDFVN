@@ -1229,5 +1229,6 @@ label game_rules:
     "{color=#8cf}Y, sin que lo hubiera terminado de procesar, este fue el pistoletazo de salida de un juego..."
     "{color=#8cf}donde los compañeros son la llave a la victoria, pero la confianza tiene valor nulo." with flash
 
-    "FIN"
+    jump void_c0_1
+
     return
