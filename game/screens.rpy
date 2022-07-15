@@ -1568,7 +1568,6 @@ screen investigation(inv_name, talk={}, obj={}, place=""):
             tooltip talk[char]
             at move_in_right
         $ y += 120  # El siguiente botón irá 120 px debajo del anterior
-    # FIXME: Estaría bien que los botones aparecieran uno a uno, no todos a la vez
 
 # Para que la tooltip se muestre al frente:
     $ tooltip = GetTooltip()
