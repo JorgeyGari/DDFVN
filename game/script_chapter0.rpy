@@ -1157,9 +1157,9 @@ label game_rules:
     ryu "(...)"
     ryu "No podía librarme de vosotros tan fácil, ¿eh?"
     
-    fer "El olor a mierda que desprendes deja un rastro fácil de seguir, {nw}"
+    fer "El olor a mierda que desprendes deja un rastro fácil de seguir,{w=0.1}{nw}"
     show cg c0_fercloseup
-    extend "{b}Ryu Itsuki{/b}." with flash
+    extend "\n{b}Ryu Itsuki{/b}." with flash
     fer "Tengo que hablar contigo."
 
     ryu "Bah."
@@ -1183,7 +1183,7 @@ label game_rules:
     hide fex with dissolve
 
     "{color=#8cf}Aún estoy temblando un poco..."
-    "{color=#8cf}Ha sido todo tan rápido... y tan salido de la nada..."
+    "{color=#8cf}Ha sido todo tan rápido... y tan extraño..."
     "{color=#8cf}¿No podemos salir a menos que matemos a alguien, igual que ha hecho Ryu con Sevony?"
     "{color=#8cf}Mientras intentaba organizar mis pensamientos, por fin se rompió el silencio."
 
