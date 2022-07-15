@@ -14,7 +14,8 @@ init python:
             renpy.sound.play(beep, loop = True)
         elif event == "slow_done":
             renpy.sound.stop(fadeout = 0.5)
-    
+    # FIXME: Los pitidos deberían tener un canal propio para que puedan sonar a la vez que los efectos de sonido
+
     def beepy_voice_high(event, interact=True, **kwargs):
         if not interact:
             return
@@ -30,9 +31,10 @@ init python:
     def alter_say_strings(str_to_test): # Pausas automáticas en el texto con cada signo de puntuación
         str_map = {
             ". " : ". {w=0.25}", 
-            "? " : "? {w=0.25}", 
-            ".\n" : ".\n{w=0.25}", 
-            "(...)\n" : "(...)\n{w=0.3}",
+            "? " : "? {w=0.25}",
+            "(...)\n" : "(...)\n{w=0.25}",
+            "\n" : "\n{w=0.25}", 
+            "(...)" : "(...){w=0.25}",
             "! " : "! {w=0.25}", 
             ", " : ", {w=0.05}",
         }
@@ -59,12 +61,15 @@ define ichika = Character('Elegante', color = '#2ece49', callback = beepy_voice_
 define ghiang = Character('Moños', color = '#1398a2', callback = beepy_voice_high)
 define fex = Character('(?)', color = '#6b7d4a', callback = beepy_voice_high)
 define gaelm = Character('Nervioso', color = '#87a0bd', callback = beepy_voice_deep)
+define fer = Character('(?)', color = '#702a2a', callback = beepy_voice_deep)
 #endregion
 # TODO: Incluir a Ichika, Gael M., Ghiang y Kiiro en el guion
 
 #region Definición de música
 define audio.beautiful_lament = "<loop 15.6859>audio/BSO/Beautiful Lament.ogg"
 define audio.kitsune_to_tanuki = "<loop 51.128>audio/BSO/Kitsune to Tanuki no Omanuke na Bakashi Ai.ogg"
+define audio.living_to_the_fullest = "<loop 60.209>audio/BSO/Living to the Fullest.ogg"
+define audio.weekly_despair = "<loop 58.095>audio/BSO/Weekly Despair Magazine.ogg"
 #endregion
 
 # Inicio del juego
@@ -865,6 +870,7 @@ label inv_c0_plaza_buildings:   # Edificios en la distancia
 
     call screen investigation(inv_name, talk, obj, "plaza")
 
+# Posinvestigación: Guppy persigue a Monofex
 label fex_chase:
     show guppy stare at focus
     stop music fadeout 2.0
@@ -971,7 +977,7 @@ label fex_chase:
     "{color=#8cf}No hay más remedio. Regresamos a la entrada, con paso pesado y una extraña sensación..."
 
     scene black with fade
-    call sevony_exec
+    jump sevony_exec
 
 # Bienvenidos al juego de matanza mutua
 label sevony_exec:
@@ -988,7 +994,7 @@ label sevony_exec:
 
     show ryu hurt at t21
     show sevony smile at f22
-    sevony "Ah... Siento mis modales por eso... Es cierto que no me he presentado adecuadamente."
+    sevony "Ah... Siento mis modales... Es cierto que no me he presentado adecuadamente."
     show sevony serious at f22
     sevony "{b}Maáz{/b}." with flash
 
@@ -998,8 +1004,10 @@ label sevony_exec:
 
     scene cg c0_sevonyknife with fade
     play sound knife_slide
+    with flash
     pause 0.5
     $ sevony.name = "Sevony Maáz"
+    play music living_to_the_fullest
     sevony "Mi apellido...{w=0.5} es Maáz."
     sevony "Pero en el fondo ya lo sabías... ¿verdad, Ryu?"
 
@@ -1007,6 +1015,7 @@ label sevony_exec:
     ryu "Maldita..."
     ryu "Je, je. Supongo que no todo podía salir bien, ¿verdad?"
 
+    stop music fadeout 2.0
     show cg c0_ryubutton with fade
     #"{color=#8cf}Ryu sacó algo de su bolsillo..."
     play sound button_click
@@ -1022,12 +1031,15 @@ label sevony_exec:
     play sound explosion3
     scene cg c0_skyexplosion with vpunch
     pause 2.0
+    play music weekly_despair
+
     "{color=#8cf}Explotó en un baño de sangre en el cielo."
+    "{color=#8cf}Me llevé las manos a las orejas instintivamente para taparme los oídos."
     "{color=#8cf}Todos los demás estábamos... sin palabras. Inmóviles. Incrédulos."
 
     show bg entrance with fade
     show ryu sick at f11
-    ryu "Imbécil... Siempre tiene que salir algo mal... ¿Cómo se me pudo pasar? Malditas... cucarachas entrometidas."
+    ryu "Imbécil... Siempre tiene que salir algo mal... ¿Cómo se me pudo pasar? Malditas cucarachas entrometidas."
 
     play sound fex_run
     show fex angry at l21
@@ -1038,14 +1050,14 @@ label sevony_exec:
 
     show fex angry at t21
     "{color=#8cf}¿Eso es... un zorro que habla?"
+    "{color=#8cf}¡Es la voz que sonaba de los altavoces!"
+    "{color=#8cf}Y por el tamaño... tiene que ser también la sombra que perseguíamos antes."
     play sound feed1
     show ryu hurt at t22 with flash
     "{color=#8cf}¡Ha golpeado a Ryu con esa fusta que lleva!"
 
     show fex cry at f21
     fex "¡Ni me has esperado! ¡EL DOLOOOR...!"
-
-    "{color=#8cf}¿Pero qué está pasando...?"
 
     hide ryu
     hide fex
@@ -1055,21 +1067,25 @@ label sevony_exec:
     $ talk = {
         "ryu": "Ryu Itsuki",
         "luc": "Chico del pañuelo",
-        "gaelg": "Gael García"
+        "gaelg": "Gael García",
+        "danny": "Chico dormilón",
+        "emiko": "Coletas"
     }
     call screen investigation(inv_name, talk)
     $ talk = {
         "ryu": "Ryu Itsuki",
         "luc": "Chico del pañuelo",
-        "gaelg": "Gael García"
+        "gaelg": "Gael García",
+        "danny": "Chico dormilón",
+        "emiko": "Chica de coletas"
     }
 
 # Investigación: Ryu y Monofex
-label inv_c0_welcome_luc:
+label inv_c0_welcome_luc:       # Chico del pañuelo
     show raiden stand at f11
     luc "(...)"
     show raiden laugh at f11
-    luc "¡Ja, ja, ja! ¡¡Cómo mola!! ¡¿Cómo ha hecho eso?!" with hpunch
+    luc "¡Ja, ja, ja! {bt=a1-p10-s1}¡¡Cómo mola!!{/bt} ¡¿Cómo ha hecho eso?!" with hpunch
 
     hide raiden with dissolve
 
@@ -1079,7 +1095,11 @@ label inv_c0_welcome_luc:
 
     call screen investigation(inv_name, talk)
 
-label inv_c0_welcome_gaelg:
+label inv_c0_welcome_gaelg:     # Gael García
+    show gaelg scared at f11
+    gaelg "¿R-Ryu...?"
+    gaelg "¿Qué... ha pasado...? ¿Cómo que «ejecución»...?"
+    hide gaelg with dissolve
 
     python:
         if "gaelg" in talk:
@@ -1087,9 +1107,153 @@ label inv_c0_welcome_gaelg:
 
     call screen investigation(inv_name, talk)
 
-label inv_c0_welcome_ryu:
+label inv_c0_welcome_ryu:       # Ryu Itsuki
+    show fex angry at t21
+    show ryu hurt at t22
+
+    fex "¿Ni un mínimo respeto a los compañeros de trabajo?\nJoder, vaya forma de empezar el juego de muerte."
+    fex "¡Venga, que tienes cosas que explicar! ¡Andando!" 
+    show fex angry at t21
+
+    play sound feed1
+    with hpunch
 
     jump game_rules
 
+label inv_c0_welcome_emiko:     # Coletas
+    show emiko shock at f11
+    emiko "(...)"
+    hide emiko shock with dissolve
+
+    python:
+        if "emiko" in talk:
+            del talk["emiko"]
+
+    call screen investigation(inv_name, talk)
+
+label inv_c0_welcome_danny:     # Dormilón
+    show danny shock at f11
+    danny "¿Qué ha sido esa explosión...?"
+    hide danny shock with dissolve
+
+    python:
+        if "danny" in talk:
+            del talk["danny"]
+
+    call screen investigation(inv_name, talk)
+
+label inv_c0_welcome_takahiro:  # Coletas
+    show takahiro shock at f11
+    takahiro "Me temía que ocurriera algo turbio, pero esto es pasarse..."
+    hide takahiro shock with dissolve
+
+    python:
+        if "takahiro" in talk:
+            del talk["takahiro"]
+
+    call screen investigation(inv_name, talk)
+
+# Posinvestigación: Las reglas del juego
 label game_rules:
+    "{color=#8cf}Ryu soltó un gruñido de molestia."
+    
+    scene cg c0_ryueye with fade
+    "{color=#8cf}Retiró unas pocas vendas de su rostro, dejando ver su ojo izquierdo brillante en un intenso rojo carmesí."
+
+    ryu "Sé que estaréis sorprendidos. Incluso indignados algunos."
+    ryu "Pero no me entristece comunicaros que sois los elegidos para participar en un {b}juego de matanza mutua{/b}..."
+    ryu "Un juego que dirijo yo mismo, junto a mi pequeño «amiguito»."
+
+    fex "¡¿«Pequeño»?! ¡«Pequeño», dice!"
+
+    $ fex.name = "Monofex"
+    ryu "Os presento a {b}Monofex{/b}, quien realmente será el encargado de supervisar vuestros movimientos."
+    ryu "Yo me limitaré a mover los hilos desde detrás."
+
+    fex "¡Pues venga, quita de en medio!"
+    scene cg c0_monofexintro with flash
+    play sound feed1
+    fex "¡ESCUCHADME, RECLUTAS!" with hpunch
+    fex "Estáis en las instalaciones privadas Sonyu y formáis parte del juego de matanza del grupo Alfa."
+    fex "¡ABRID BIEN LAS OREJAS, PORQUE OS VOY A EXPLICAR QUÉ SIGNIFICA ESO!"
+    fex "Os vais a matar {w=0.5}los unos a los otros {w=0.5}a menos que queráis acabar como la chica cohete de hace un momento." with flash
+
+    scene bg entrance with fade
+    show ryu smirk at t22
+    show fex stand at t21
+
+    show ryu smirk at f22
+    ryu "En efecto...\nEl juego funcionará de manera sencilla."
+    ryu "Nadie puede escapar ni salir de aquí, a menos..."
+    show ryu evil at f22
+    ryu "que {b}asesine{/b} a uno de sus {bt=a1-p10-s1}preciados{/bt} compañeros." with flash
+
+    show ryu smirk at t22
+    "{color=#8cf}Ryu sacó del bolsillo el amuleto que Gael le había dado minutos antes..."
+
+    play sound stomp
+    scene cg c0_charmstomp with vpunch
+    pause 1.0
+    ryu "Vuestros vínculos de pacotilla no os servirán de nada aquí."
+    ryu "{b}Cualquiera{/b} puede aprovechar esa bonita confianza que habéis construido para traicionaros y escapar." with flash
+
+    scene bg entrance with fade
+    show ryu smirk at t22
+    show fex angry at t21
+
+    show fex angry at f21
+    fex "¡Y ni se os ocurra intentar escapar por la fuerza! Ya habéis visto lo que le pasó a vuestra amiguita."
+
+    show fex angry at t21
+    show ryu explain at f22
+    ryu "Todos aquí tenéis un {b}microchip{/b} que os hemos incrustado en el cuello."
+    ryu "Está colocado de tal forma que es imposible sacarlo sin provocar heridas letales."
+    ryu "Si salís de los límites del recinto, {nw}"
+    extend "morís.\n{nw}" with flash
+    extend "Si me atacáis, {nw}"
+    extend "morís.\n{nw}" with flash
+    extend "Si Monofex lo dice, {nw}"
+    extend "morís." with flash
+    show ryu sigh at f22
+    ryu "No os lo toméis como algo personal. Yo no os voy a molestar, así que haced como si no estuviera por aquí."
+    ryu "Si os asalta cualquier duda, dirigídsela a Monofex."
+
+    show ryu sigh at t22
+    show fex angry at f21
+    fex "¡Así es! Ya está todo explicado, ¡rompan fil{nw}...!"
+
+    stop music
+    fer "Tsk, tsk... Aún no hemos terminado." with flash
+
+    scene cg c0_ferintro with fade
+    fer "He visto tu espectáculo. Mucha sangre, te ha quedado de lujo."
+
+    ryu "(...)"
+    ryu "No podía librarme de vosotros tan fácil, ¿eh?"
+    
+    fer "El olor a mierda que desprendes deja un rastro fácil de seguir, {nw}"
+    show cg c0_fercloseup
+    extend "{b}Ryu Itsuki{/b}." with flash
+    fer "Tengo que hablar contigo."
+
+    ryu "Bah."
+    ryu "De acuerdo.\nMonofex, llévate a los prisioneros hasta los dormitorios."
+
+    play sound footsteps
+    scene bg entrance with fade
+    queue sound feed1
+    pause 0.6
+
+    ryu "¡P-PERO SERÁS ANIMAL! ¡SUÉLTAME, PEDAZO DE...!" with hpunch
+
+    fer "Anda, no seas llorica, mente maestra de pacotilla."
+
+    "{color=#8cf}El hombre salido de la nada se llevó a Ryu a rastras, agarrándolo bien fuerte del brazo."
+
+    show fex scared at t11
+    fex "(...)"
+    show fex scared at f11
+    fex "B-bueno, pues... hay dos secciones de dormitorios.\nPodéis dividiros como queráis... yo os... guiaré."
+
     "FIN"
+    return
