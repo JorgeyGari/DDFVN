@@ -43,6 +43,7 @@ init python:
         return str_to_test
 
 define config.say_menu_text_filter = alter_say_strings
+default mtt = MouseTooltip(Text(""), padding={"x": 10, "y": -10})
 
 #region Definición de personajes
 define ryu = Character('Rubio', color = '#aa3333', callback = beepy_voice_deep)
