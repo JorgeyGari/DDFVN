@@ -1560,7 +1560,6 @@ screen investigation(inv_name, talk={}, obj={}, place=""):
             action Jump(inv_name+"_"+o)
             focus_mask True
 
-
     for char in talk:
         imagebutton:
             xpos 0
