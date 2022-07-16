@@ -5,18 +5,18 @@ label ch0_intro:
     pause 2.0
     play music breaking
 
-    "{color=#090}¡Alerta! ¡Alerta!\n¡Caos en la ciudad!{/color}"
+    "{sy}¡Alerta! ¡Alerta!\n¡Caos en la ciudad!"
 
     scene cg c0_breaking with fade
 
-    "{color=#090}En las últimas 24 horas se ha desatado una gran cantidad de incidentes en el este, oeste y centro de la ciudad de Gekkou.{/color}"
-    "{color=#090}La intensidad de estos ataques va aumentando con el paso de las horas, se recomienda...{/color}"
+    "{sy}En las últimas 24 horas se ha desatado una gran cantidad de incidentes en el este, oeste y centro de la ciudad de Gekkou."
+    "{sy}La intensidad de estos ataques va aumentando con el paso de las horas, se recomienda..."
 
     stop music fadeout 0.3
     play sound tv_static fadein 0.5
     show cg c0_static
 
-    "{color=#090}(...){/color}"
+    "{sy}(...)"
 
     scene black with fade
     stop sound fadeout 1.5
@@ -29,29 +29,29 @@ label truck:
     play music "audio/truck_engine.ogg" fadein 1.0
     show bg truck with fade
 
-    "{color=#8cf}Cuando me desperté, todo estaba oscuro.{/color}"
-    "{color=#8cf}Me encontraba en lo que parecía ser un camión de transporte.{/color}"
-    "{color=#8cf}Podía escuchar el motor del vehículo y, a mi alrededor, pude distinguir a más gente despertar como yo.{/color}"
+    "{th}Cuando me desperté, todo estaba oscuro."
+    "{th}Me encontraba en lo que parecía ser un camión de transporte."
+    "{th}Podía escuchar el motor del vehículo y, a mi alrededor, pude distinguir a más gente despertar como yo."
 
     show ryu concern at t11
-    "{color=#8cf}Un chico de pelo claro permanecía sentado, abrazado a sus piernas, en silencio al fondo del camión.{/color}"
-    "{color=#8cf}Lo oí soltar un suspiro de angustia justo antes de hundir la cabeza entre las piernas."
+    "{th}Un chico de pelo claro permanecía sentado, abrazado a sus piernas, en silencio al fondo del camión."
+    "{th}Lo oí soltar un suspiro de angustia justo antes de hundir la cabeza entre las piernas."
     hide ryu with dissolve
 
     show sevony concern at t11
-    "{color=#8cf}También había una chica con gafas que inhaló y espiró en un claro intento de tranquilizarse."
-    "{color=#8cf}Echó una mirada a su alrededor, justo antes de..."
+    "{th}También había una chica con gafas que inhaló y espiró en un claro intento de tranquilizarse."
+    "{th}Echó una mirada a su alrededor, justo antes de..."
 
     show sevony surprise at h11
     play sound "audio/truck_bump.ogg"
     with vpunch
-    "{color=#090}¡Pam!"
+    "{sy}¡Pam!"
 
-    "{color=#8cf}Un bache en el camino despertó a casi todos los que seguían dormidos..."
-    "{color=#8cf}Ahora que hay más gente despierta, tal vez debería fijarme en quiénes son mis compañeros de viaje..."
+    "{th}Un bache en el camino despertó a casi todos los que seguían dormidos..."
+    "{th}Ahora que hay más gente despierta, tal vez debería fijarme en quiénes son mis compañeros de viaje..."
 
     hide sevony with dissolve
-    "{color=#090}Haz clic en el icono del personaje en quien te quieras fijar.{fast}"
+    "{sy}Haz clic en el icono del personaje en quien te quieras fijar.{fast}"
 
     $ inv_name = "inv_c0_truck"
     $ talk = {
@@ -72,16 +72,16 @@ label inv_c0_truck_ryu:     # Chico rubio
 
     show ryu stand at t21
     show sevony surprise at t22
-    "{color=#8cf}Las gafas de la chica de pelo violeta habían salido despedidas por culpa del bache."
+    "{th}Las gafas de la chica de pelo violeta habían salido despedidas por culpa del bache."
     show ryu stand at s21
-    "{color=#8cf}El rubio se agachó al oírlas caer. Habían aterrizado cerca de él."
+    "{th}El rubio se agachó al oírlas caer. Habían aterrizado cerca de él."
     show ryu stand at t32
-    "{color=#8cf}Gateó un poco hasta alcanzarlas y se las acercó a su dueña, con una cálida sonrisa."
+    "{th}Gateó un poco hasta alcanzarlas y se las acercó a su dueña, con una cálida sonrisa."
 
     show ryu smile at f32
     ryu "Toma, ve con cuidado... Sería una pena que se te rompieran."
 
-    "{color=#8cf}Lo dijo flojito, como si no quisiera llamar demasiado la atención en un ambiente tan tenso."
+    "{th}Lo dijo flojito, como si no quisiera llamar demasiado la atención en un ambiente tan tenso."
 
     show ryu smile at t21
     show sevony smile at f22
@@ -98,13 +98,13 @@ label inv_c0_truck_ryu:     # Chico rubio
     with dissolve
 
     show gaelg stand at t11
-    "{color=#8cf}Un chico que parecía nervioso y confundido observaba la conversación."
-    "{color=#8cf}Los miraba mientras murmuraba para sí mismo."
+    "{th}Un chico que parecía nervioso y confundido observaba la conversación."
+    "{th}Los miraba mientras murmuraba para sí mismo."
 
     show gaelg stand at d11
     gaelg "Mi chamanismo me sacará de esta.\nEscaparé de aquí."
 
-    "{color=#8cf}Finalmente, consiguió reunir valor para hablarle a los presentes en lugar de al cuello de la camisa."
+    "{th}Finalmente, consiguió reunir valor para hablarle a los presentes en lugar de al cuello de la camisa."
 
     show gaelg stand at hf11
     gaelg "Hum... ¿C-cómo te llamas?"
@@ -131,19 +131,19 @@ label inv_c0_truck_ryu:     # Chico rubio
     show gaelg stand at f31
     gaelg "A-ah... yo soy... Gabriel..."
 
-    "{color=#8cf}Gabriel se quedó bloqueado por un momento."
+    "{th}Gabriel se quedó bloqueado por un momento."
 
     show gaelg surprise at hf31
     $ gaelg.name = "Gael García"
     gaelg "¡QUIERO DECIR! Gael. Gael García, a tu servicio."
     show gaelg surprise at t31
 
-    "{color=#8cf}¿En serio se le ha olvidado su propio nombre?"
+    "{th}¿En serio se le ha olvidado su propio nombre?"
 
     show ryu stand at f32
     ryu "Sevony y Gael... Tenéis nombres exóticos, son bonitos."
 
-    "{color=#8cf}La expresión de Ryu se había apagado."
+    "{th}La expresión de Ryu se había apagado."
 
     ryu "Sevony... Me recuerdas a alguien, ¿sabes? Aunque tal vez solo sea mi imaginación."
     show ryu stand at t32
@@ -151,7 +151,7 @@ label inv_c0_truck_ryu:     # Chico rubio
     show sevony smile at hf33
     sevony "Más que seguro, su imaginación. Mucha gente pasa por la ciudad."
 
-    "{color=#8cf}Sevony ha contestado muy rápido..."
+    "{th}Sevony ha contestado muy rápido..."
     show sevony smile at t33
     show ryu think at f32
     ryu "Hum... Seguramente sea eso."
@@ -174,7 +174,7 @@ label inv_c0_truck_ryu:     # Chico rubio
     show sevony smile at f33
     sevony "Soy de Gekkou, una ciudad un poco al norte de aquí."
 
-    "{color=#8cf}Su sonrisa amable contrastaba con el tono frío, seguramente involuntario, de su voz."
+    "{th}Su sonrisa amable contrastaba con el tono frío, seguramente involuntario, de su voz."
 
     show sevony smile at t33
     show gaelg happy at f31
@@ -182,20 +182,20 @@ label inv_c0_truck_ryu:     # Chico rubio
     gaelg "Hoy es una victoria para el {b}chamán definitivo{/b}."
 
     show ryu surprise at t32
-    "{color=#8cf}Al oír el talento definitivo de Gael, Ryu lo miró con mucho interés."
+    "{th}Al oír el talento definitivo de Gael, Ryu lo miró con mucho interés."
 
     show gaelg happy at t31
     show ryu surprise at f32
     ryu "Chamán... Qué interesante."
 
     show ryu surprise at t32
-    "{color=#8cf}¿Será este el inicio de una agradable amistad?"
+    "{th}¿Será este el inicio de una agradable amistad?"
 
     play sound "audio/truck_bump.ogg"
     with vpunch
-    "{color=#090}¡Pam!"
+    "{sy}¡Pam!"
 
-    "{color=#8cf}¡¿Otro bache?!"
+    "{th}¡¿Otro bache?!"
 
     hide ryu
     hide gaelg
@@ -217,22 +217,22 @@ label inv_c0_truck_jaeke:   # Chico antipático
     show takahiro stand at t22
     with dissolve
 
-    "{color=#8cf}En una esquina del vehículo se encontraba un chico con cara de pocos amigos."
-    "{color=#8cf}Otro muchacho con ropa llamativa se le acercó."
+    "{th}En una esquina del vehículo se encontraba un chico con cara de pocos amigos."
+    "{th}Otro muchacho con ropa llamativa se le acercó."
 
     show takahiro ask at f22
     takahiro "Eh, ¿y tú eres...?"
     show takahiro ask at t22
 
     show jaeke annoyed
-    "{color=#8cf}El moreno le devolvió una fría mirada y no medió palabra."
+    "{th}El moreno le devolvió una fría mirada y no medió palabra."
 
     show takahiro ask at f22
     takahiro "Ya veo que eres alguien con quien es fácil hablar..."
     show takahiro ask at t22
 
     show jaeke annoyed at t32
-    "{color=#8cf}Nada más oír eso, el mudo se levantó, se le acercó y empezó a susurrar."
+    "{th}Nada más oír eso, el mudo se levantó, se le acercó y empezó a susurrar."
 
     show jaeke annoyed at f32
     jaeke "Ten cuidado conmigo, chaval.\nNo sabes con quién estás hablando."
@@ -249,11 +249,11 @@ label inv_c0_truck_jaeke:   # Chico antipático
     jaeke "Mejor haz algo productivo, porque no tienes ninguna gracia, fracasado."
     show jaeke annoyed at t21
 
-    "{color=#8cf}Vaya humos se gasta..."
+    "{th}Vaya humos se gasta..."
 
     play sound truck_bump
     with vpunch
-    "{color=#090}¡Pam!"
+    "{sy}¡Pam!"
 
     hide jaeke
     hide takahiro
@@ -271,14 +271,14 @@ label inv_c0_truck_jaeke:   # Chico antipático
 # Posinvestigación: El camión acelera
 label truck_end:
     
-    "{color=#8cf}Creo que ya he escuchado suficiente...\nNo parece que nadie sepa cómo hemos llegado hasta aquí."
-    "{color=#8cf}¿Cómo ha podido pasar esto?\n¿Habré hecho algo para acabar aquí...?"
-    "{color=#8cf}Me decidí a intentar obtener información yo misma."
+    "{th}Creo que ya he escuchado suficiente...\nNo parece que nadie sepa cómo hemos llegado hasta aquí."
+    "{th}¿Cómo ha podido pasar esto?\n¿Habré hecho algo para acabar aquí...?"
+    "{th}Me decidí a intentar obtener información yo misma."
 
     akane "Esto... ¿Alguien sabe dónde estamos?"
 
     show umi stand at t11
-    "{color=#8cf}Una chica muy guapa vestida con un gorro de marinero me dirigió la mirada al oírme."
+    "{th}Una chica muy guapa vestida con un gorro de marinero me dirigió la mirada al oírme."
 
     show umi stand at f11
     umi "No lo sé, pero es un vehículo en movimiento, así que tampoco tiene sentido preguntarse eso hasta que lleguemos."
@@ -310,7 +310,7 @@ label truck_end:
     show raiden surprise at h33
     play sound truck_bump
     with vpunch
-    "{color=#090}¡Pam!"
+    "{sy}¡Pam!"
 
     hide raiden
     hide emiko
@@ -322,35 +322,35 @@ label truck_end:
     with vpunch
     play sound truck_bump volume 1.0 fadein 0.1 fadeout 0.3
     with vpunch
-    "{color=#090}{sc}{color=#090}¡Pum, pam, pom, pum!{/sc}"
+    "{sc}{color=#090}¡Pum, pam, pom, pum!{/sc}"
     
-    "{color=#8cf}Por culpa de todos esos baches, me golpeé la cabeza con el techo del vehículo."
+    "{th}Por culpa de todos esos baches, me golpeé la cabeza con el techo del vehículo."
 
     show umi concern at focus
     umi "¿Te encuentras bien?"
 
     show umi concern at t11
     akane "S-sí..." 
-    "{color=#8cf}Tal vez yo también debería entablar conversación con alguien..."
+    "{th}Tal vez yo también debería entablar conversación con alguien..."
     akane "P-por cierto, ¿cómo te lla...?"
 
     hide umi with dissolve
-    "{color=#8cf}Pero no pude acabar de formular mi pregunta."
+    "{th}Pero no pude acabar de formular mi pregunta."
     show bg truck_move
     play music truck_speed fadein 1.0 fadeout 0.5
-    "{color=#8cf}El vehículo comenzó a serpentear repentinamente, arrojándonos a mí y a los demás pasajeros de un lado a otro." with vpunch
-    "{color=#8cf}Cada vez más rápido, vi que algunos se sostenían a sus asientos como podían, yo me vi forzada a hacer lo mismo..."
+    "{th}El vehículo comenzó a serpentear repentinamente, arrojándonos a mí y a los demás pasajeros de un lado a otro." with vpunch
+    "{th}Cada vez más rápido, vi que algunos se sostenían a sus asientos como podían, yo me vi forzada a hacer lo mismo..."
     stop music fadeout 1.0
     show bg truck
-    "{color=#8cf}Hasta que, al fin, paró."
-    "{color=#8cf}Joder... Qué daño..."
-    "{color=#8cf}Yo había acabado en el suelo, pero no era la única..."
+    "{th}Hasta que, al fin, paró."
+    "{th}Joder... Qué daño..."
+    "{th}Yo había acabado en el suelo, pero no era la única..."
 
     show axiom hurt at s11
     axiom "(...)"
 
     akane "¡Aah! ¿Estás bien?"
-    "{color=#8cf}Fui a buscar mi pañuelo, pero la marinera fue más rápida que yo."
+    "{th}Fui a buscar mi pañuelo, pero la marinera fue más rápida que yo."
     
     show axiom hurt at t21
     show umi concern at t22
@@ -365,13 +365,13 @@ label truck_end:
     show guppy sleep at s22
     show danny sleep at s21
     with dissolve
-    "{color=#8cf}Y también había dos personas durmiendo en el suelo..."
-    "{color=#8cf}Tener buen dormir es una cosa, pero no despertarte con todos esos baches es otra..."
+    "{th}Y también había dos personas durmiendo en el suelo..."
+    "{th}Tener buen dormir es una cosa, pero no despertarte con todos esos baches es otra..."
 
     play sound truck_door
     pause 2.0
     scene bg truck_light with dissolve
-    "{color=#8cf}Y entonces, la puerta se abrió."
+    "{th}Y entonces, la puerta se abrió."
 
     show raiden hurt at hf11 with vpunch
     luc "¡AAH, LA LUZ! ¡Mis ojos!"
@@ -382,7 +382,7 @@ label truck_end:
     with flash
     with vpunch
     akane "¡AGH, MIS OJOS!"
-    "{color=#8cf}La luz entró de golpe en el interior de la parte trasera del camión, acompañado de una corriente de aire refrescante."
+    "{th}La luz entró de golpe en el interior de la parte trasera del camión, acompañado de una corriente de aire refrescante."
 
     show raiden annoyed at f11
     luc "¿Por fin nos dejan salir del autobús?"
@@ -396,7 +396,7 @@ label truck_end:
     show danny sleepy at f33
     danny "Agh, qué luz tan fuerte...\n¿Ya ha llegado a puerto el barco?"
     
-    "{color=#8cf}Se ha despertado y todo..."
+    "{th}Se ha despertado y todo..."
 
     show danny sleepy at t33
     show takahiro stand at f32
@@ -406,20 +406,20 @@ label truck_end:
 
     hide raiden with dissolve
     hide danny with dissolve
-    "{color=#8cf}Uno a uno, los demás siguieron al chico y fueron saliendo del camión."
+    "{th}Uno a uno, los demás siguieron al chico y fueron saliendo del camión."
 
     show guppy sleep at t11
     pause 1.0
-    "{color=#8cf}¿Debería despertarla...?"
+    "{th}¿Debería despertarla...?"
     show guppy sleepy at hop
-    "{color=#8cf}¡Ah! Pobre niña, parece confusa..."
+    "{th}¡Ah! Pobre niña, parece confusa..."
 
     play sound footsteps
     hide guppy with dissolve
 
     pause 1.0
-    "{color=#8cf}(...)\nBueno, pues ahora sí que estamos todos."
-    "{color=#8cf}Seguí a los demás...{w=0.5}{nw}"
+    "{th}(...)\nBueno, pues ahora sí que estamos todos."
+    "{th}Seguí a los demás...{w=0.5}{nw}"
 
     jump entrance
 
@@ -433,13 +433,13 @@ label entrance:
     scene bg entrance with dissolve
 
     pause 2.0
-    "{color=#8cf}Ante nosotros se encontraba un recinto considerablemente grande."
-    "{color=#8cf}Parecía algún tipo de campus extraño..."
+    "{th}Ante nosotros se encontraba un recinto considerablemente grande."
+    "{th}Parecía algún tipo de campus extraño..."
 
     show ryu surprise at t21
     show sevony stand at t22
-    "{color=#8cf}Ryu respiraba hondo, como si intentara recuperar ahora todo el aire que no había podido inhalar mientras estaba en el camión con tanta gente."
-    "{color=#8cf}Sevony observaba sus alrededores, al lado de Ryu, mientras se acomodaba las gafas."
+    "{th}Ryu respiraba hondo, como si intentara recuperar ahora todo el aire que no había podido inhalar mientras estaba en el camión con tanta gente."
+    "{th}Sevony observaba sus alrededores, al lado de Ryu, mientras se acomodaba las gafas."
     
     show sevony stand at f22
     sevony "Curioso..."
@@ -451,9 +451,9 @@ label entrance:
     ryu "Voy a buscar al conductor del autobús."
     hide ryu with dissolve
     hide sevony with dissolve
-    "{color=#8cf}Sevony siguió a Ryu."
-    "{color=#8cf}Ryu desprendía una energía melancólica, pero decidida, como si estuviera capacitado para moverse en este tipo de situaciones..."
-    "{color=#8cf}Si ya van a ir ellos, yo me quedo aquí..."
+    "{th}Sevony siguió a Ryu."
+    "{th}Ryu desprendía una energía melancólica, pero decidida, como si estuviera capacitado para moverse en este tipo de situaciones..."
+    "{th}Si ya van a ir ellos, yo me quedo aquí..."
     
     $ inv_name = "inv_c0_entrance"
     $ talk = {
@@ -469,7 +469,7 @@ label entrance:
 label inv_c0_entrance_umi:      # Hablar con la marinera
 
     show umi stand at t11
-    "{color=#8cf}Me acerqué tímidamente a la chica del gorro..."
+    "{th}Me acerqué tímidamente a la chica del gorro..."
     akane "Mmm, perdona...\nNo he podido preguntarte tu nombre al final."
 
     show umi think at f11
@@ -485,9 +485,9 @@ label inv_c0_entrance_umi:      # Hablar con la marinera
     show umi smile at f11
     umi "Encantada, Akane."
     
-    "{color=#8cf}Umi me observó de abajo a arriba y esbozó una sonrisa."
+    "{th}Umi me observó de abajo a arriba y esbozó una sonrisa."
     show umi smile at t11
-    "{color=#8cf}No la conozco, pero... me transmite tranquilidad."
+    "{th}No la conozco, pero... me transmite tranquilidad."
 
     hide umi with dissolve
 
@@ -504,7 +504,7 @@ label inv_c0_entrance_umi:      # Hablar con la marinera
 label fex_shadow:
     show ryu concern at t21
     show sevony stand at t22
-    "{color=#8cf}En ese momento llegaron Sevony y Ryu de vuelta."
+    "{th}En ese momento llegaron Sevony y Ryu de vuelta."
 
     show ryu concern at f21
     ryu "El asiento del conductor estaba vacío... y tampoco hemos encontrado la llave para arrancar el vehículo."
@@ -534,7 +534,7 @@ label fex_shadow:
     sevony "Parece que tenemos que explorar."
 
     show sevony concern at t22
-    "{color=#8cf}Sevony echó una mirada alrededor.\nHabía algunos caminos que podíamos examinar."
+    "{th}Sevony echó una mirada alrededor.\nHabía algunos caminos que podíamos examinar."
     
     show sevony concern at f22
     sevony "Qué lugar más extraño.{nw}"
@@ -545,7 +545,7 @@ label fex_shadow:
     show fex shadow at leftin(x=1500)
     pause 0.5
 
-    "{color=#8cf}Desde el costado del camión salió una pequeña sombra que echó a correr hacia uno de los caminos."
+    "{th}Desde el costado del camión salió una pequeña sombra que echó a correr hacia uno de los caminos."
 
     show guppy happy at f32
     show sevony surprise at t33
@@ -556,12 +556,12 @@ label fex_shadow:
 
     play sound footsteps
     hide guppy with dissolve
-    "{color=#8cf}La niña del pez en la cabeza se abrió paso a empujones entre Sevony y Ryu, tirando al suelo al segundo. Corrió tras la sombra."
+    "{th}La niña del pez en la cabeza se abrió paso a empujones entre Sevony y Ryu, tirando al suelo al segundo. Corrió tras la sombra."
     
     show ryu hurt at s31
     ryu "{sc}¡Ay!{/sc}{w=0.25} ¡O-oye...!"
 
-    "{color=#8cf}Le ha hecho una herida en la rodilla...\nNada grave, pero sangra un poco."
+    "{th}Le ha hecho una herida en la rodilla...\nNada grave, pero sangra un poco."
 
     show sevony surprise at f22
     sevony "¡Itsuki!"
@@ -647,8 +647,8 @@ label fex_shadow:
     hide ichika
     with dissolve
 
-    "{color=#8cf}Algunos con más prisa que otros, todos dejaron atrás a Ryu y Sevony para perseguir a la silueta."
-    "{color=#8cf}Yo también lo hice, para no separarme del grupo."
+    "{th}Algunos con más prisa que otros, todos dejaron atrás a Ryu y Sevony para perseguir a la silueta."
+    "{th}Yo también lo hice, para no separarme del grupo."
 
     scene black with fade
 
@@ -657,8 +657,8 @@ label fex_shadow:
 # Buscando a la sombra en la plaza
 label fex_search:
     show bg plaza with fade
-    "{color=#8cf}En el centro del recinto había situada una plaza tranquila."
-    "{color=#8cf}Los demás ya están investigando por ahí."
+    "{th}En el centro del recinto había situada una plaza tranquila."
+    "{th}Los demás ya están investigando por ahí."
     $ inv_name = "inv_c0_plaza"
     $ talk = {
         "umi": "Umi Yoshiharu",
@@ -728,7 +728,7 @@ label inv_c0_plaza_jaeke:       # Chico antipático
     jaeke "Agh... Está bien. A partir de ahora, trabajarás para mí. A ver si así consigues hacer algo bien."
 
     show jaeke annoyed at t22
-    "{color=#8cf}Si sigo escuchando a ese chico, me va a acabar dando dolor de cabeza."
+    "{th}Si sigo escuchando a ese chico, me va a acabar dando dolor de cabeza."
     
     hide jaeke
     hide takahiro
@@ -741,17 +741,17 @@ label inv_c0_plaza_jaeke:       # Chico antipático
     call screen investigation(inv_name, talk, obj, "plaza")
 
 label inv_c0_plaza_tree:        # Árbol
-    "{color=#8cf}La vegetación de la plaza hace que corra el aire fresco. Ideal para crear un ambiente calmado."
+    "{th}La vegetación de la plaza hace que corra el aire fresco. Ideal para crear un ambiente calmado."
 
     play sound tree_shake
-    "{color=#090}Fras, fras..." with flash
+    "{sy}Fras, fras..." with flash
 
-    "{color=#8cf}¿Eh? ¿Se ha movido algo por ahí?"
+    "{th}¿Eh? ¿Se ha movido algo por ahí?"
 
     jump fex_chase
 
 label inv_c0_plaza_fountain:    # Fuente
-    "{color=#8cf}En el centro de la plaza hay una fuente muy bonita."
+    "{th}En el centro de la plaza hay una fuente muy bonita."
 
     show raiden stand at t21
     show gaelg think at t22
@@ -779,7 +779,7 @@ label inv_c0_plaza_fountain:    # Fuente
     call screen investigation(inv_name, talk, obj, "plaza")
 
 label inv_c0_plaza_street:      # Camino
-    "{color=#8cf}Varios caminos salen de la plaza y comunican con los edificios que hay en el horizonte."
+    "{th}Varios caminos salen de la plaza y comunican con los edificios que hay en el horizonte."
 
     python:
         if "street" in obj:
@@ -788,7 +788,7 @@ label inv_c0_plaza_street:      # Camino
     call screen investigation(inv_name, talk, obj, "plaza")
 
 label inv_c0_plaza_buildings:   # Edificios en la distancia
-    "{color=#8cf}Desde aquí se ven todos los edificios que hay repartidos por el lugar, pero no puedo distinguir qué son..."
+    "{th}Desde aquí se ven todos los edificios que hay repartidos por el lugar, pero no puedo distinguir qué son..."
 
     python:
         if "buildings" in obj:
@@ -809,13 +809,13 @@ label fex_chase:
     akane "¿Qué está haciendo...?"
     play music kitsune_to_tanuki
     play sound tree_shake
-    "{color=#8cf}La niña escaló el árbol con gran agilidad, igual que un animal persiguiendo a su presa."
+    "{th}La niña escaló el árbol con gran agilidad, igual que un animal persiguiendo a su presa."
 
     play sound [tree_shake, fex_run]
-    "{color=#090}Fras, fras...{w=0.6} ¡Hop!"
-    "{color=#8cf}¡Y su presa, la sombra, ha escapado saltando a otro árbol cercano!"
+    "{sy}Fras, fras...{w=0.6} ¡Hop!"
+    "{th}¡Y su presa, la sombra, ha escapado saltando a otro árbol cercano!"
     play sound [fex_run, tree_shake]
-    "{color=#090}¡Hop!"
+    "{sy}¡Hop!"
     pause 1.0
 
     show takahiro laugh at f21
@@ -827,7 +827,7 @@ label fex_chase:
     umi "Está tanteando el terreno, comprobando si el sitio es seguro."
 
     show umi smile at t22
-    "{color=#8cf}Si sigue saltando a lo loco, se podría caer y hacer daño..."
+    "{th}Si sigue saltando a lo loco, se podría caer y hacer daño..."
 
     menu:
         "¿No deberíamos hacer algo...?":
@@ -843,37 +843,37 @@ label fex_chase:
 
         "(...)":
             akane "(...)"
-            "{color=#8cf}Bueno, parece bastante ágil... Estará bien."
+            "{th}Bueno, parece bastante ágil... Estará bien."
 
     hide takahiro
     hide umi
     with dissolve
 
     play sound feed1
-    "{color=#090}Paf." with hpunch
+    "{sy}Paf." with hpunch
 
-    "{color=#8cf}¡Pero si se acaba de chocar contra un tronco!"
+    "{th}¡Pero si se acaba de chocar contra un tronco!"
 
     show guppy hurt at t11
     guppy "(...)"
     show guppy panic at h11
     guppy "({sc}!!!{/sc})"
 
-    "{color=#8cf}Pobrecita, se ha llevado un buen golpe... Y parece asustada..."
-    "{color=#8cf}El ruido de los árboles ha parado. Fuera lo que sea, ya habrá escapado."
+    "{th}Pobrecita, se ha llevado un buen golpe... Y parece asustada..."
+    "{th}El ruido de los árboles ha parado. Fuera lo que sea, ya habrá escapado."
 
     stop music fadeout 1.0
     play sound announcement
     pause 5.0
 
     show guppy earscovered at h11
-    fex "{color=#090}¡Ejem, ejem! Atención todo el mundo. ¡Atención!"
+    fex "{sy}¡Ejem, ejem! Atención todo el mundo. ¡Atención!"
 
-    "{color=#8cf}Empezó a sonar una voz chillona incorpórea. A juzgar por la calidad del sonido, provenía de los altavoces de un sistema de megafonía."
+    "{th}Empezó a sonar una voz chillona incorpórea. A juzgar por la calidad del sonido, provenía de los altavoces de un sistema de megafonía."
 
     hide guppy with dissolve
 
-    fex "{color=#090}Me gustaría que, por favor, volviérais por donde vinisteis...\n{bt=a1-p10-s1}{color=#090}El espectáculo comenzará pronto.{/bt}"
+    fex "{sy}Me gustaría que, por favor, volviérais por donde vinisteis...\n{bo}{color=#090}El espectáculo comenzará pronto.{/bt}"
 
     akane "¿Qué...? ¿Un espectáculo?"
 
@@ -900,7 +900,7 @@ label fex_chase:
     with dissolve
 
     play sound footsteps
-    "{color=#8cf}No hay más remedio. Regresamos a la entrada, con paso pesado y una extraña sensación..."
+    "{th}No hay más remedio. Regresamos a la entrada, con paso pesado y una extraña sensación..."
 
     scene black with fade
     jump sevony_exec
@@ -911,7 +911,7 @@ label sevony_exec:
     
     show sevony stand at t22
     show ryu hurt at t21    
-    "{color=#8cf}Sevony está usando el pañuelo que le dio el de la mascarilla para limpiar la herida."
+    "{th}Sevony está usando el pañuelo que le dio el de la mascarilla para limpiar la herida."
 
     show ryu hurt at f21
     ryu "A-ay... Eres muy amable, Sevony..."
@@ -943,12 +943,12 @@ label sevony_exec:
 
     stop music fadeout 2.0
     show cg c0_ryubutton with fade
-    #"{color=#8cf}Ryu sacó algo de su bolsillo..."
+    #"{th}Ryu sacó algo de su bolsillo..."
     play sound button_click
-    "{color=#090}Clic." with flash
+    "{sy}Clic." with flash
     show black
     play sound cannon
-    "{color=#8cf}Sevony fue propulsada hacia el cielo en un vuelo sin destino por una plataforma del suelo."
+    "{th}Sevony fue propulsada hacia el cielo en un vuelo sin destino por una plataforma del suelo."
     play sound countdown
     queue sound countdown volume 0.8
     queue sound countdown volume 0.4
@@ -959,9 +959,9 @@ label sevony_exec:
     pause 2.0
     play music weekly_despair
 
-    "{color=#8cf}Explotó en un baño de sangre en el cielo."
-    "{color=#8cf}Me llevé las manos a las orejas instintivamente para taparme los oídos."
-    "{color=#8cf}Todos los demás estábamos... sin palabras. Inmóviles. Incrédulos."
+    "{th}Explotó en un baño de sangre en el cielo."
+    "{th}Me llevé las manos a las orejas instintivamente para taparme los oídos."
+    "{th}Todos los demás estábamos... sin palabras. Inmóviles. Incrédulos."
 
     show bg entrance with fade
     show ryu sick at f11
@@ -975,12 +975,12 @@ label sevony_exec:
     fex "¡Pero cómo se te ocurre hacer una ejecución sin mí!"
 
     show fex angry at t21
-    "{color=#8cf}¿Eso es... un zorro que habla?"
-    "{color=#8cf}¡Es la voz que sonaba de los altavoces!"
-    "{color=#8cf}Y por el tamaño... tiene que ser también la sombra que perseguíamos antes."
+    "{th}¿Eso es... un zorro que habla?"
+    "{th}¡Es la voz que sonaba de los altavoces!"
+    "{th}Y por el tamaño... tiene que ser también la sombra que perseguíamos antes."
     play sound feed1
     show ryu hurt at t22 with flash
-    "{color=#8cf}¡Ha golpeado a Ryu con esa fusta que lleva!"
+    "{th}¡Ha golpeado a Ryu con esa fusta que lleva!"
 
     show fex cry at f21
     fex "¡Ni me has esperado! ¡EL DOLOOOR...!"
@@ -1081,10 +1081,10 @@ label inv_c0_welcome_takahiro:  # Coletas
 
 # Posinvestigación: Las reglas del juego
 label game_rules:
-    "{color=#8cf}Ryu soltó un gruñido de molestia."
+    "{th}Ryu soltó un gruñido de molestia."
     
     scene cg c0_ryueye with fade
-    "{color=#8cf}Retiró unas pocas vendas de su rostro, dejando ver su ojo izquierdo brillante en un intenso rojo carmesí."
+    "{th}Retiró unas pocas vendas de su rostro, dejando ver su ojo izquierdo brillante en un intenso rojo carmesí."
 
     ryu "Sé que estaréis sorprendidos. Incluso indignados algunos."
     ryu "Pero no me entristece comunicaros que sois los elegidos para participar en un {b}juego de matanza mutua{/b}..."
@@ -1115,7 +1115,7 @@ label game_rules:
     ryu "que {b}asesine{/b} a uno de sus {bt=a1-p10-s1}preciados{/bt} compañeros." with flash
 
     show ryu smirk at t22
-    "{color=#8cf}Ryu sacó del bolsillo el amuleto que Gael le había dado minutos antes..."
+    "{th}Ryu sacó del bolsillo el amuleto que Gael le había dado minutos antes..."
 
     play sound stomp
     scene cg c0_charmstomp with vpunch
@@ -1174,7 +1174,7 @@ label game_rules:
 
     fer "Anda, no seas llorica, mente maestra de pacotilla."
 
-    "{color=#8cf}El hombre salido de la nada se llevó a Ryu a rastras, agarrándolo bien fuerte del brazo."
+    "{th}El hombre salido de la nada se llevó a Ryu a rastras, agarrándolo bien fuerte del brazo."
 
     show fex scared at t11
     fex "(...)"
@@ -1182,10 +1182,10 @@ label game_rules:
     fex "B-bueno, pues... hay un dormitorio para cada uno.\nPodéis elegir el que queráis... yo os... guiaré."
     hide fex with dissolve
 
-    "{color=#8cf}Aún estoy temblando un poco..."
-    "{color=#8cf}Ha sido todo tan rápido... y tan extraño..."
-    "{color=#8cf}¿No podemos salir a menos que matemos a alguien, igual que ha hecho Ryu con Sevony?"
-    "{color=#8cf}Mientras intentaba organizar mis pensamientos, por fin se rompió el silencio."
+    "{th}Aún estoy temblando un poco..."
+    "{th}Ha sido todo tan rápido... y tan extraño..."
+    "{th}¿No podemos salir a menos que matemos a alguien, igual que ha hecho Ryu con Sevony?"
+    "{th}Mientras intentaba organizar mis pensamientos, por fin se rompió el silencio."
 
     show gaelg sad at t22
     show raiden lookaway at f21
@@ -1225,9 +1225,9 @@ label game_rules:
     hide emiko
     with dissolve
 
-    "{color=#8cf}Empezó a formarse una peregrinación a los dormitorios liderada por Monofex a la que yo acabé uniéndome también."
-    "{color=#8cf}Y, sin que lo hubiera terminado de procesar, este fue el pistoletazo de salida de un juego..."
-    "{color=#8cf}donde los compañeros son la llave a la victoria, pero la confianza tiene valor nulo." with flash
+    "{th}Empezó a formarse una peregrinación a los dormitorios liderada por Monofex a la que yo acabé uniéndome también."
+    "{th}Y, sin que lo hubiera terminado de procesar, este fue el pistoletazo de salida de un juego..."
+    "{th}donde los compañeros son la llave a la victoria, pero la confianza tiene valor nulo." with flash
 
     jump void_c0_1
 

@@ -41,6 +41,18 @@ init python:
             str_to_test = str_to_test.replace( key, str_map[ key ] ) 
         return str_to_test
 
+    def system(tag, argument):  # Etiqueta para el texto verde (sistema y narrador), {sy}
+        return [(renpy.TEXT_TAG, u"color=#090")]
+    config.self_closing_custom_text_tags["sy"] = system
+
+    def thought(tag, argument): # Etiqueta para el texto azul (pensamiento), {th}
+        return [(renpy.TEXT_TAG, u"color=#8cf")]
+    config.self_closing_custom_text_tags["th"] = thought
+
+    def bouncy(tag, argument):  # Etiqueta para el texto que rebota, {bo}(...){/bt}
+        return [(renpy.TEXT_TAG, u"bt=a1-p10-s1")]
+    config.self_closing_custom_text_tags["bo"] = bouncy
+
 define config.say_menu_text_filter = alter_say_strings
 
 #region Definición de personajes
