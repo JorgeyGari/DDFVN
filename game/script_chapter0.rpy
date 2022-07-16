@@ -51,7 +51,7 @@ label truck:
     "{color=#8cf}Ahora que hay más gente despierta, tal vez debería fijarme en quiénes son mis compañeros de viaje..."
 
     hide sevony with dissolve
-    "{color=#090}Haz clic en el icono del personaje en quien te quieras fijar."
+    "{color=#090}Haz clic en el icono del personaje en quien te quieras fijar.{fast}"
 
     $ inv_name = "inv_c0_truck"
     $ talk = {

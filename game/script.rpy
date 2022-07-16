@@ -34,7 +34,6 @@ init python:
             "? " : "? {w=0.25}",
             "(...)\n" : "(...)\n{w=0.25}",
             "\n" : "\n{w=0.25}", 
-            "(...)" : "(...){w=0.25}",
             "! " : "! {w=0.25}", 
             ", " : ", {w=0.05}",
         }
@@ -75,3 +74,16 @@ define audio.weekly_despair = "<loop 58.095>audio/BSO/Weekly Despair Magazine.og
 label start:
     $ chapter = 0
     call ch0_intro
+    
+    $ chapter = 1
+
+#region Nombres conocidos en el Prólogo
+    $ akane.name = "Akane Yamamoto"
+    $ umi.name = "Umi Yoshiharu"
+    $ ryu.name = "Ryu Itsuki"
+    $ gaelg.name = "Gael García"
+    $ sevony.name = "Sevony Maáz"
+    $ fex.name = "Monofex"
+#endregion
+
+    call ch1_intro
