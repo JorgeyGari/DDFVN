@@ -1546,6 +1546,9 @@ transform move_in_right:    # Esta transformación es para los botones en la pan
     linear 0.5 xoffset 0 alpha 1
     
 screen investigation(inv_name, talk={}, obj={}, place=""):
+    default mtt = MouseTooltip(Text(""), padding={"x": 10, "y": -10})
+
+    add mtt
     $ y = 0 # El primer botón lo ponemos arriba del todo
     for o in obj:
         imagebutton:
@@ -1554,8 +1557,9 @@ screen investigation(inv_name, talk={}, obj={}, place=""):
             # Le restamos 46 px porque Ren'Py es rarito, no sé, pero funciona
             idle "button/"+place+"/"+o+".png"
             hover "button/"+place+"/"+o+".png"
+            hovered [SetField(mtt, 'redraw', True), mtt.Action(Text(obj[o][2]))]
             action Jump(inv_name+"_"+o)
-            tooltip obj[o][2]
+            #tooltip obj[o][2]
             focus_mask True
 
 
@@ -1564,8 +1568,9 @@ screen investigation(inv_name, talk={}, obj={}, place=""):
             xpos 0
             ypos y
             auto "icon/"+char+"_%s.png"
+            hovered [SetField(mtt, 'redraw', True), mtt.Action(Text(talk[char]))]
             action Jump(inv_name+"_"+char)
-            tooltip talk[char]
+            #tooltip talk[char]
             at move_in_right
         $ y += 120  # El siguiente botón irá 120 px debajo del anterior
 
@@ -1580,4 +1585,5 @@ screen investigation(inv_name, talk={}, obj={}, place=""):
 
             frame:
                 xalign 0.5
+                xpos 
                 text tooltip
