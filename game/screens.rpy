@@ -1544,10 +1544,45 @@ screen displayTextScreen:
 transform move_in_right:    # Esta transformación es para los botones en la pantalla de investigación
     xoffset -15 alpha 0
     linear 0.5 xoffset 0 alpha 1
-    
-screen mtt_screen:
-    add mtt
 
+#screen mtt_screen:
+#    frame:
+#        text mtt
+
+#style mystyle is text:
+#    font "fonts/Whitney-Medium.ttf"
+#    outlines [(2, "000", 0, 0)]
+
+init python:
+
+    class TrackCursor(renpy.Displayable):
+
+        def __init__(self, child):
+
+            super(TrackCursor, self).__init__()
+
+            self.child = renpy.displayable(child)
+
+            self.x = None
+            self.y = None
+
+        def render(self, width, height, st, at):
+
+            rv = renpy.Render(width, height)
+
+            if self.x is not None:
+                cr = renpy.render(self.child, width, height, st, at)
+                cw, ch = cr.get_size()
+                rv.blit(cr, (self.x - cw / 2, self.y - ch / 2))
+
+            return rv
+
+        def event(self, ev, x, y, st):
+
+            if (x != self.x) or (y != self.y):
+                self.x = x
+                self.y = y
+                renpy.redraw(self, 0)
 
 screen investigation(inv_name, talk={}, obj={}, place=""):
     default mtt = MouseTooltip(Text(""))    # Para resetear el texto de la MTT
@@ -1569,15 +1604,11 @@ screen investigation(inv_name, talk={}, obj={}, place=""):
             xpos 0
             ypos y
             auto "icon/"+char+"_%s.png"
-            hovered [SetField(mtt, 'redraw', True), mtt.Action(
-                Composite(
-                    (0, 0),
-                    (-1, 0), Text("{b}"+talk[char]+"{/b}"),
-                    (0, 0), Text("{color=#000}{k=2}"+talk[char]+"{/k}{/color}"))
-                    )]
+            hovered [SetField(mtt, 'redraw', True), mtt.Action(Text(talk[char]))]
             unhovered SetField(mtt, 'redraw', False)
             action Jump(inv_name+"_"+char)
             at move_in_right
         $ y += 120  # El siguiente botón irá 120 px debajo del anterior
 
-    use mtt_screen
+    add TrackCursor("gui/frame.png")
+    add mtt
