@@ -1545,6 +1545,10 @@ transform move_in_right:    # Esta transformación es para los botones en la pan
     xoffset -15 alpha 0
     linear 0.5 xoffset 0 alpha 1
     
+screen mtt_screen:
+    add mtt
+
+
 screen investigation(inv_name, talk={}, obj={}, place=""):
     default mtt = MouseTooltip(Text(""))    # Para resetear el texto de la MTT
     $ y = 0 # El primer botón lo ponemos arriba del todo
@@ -1565,10 +1569,15 @@ screen investigation(inv_name, talk={}, obj={}, place=""):
             xpos 0
             ypos y
             auto "icon/"+char+"_%s.png"
-            hovered [SetField(mtt, 'redraw', True), mtt.Action(Text(talk[char]))]
+            hovered [SetField(mtt, 'redraw', True), mtt.Action(
+                Composite(
+                    (0, 0),
+                    (-1, 0), Text("{b}"+talk[char]+"{/b}"),
+                    (0, 0), Text("{color=#000}{k=2}"+talk[char]+"{/k}{/color}"))
+                    )]
             unhovered SetField(mtt, 'redraw', False)
             action Jump(inv_name+"_"+char)
             at move_in_right
         $ y += 120  # El siguiente botón irá 120 px debajo del anterior
 
-    add mtt
+    use mtt_screen
