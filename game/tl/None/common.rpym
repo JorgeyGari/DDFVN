@@ -179,51 +179,51 @@ translate None strings:
 
     # renpy/common/00action_file.rpy:47
     old "{#month}January"
-    new "Enero"
+    new "enero"
 
     # renpy/common/00action_file.rpy:47
     old "{#month}February"
-    new "Febrero"
+    new "febrero"
 
     # renpy/common/00action_file.rpy:47
     old "{#month}March"
-    new "Marzo"
+    new "marzo"
 
     # renpy/common/00action_file.rpy:47
     old "{#month}April"
-    new "Abril"
+    new "abril"
 
     # renpy/common/00action_file.rpy:47
     old "{#month}May"
-    new "Mayo"
+    new "mayo"
 
     # renpy/common/00action_file.rpy:47
     old "{#month}June"
-    new "Junio"
+    new "junio"
 
     # renpy/common/00action_file.rpy:47
     old "{#month}July"
-    new "Julio"
+    new "julio"
 
     # renpy/common/00action_file.rpy:47
     old "{#month}August"
-    new "Agosto"
+    new "agosto"
 
     # renpy/common/00action_file.rpy:47
     old "{#month}September"
-    new "Septiembre"
+    new "septiembre"
 
     # renpy/common/00action_file.rpy:47
     old "{#month}October"
-    new "Octubre"
+    new "octubre"
 
     # renpy/common/00action_file.rpy:47
     old "{#month}November"
-    new "Noviembre"
+    new "noviembre"
 
     # renpy/common/00action_file.rpy:47
     old "{#month}December"
-    new "Diciembre"
+    new "diciembre"
 
     # renpy/common/00action_file.rpy:63
     old "{#month_short}Jan"

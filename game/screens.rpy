@@ -643,7 +643,7 @@ screen file_slots(title):
 
                         add FileScreenshot(slot) xalign 0.5
 
-                        text FileTime(slot, format=_("{#file_time}%A, %B %d %Y, %H:%M"), empty=_("empty slot")):
+                        text FileTime(slot, format=_("{#file_time}%A, %d de %B de %Y, %H:%M"), empty=_("Vacío")):
                             style "slot_time_text"
 
                         text FileSaveName(slot):
@@ -1582,13 +1582,13 @@ transform move_in_right:    # Esta transformación es para los botones en la pan
     xoffset -15 alpha 0
     linear 0.5 xoffset 0 alpha 1
 
-screen investigation(inv_name, talk={}, obj={}, place=""):
+screen investigation(inv_name, talk={}, obj={}, place=""):  # TODO: Esta pantalla está desfasada, hay que adaptarla al nuevo método para hacer botones de imagen
     default mtt = MouseTooltip(Text(""))    # Para resetear el texto de la MTT
     $ y = 0 # El primer botón lo ponemos arriba del todo
     for o in obj:
         imagebutton:
             xpos obj[o][0]  # El elemento 0 de la tupla es la posición en X
-            ypos obj[o][1] - 46  # El 1, la posición en Y
+            ypos obj[o][1] - 5  # El 1, la posición en Y
             # Le restamos 46 px porque Ren'Py es rarito, no sé, pero funciona
             idle "button/"+place+"/"+o+".png"
             hover "button/"+place+"/"+o+".png"
