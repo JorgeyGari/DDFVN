@@ -1535,6 +1535,43 @@ screen displayTextScreen:
         frame:
             text displayText
 
+## CDD: TrackCursor ######################################
+##
+## Muestra un displayable que persigue al cursor
+##
+
+init python:
+
+    class TrackCursor(renpy.Displayable):
+
+        def __init__(self, child):
+
+            super(TrackCursor, self).__init__()
+
+            self.child = renpy.displayable(child)
+
+            self.x = None
+            self.y = None
+
+        def render(self, width, height, st, at):
+
+            rv = renpy.Render(width, height)
+
+            if self.x is not None:
+                cr = renpy.render(self.child, width, height, st, at)
+                cw, ch = cr.get_size()
+                rv.blit(cr, (self.x - cw / 2, self.y - ch / 2))
+
+            return rv
+
+        def event(self, ev, x, y, st):
+
+            if (x != self.x) or (y != self.y):
+                self.x = x
+                self.y = y
+                renpy.redraw(self, 0)
+
+
 ## Investigation screen ##################################
 ##
 ## Muestra los iconos de los personajes con los que puedes
@@ -1544,7 +1581,7 @@ screen displayTextScreen:
 transform move_in_right:    # Esta transformación es para los botones en la pantalla de investigación
     xoffset -15 alpha 0
     linear 0.5 xoffset 0 alpha 1
-    
+
 screen investigation(inv_name, talk={}, obj={}, place=""):
     $ y = 0 # El primer botón lo ponemos arriba del todo
     for o in obj:
@@ -1569,15 +1606,21 @@ screen investigation(inv_name, talk={}, obj={}, place=""):
             at move_in_right
         $ y += 120  # El siguiente botón irá 120 px debajo del anterior
 
+    add TrackCursor("gui/eye_icon.png")
+
 # Para que la tooltip se muestre al frente:
     $ tooltip = GetTooltip()
 
     if tooltip:
 
-        nearrect:
-            focus "tooltip"
-            prefer_top True
+        ## Descomentar esto si queremos que el marco se muestre sobre el botón
+        ## (inútil porque para ahorrar tiempo haremos que los imagebuttons tengan el mismo tamaño que su correspondiente fondo)
 
-            frame:
-                xalign 0.5
-                text tooltip
+        #nearrect:
+        #    focus "tooltip"
+        #    prefer_top True
+
+        frame:
+            xalign 0.5
+            ypos 0.8
+            text tooltip
