@@ -1041,9 +1041,6 @@ label inv_c0_welcome_ryu:       # Ryu Itsuki
     fex "¡Venga, que tienes cosas que explicar! ¡Andando!" 
     show fex angry at t21
 
-    play sound feed1
-    with hpunch
-
     jump game_rules
 
 label inv_c0_welcome_emiko:     # Coletas

@@ -1583,6 +1583,7 @@ transform move_in_right:    # Esta transformación es para los botones en la pan
     linear 0.5 xoffset 0 alpha 1
 
 screen investigation(inv_name, talk={}, obj={}, place=""):
+    default mtt = MouseTooltip(Text(""))    # Para resetear el texto de la MTT
     $ y = 0 # El primer botón lo ponemos arriba del todo
     for o in obj:
         imagebutton:
@@ -1592,6 +1593,9 @@ screen investigation(inv_name, talk={}, obj={}, place=""):
             idle "button/"+place+"/"+o+".png"
             hover "button/"+place+"/"+o+".png"
             action Jump(inv_name+"_"+o)
+            hover_sound "audio/eye.ogg"
+            hovered [SetField(mtt, 'redraw', True), mtt.Action(Image("gui/eye_icon.png"))]
+            unhovered SetField(mtt, 'redraw', False)
             tooltip obj[o][2]
             focus_mask True
 
@@ -1606,7 +1610,7 @@ screen investigation(inv_name, talk={}, obj={}, place=""):
             at move_in_right
         $ y += 120  # El siguiente botón irá 120 px debajo del anterior
 
-    add TrackCursor("gui/eye_icon.png")
+    add mtt
 
 # Para que la tooltip se muestre al frente:
     $ tooltip = GetTooltip()
