@@ -384,3 +384,22 @@ define trueblack = MultipleTransition([
     Solid("#000"), Pause(0.25),
     Solid("#000")
     ])
+
+# Transformación: Difuminado
+init -1:
+    transform blur(child):
+        contains:
+            child
+            alpha 1.0
+        contains:
+            child
+            alpha 0.2 xoffset -3
+        contains:
+            child
+            alpha 0.2 xoffset 3
+        contains:
+            child
+            alpha 0.2 yoffset -3
+        contains:
+            child
+            alpha 0.2 yoffset 3

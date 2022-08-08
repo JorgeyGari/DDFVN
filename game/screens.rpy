@@ -666,7 +666,7 @@ screen file_slots(title):
                     textbutton _("{#auto_page}A") action FilePage("auto")
 
                 if config.has_quicksave:
-                    textbutton _("{#quick_page}Q") action FilePage("quick")
+                    textbutton _("{#quick_page}R") action FilePage("quick")
 
                 ## range(1, 10) gives the numbers from 1 to 9.
                 for page in range(1, 10):
@@ -1571,7 +1571,6 @@ init python:
                 self.y = y
                 renpy.redraw(self, 0)
 
-
 ## Investigation screen ##################################
 ##
 ## Muestra los iconos de los personajes con los que puedes
@@ -1582,7 +1581,7 @@ transform move_in_right:    # Esta transformación es para los botones en la pan
     xoffset -15 alpha 0
     linear 0.5 xoffset 0 alpha 1
 
-screen investigation(inv_name, talk={}, obj={}, place=""):  # TODO: Esta pantalla está desfasada, hay que adaptarla al nuevo método para hacer botones de imagen
+screen investigation(inv_name, talk={}, obj={}, place=""):  # FIXME: Esta pantalla está desfasada, hay que adaptarla al nuevo método para hacer botones de imagen
     default mtt = MouseTooltip(Text(""))    # Para resetear el texto de la MTT
     $ y = 0 # El primer botón lo ponemos arriba del todo
     for o in obj:
@@ -1612,7 +1611,7 @@ screen investigation(inv_name, talk={}, obj={}, place=""):  # TODO: Esta pantall
 
     add mtt
 
-# Para que la tooltip se muestre al frente:
+    # Para que la tooltip se muestre al frente:
     $ tooltip = GetTooltip()
 
     if tooltip:
@@ -1628,3 +1627,18 @@ screen investigation(inv_name, talk={}, obj={}, place=""):  # TODO: Esta pantall
             xalign 0.5
             ypos 0.8
             text tooltip
+
+screen monopad_unlock:
+    textbutton "DESBLOQUEAR" xalign 0.5 yalign 0.5 action ShowMenu("monopad_screen")
+
+screen monopad_screen:
+    tag menu
+
+    $ config.thumbnail_width = config.screen_width
+    $ config.thumbnail_height = config.screen_height
+    $ FileTakeScreenshot()
+
+    add FileCurrentScreenshot() at blur
+
+    # use monopad_buttons
+
