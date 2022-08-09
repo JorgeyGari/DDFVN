@@ -1,6 +1,6 @@
 label ch1_intro:
     scene black with fade
-    play sound alarm_clock
+    play music alarm_clock
     pause 2.0
     "{color=#8cf}Agh... ¿Qué es ese ruido?"
 
@@ -18,10 +18,8 @@ label ch1_intro:
 label inv_c1_akaneroom_monopad:
     "{th}Sobre el escritorio de mi habitación había un dispositivo electrónico."
     akane "¿Este trasto es lo que está haciendo tanto ruido?"
-    "{th}Lo tomé."
-    show cg c1_monopad_alarm with dissolve
-    "{th}Se parecía a un teléfono móvil."
-    "{th}Apagué la alarma y..."
+
+    show cg c1_monopad_alarm with fade
 
     call screen monopad_unlock
 

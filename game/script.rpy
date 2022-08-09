@@ -74,7 +74,7 @@ define fex = Character('(?)', color = '#6b7d4a', callback = beepy_voice_high)
 define gaelm = Character('Nervioso', color = '#87a0bd', callback = beepy_voice_deep)
 define fer = Character('(?)', color = '#702a2a', callback = beepy_voice_deep)
 #endregion
-# TODO: Incluir a Ichika, Gael M., Ghiang y Kiiro en el guion
+# TODO: Incluir a Ichika, Gael M., Ghiang y Kiiro en el guion del camión del prólogo
 
 #region Definición de música
 define audio.beautiful_lament = "<loop 15.6859>audio/BSO/Beautiful Lament.ogg"

@@ -1598,7 +1598,6 @@ screen investigation(inv_name, talk={}, obj={}, place=""):  # FIXME: Esta pantal
             tooltip obj[o][2]
             focus_mask True
 
-
     for char in talk:
         imagebutton:
             xpos 0
@@ -1629,7 +1628,7 @@ screen investigation(inv_name, talk={}, obj={}, place=""):  # FIXME: Esta pantal
             text tooltip
 
 screen monopad_unlock:
-    textbutton "DESBLOQUEAR" xalign 0.5 yalign 0.5 action ShowMenu("monopad_screen")
+    textbutton "Desactivar la alarma" xalign 0.5 yalign 0.5 action Stop("music"), ShowMenu("monopad_screen")
 
 screen monopad_screen:
     tag menu
@@ -1640,5 +1639,34 @@ screen monopad_screen:
 
     add FileCurrentScreenshot() at blur
 
-    # use monopad_buttons
+    use monopad_buttons
+
+screen monopad_buttons():
+
+    hbox:
+        xalign 0.5
+        yalign 0.5
+        spacing 10
+
+        imagebutton:
+            auto "gui/monopad/profile_%s.png"
+            action ShowMenu("profile")
+        imagebutton:
+            auto "gui/monopad/evidence_%s.png"
+            action ShowMenu("evidence")
+        imagebutton:
+            auto "gui/monopad/map_%s.png"
+            action ShowMenu("map")
+        imagebutton:
+            auto "gui/monopad/gallery_%s.png"
+            action ShowMenu("gallery")
+        imagebutton:
+            auto "gui/monopad/option_%s.png"
+            action ShowMenu("option")
+        at move_in_right
+
+screen profile:
+    tag menu
+
+    
 
