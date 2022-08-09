@@ -54,6 +54,7 @@ init python:
     config.self_closing_custom_text_tags["bo"] = bouncy
 
 define config.say_menu_text_filter = alter_say_strings
+define sel_char_prof = "none"
 
 #region Definición de personajes
 define ryu = Character('Rubio', color = '#aa3333', callback = beepy_voice_deep)

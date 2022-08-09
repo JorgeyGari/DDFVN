@@ -1668,5 +1668,73 @@ screen monopad_buttons():
 screen profile:
     tag menu
 
-    
+# Matriz de perfiles
+    vbox:
+        xalign 0
+        yalign 0
+        spacing 0
 
+        hbox:
+            imagebutton:
+                auto "gui/monopad/dummyprof_%s.png"
+                action SetVariable("sel_char_prof", "dummy"), ShowMenu("profile")
+            imagebutton:
+                auto "gui/monopad/dummyprof_%s.png"
+                action ShowMenu("profile")
+            imagebutton:
+                auto "gui/monopad/dummyprof_%s.png"
+                action ShowMenu("profile")
+            imagebutton:
+                auto "gui/monopad/dummyprof_%s.png"
+                action ShowMenu("profile")
+    
+        hbox:
+
+            imagebutton:
+                auto "gui/monopad/dummyprof_%s.png"
+                action ShowMenu("profile")
+            imagebutton:
+                auto "gui/monopad/dummyprof_%s.png"
+                action ShowMenu("profile")
+            imagebutton:
+                auto "gui/monopad/dummyprof_%s.png"
+                action ShowMenu("profile")
+            imagebutton:
+                auto "gui/monopad/dummyprof_%s.png"
+                action ShowMenu("profile")
+        
+        hbox:
+            imagebutton:
+                auto "gui/monopad/dummyprof_%s.png"
+                action ShowMenu("profile")
+            imagebutton:
+                auto "gui/monopad/dummyprof_%s.png"
+                action ShowMenu("profile")
+            imagebutton:
+                auto "gui/monopad/dummyprof_%s.png"
+                action ShowMenu("profile")
+            imagebutton:
+                auto "gui/monopad/dummyprof_%s.png"
+                action ShowMenu("profile")
+        
+        hbox:
+            imagebutton:
+                auto "gui/monopad/dummyprof_%s.png"
+                action ShowMenu("profile")
+            imagebutton:
+                auto "gui/monopad/dummyprof_%s.png"
+                action ShowMenu("profile")
+            imagebutton:
+                auto "gui/monopad/dummyprof_%s.png"
+                action ShowMenu("profile")
+            imagebutton:
+                auto "gui/monopad/dummyprof_%s.png"
+                action ShowMenu("profile")
+
+    image "gui/monopad/"+sel_char_prof+"prof_full.png" xalign 1.0 yalign 1.0
+
+    imagebutton:
+        xalign 1.0
+        yalign 0
+        auto "gui/back_%s.png"
+        action ShowMenu("monopad_screen"), SetVariable("sel_char_prof", "none")
