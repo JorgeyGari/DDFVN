@@ -144,6 +144,7 @@ default preferences.afm_time = 15
 ## literal string, not an expression.
 
 define config.save_directory = "DystopianFuture-1654685944"
+define build.directory_name = "DystopianFuture"
 
 
 ## Icon ########################################################################

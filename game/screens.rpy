@@ -1664,11 +1664,19 @@ screen monopad_buttons():
             auto "gui/monopad/option_%s.png"
             action ShowMenu("option")
         at move_in_right
+    
+    imagebutton:    # Botón para volver atrás
+        xanchor 1.0
+        yanchor 0.0
+        xalign 1.0
+        yalign 0.0
+        auto "gui/back_%s.png"
+        action Return()
 
 screen profile:
     tag menu
 
-# Matriz de perfiles
+    # Matriz de perfiles
     vbox:
         xalign 0
         yalign 0
@@ -1676,65 +1684,104 @@ screen profile:
 
         hbox:
             imagebutton:
-                auto "gui/monopad/dummyprof_%s.png"
-                action SetVariable("sel_char_prof", "dummy"), ShowMenu("profile")
+                auto "gui/monopad/ryuprof_%s.png"
+                action SetVariable("sel_char_prof", "ryu"), ShowMenu("profile")
             imagebutton:
-                auto "gui/monopad/dummyprof_%s.png"
-                action ShowMenu("profile")
+                auto "gui/monopad/ferprof_%s.png"
+                action SetVariable("sel_char_prof", "fer"), ShowMenu("profile")
             imagebutton:
-                auto "gui/monopad/dummyprof_%s.png"
-                action ShowMenu("profile")
+                auto "gui/monopad/sevonyprof_%s.png"
+                action SetVariable("sel_char_prof", "sevony"), ShowMenu("profile")
             imagebutton:
-                auto "gui/monopad/dummyprof_%s.png"
-                action ShowMenu("profile")
+                auto "gui/monopad/gaelgprof_%s.png"
+                action SetVariable("sel_char_prof", "gaelg"), ShowMenu("profile")
     
         hbox:
 
             imagebutton:
-                auto "gui/monopad/dummyprof_%s.png"
-                action ShowMenu("profile")
+                auto "gui/monopad/jaekeprof_%s.png"
+                action SetVariable("sel_char_prof", "jaeke"), ShowMenu("profile")
             imagebutton:
-                auto "gui/monopad/dummyprof_%s.png"
-                action ShowMenu("profile")
+                auto "gui/monopad/takahiroprof_%s.png"
+                action SetVariable("sel_char_prof", "takahiro"), ShowMenu("profile")
             imagebutton:
-                auto "gui/monopad/dummyprof_%s.png"
-                action ShowMenu("profile")
+                auto "gui/monopad/akaneprof_%s.png"
+                action SetVariable("sel_char_prof", "akane"), ShowMenu("profile")
             imagebutton:
-                auto "gui/monopad/dummyprof_%s.png"
-                action ShowMenu("profile")
+                auto "gui/monopad/umiprof_%s.png"
+                action SetVariable("sel_char_prof", "umi"), ShowMenu("profile")
         
         hbox:
             imagebutton:
-                auto "gui/monopad/dummyprof_%s.png"
-                action ShowMenu("profile")
+                auto "gui/monopad/emikoprof_%s.png"
+                action SetVariable("sel_char_prof", "emiko"), ShowMenu("profile")
             imagebutton:
-                auto "gui/monopad/dummyprof_%s.png"
-                action ShowMenu("profile")
+                auto "gui/monopad/lucprof_%s.png"
+                action SetVariable("sel_char_prof", "luc"), ShowMenu("profile")
             imagebutton:
-                auto "gui/monopad/dummyprof_%s.png"
-                action ShowMenu("profile")
+                auto "gui/monopad/axiomprof_%s.png"
+                action SetVariable("sel_char_prof", "axiom"), ShowMenu("profile")
             imagebutton:
-                auto "gui/monopad/dummyprof_%s.png"
-                action ShowMenu("profile")
+                auto "gui/monopad/dannyprof_%s.png"
+                action SetVariable("sel_char_prof", "danny"), ShowMenu("profile")
         
         hbox:
             imagebutton:
-                auto "gui/monopad/dummyprof_%s.png"
-                action ShowMenu("profile")
+                auto "gui/monopad/guppyprof_%s.png"
+                action SetVariable("sel_char_prof", "guppy"), ShowMenu("profile")
             imagebutton:
-                auto "gui/monopad/dummyprof_%s.png"
-                action ShowMenu("profile")
+                auto "gui/monopad/ichikaprof_%s.png"
+                action SetVariable("sel_char_prof", "ichika"), ShowMenu("profile")
             imagebutton:
-                auto "gui/monopad/dummyprof_%s.png"
-                action ShowMenu("profile")
+                auto "gui/monopad/ghiangprof_%s.png"
+                action SetVariable("sel_char_prof", "ghiang"), ShowMenu("profile")
             imagebutton:
-                auto "gui/monopad/dummyprof_%s.png"
-                action ShowMenu("profile")
+                auto "gui/monopad/gaelmprof_%s.png"
+                action SetVariable("sel_char_prof", "gaelm"), ShowMenu("profile")
 
     image "gui/monopad/"+sel_char_prof+"prof_full.png" xalign 1.0 yalign 1.0
 
-    imagebutton:
+    frame:  # Datos del recluso
+        xanchor 0.0
+        yanchor 1.0
+        xalign 0.0
+        yalign 1.0
+        xsize 222
+        ysize 360
+        vbox:
+            xoffset 10
+            yoffset 10
+            xsize 190
+            ysize 320
+            text "{size=+2}{font=fonts/whitneySemiboldItalic.otf}Género{/font}{/size}"
+            text profile_dict[sel_char_prof][4][0] xalign 1.0
+            text "{size=+2}{font=fonts/whitneySemiboldItalic.otf}Altura{/font}{/size}"
+            text profile_dict[sel_char_prof][4][1] xalign 1.0
+            text "{size=+2}{font=fonts/whitneySemiboldItalic.otf}Cumpleaños{/font}{/size}"
+            text profile_dict[sel_char_prof][4][2] xalign 1.0
+            text "{size=+2}{font=fonts/whitneySemiboldItalic.otf}Gustos{/font}{/size}"
+            text profile_dict[sel_char_prof][4][3] xalign 1.0
+            text "{size=+2}{font=fonts/whitneySemiboldItalic.otf}Aversiones{/font}{/size}"
+            text profile_dict[sel_char_prof][4][4] xalign 1.0
+    frame:
+        xanchor 0.0
+        xoffset 222
+        yanchor 1.0
+        xalign 0.0
+        yalign 1.0
+        xsize config.screen_width - 478 - 74 * 3
+        ysize 360
+
+        text profile_dict[sel_char_prof][2] xoffset 15 yoffset 10
+
+    text profile_dict[sel_char_prof][0] xanchor 1.0 yanchor 1.0 xpos config.screen_width - 478 ypos 360 size 60 font "fonts/whitneySemiboldItalic.otf" color '#000' xalign 1.0
+    text profile_dict[sel_char_prof][1] yanchor 1.0 xpos 10 ypos 360 size 35 font "fonts/whitneySemiboldItalic.otf" color '#000'
+
+
+    imagebutton:    # Botón para volver atrás
+        xanchor 1.0
+        yanchor 0.0
         xalign 1.0
-        yalign 0
+        yalign 0.0
         auto "gui/back_%s.png"
         action ShowMenu("monopad_screen"), SetVariable("sel_char_prof", "none")

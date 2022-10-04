@@ -140,8 +140,8 @@ define audio.weekly_despair = "<loop 58.095>audio/BSO/Weekly Despair Magazine.og
 
 label start:
     $ chapter = 0
-    call ch0_intro from _call_ch0_intro
-
+    call ch0_intro
+    
     $ chapter = 1
 
 #region Nombres conocidos en el Prólogo
@@ -153,4 +153,4 @@ label start:
     $ fex.name = "Monofex"
 #endregion
 
-    call ch1_intro from _call_ch1_intro
+    call ch1_intro

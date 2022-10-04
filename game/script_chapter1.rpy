@@ -20,10 +20,8 @@ label inv_c1_akaneroom_monopad:
     akane "¿Este trasto es lo que está haciendo tanto ruido?"
 
     show cg c1_monopad_alarm with fade
-
+    
     call screen monopad_unlock
-
-    jump safenet
 
 label inv_c1_akaneroom_bed:
     "{th}El día fue tan cansado que acabé desplomándome en la cama anoche."
