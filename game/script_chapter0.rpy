@@ -38,11 +38,11 @@ label truck:
     "{th}Lo oí soltar un suspiro de angustia justo antes de hundir la cabeza entre las piernas."
     hide ryu with dissolve
 
-    show sevony concern at t11
+    show sevony 1_3 at t11
     "{th}También había una chica con gafas que inhaló y espiró en un claro intento de tranquilizarse."
     "{th}Echó una mirada a su alrededor, justo antes de..."
 
-    show sevony surprise at h11
+    show sevony 1_6 at h11
     play sound "audio/truck_bump.ogg"
     with vpunch
     "{sy}¡Pam!"
@@ -71,7 +71,7 @@ label inv_c0_truck_ryu:     # Chico rubio
     $ sevony.name = "Gafas"
 
     show ryu stand at t21
-    show sevony surprise at t22
+    show sevony 1_6 at t22
     "{th}Las gafas de la chica de pelo violeta habían salido despedidas por culpa del bache."
     show ryu stand at s21
     "{th}El rubio se agachó al oírlas caer. Habían aterrizado cerca de él."
@@ -84,12 +84,12 @@ label inv_c0_truck_ryu:     # Chico rubio
     "{th}Lo dijo flojito, como si no quisiera llamar demasiado la atención en un ambiente tan tenso."
 
     show ryu smile at t21
-    show sevony smile at f22
+    show sevony 1_4 at f22
     sevony "(...)\nMuchas gracias."
-    show sevony concern
+    show sevony 1_3
     sevony "Vaya carretera en la que nos han metido."
 
-    show sevony concern at t22
+    show sevony 1_3 at t22
     show ryu stand at f21
     ryu "Pues... sí, la verdad."
 
@@ -97,22 +97,22 @@ label inv_c0_truck_ryu:     # Chico rubio
     hide ryu
     with dissolve
 
-    show gaelg stand at t11
+    show gaelg 0_0 at t11
     "{th}Un chico que parecía nervioso y confundido observaba la conversación."
     "{th}Los miraba mientras murmuraba para sí mismo."
 
-    show gaelg stand at d11
+    show gaelg 0_0 at d11
     gaelg "Mi chamanismo me sacará de esta.\nEscaparé de aquí."
 
     "{th}Finalmente, consiguió reunir valor para hablarle a los presentes en lugar de al cuello de la camisa."
 
-    show gaelg stand at hf11
+    show gaelg 0_1 at hf11
     gaelg "Hum... ¿C-cómo te llamas?"
 
-    show gaelg stand at t31
+    show gaelg 0_1 at t31
     pause 0.2
     show ryu surprise at t32
-    show sevony stand at t33
+    show sevony 0_0 at t33
     pause 0.5
     show ryu surprise at hf32
     ryu "¿Y-yo? V-vaya por Dios."
@@ -123,20 +123,20 @@ label inv_c0_truck_ryu:     # Chico rubio
     show ryu smile at t32
 
     $ sevony.name = "Sevony"
-    show sevony smile at f33
+    show sevony 0_4 at f33
     sevony "Un gusto, Itsuki-kun. Mi nombre es Sevony."
-    show sevony smile at t33
+    show sevony 0_4 at t33
 
     $ gaelg.name = "Gabriel"
-    show gaelg stand at f31
+    show gaelg 0_3 at f31
     gaelg "A-ah... yo soy... Gabriel..."
 
     "{th}Gabriel se quedó bloqueado por un momento."
 
-    show gaelg surprise at hf31
+    show gaelg 0_6 at hf31
     $ gaelg.name = "Gael García"
     gaelg "¡QUIERO DECIR! Gael. Gael García, a tu servicio."
-    show gaelg surprise at t31
+    show gaelg 0_6 at t31
 
     "{th}¿En serio se le ha olvidado su propio nombre?"
 
@@ -148,43 +148,43 @@ label inv_c0_truck_ryu:     # Chico rubio
     ryu "Sevony... Me recuerdas a alguien, ¿sabes? Aunque tal vez solo sea mi imaginación."
     show ryu stand at t32
 
-    show sevony smile at hf33
+    show sevony 0_1 at hf33
     sevony "Más que seguro, su imaginación. Mucha gente pasa por la ciudad."
 
     "{th}Sevony ha contestado muy rápido..."
-    show sevony smile at t33
+    show sevony 0_1 at t33
     show ryu think at f32
     ryu "Hum... Seguramente sea eso."
     ryu "He conocido a mucha gente a lo largo de mi vida, no sería la primera vez que me ocurre."
 
     show ryu think at t32
-    show gaelg happy at f31
+    show gaelg 0_4 at f31
     gaelg "Ryu... ¿Igual que «dragón» en japonés?"
 
-    show gaelg happy at t31
+    show gaelg 0_4 at t31
     show ryu happy at hf32
     ryu "{bt=a1-p10-s1}Efectivamente.{/bt} No sé muy bien por qué escogieron ese nombre para mí..."
     show ryu concern at s32
     ryu "Un dragón da mucho miedo y escupe... fuego..."
 
-    show gaelg stand at hf31
+    show gaelg 0_4 at hf31
     gaelg "¡Yo creo que mola!\nY usted, señorita Sevony, ¿de dónde es?"
 
-    show gaelg stand at t31
-    show sevony smile at f33
+    show gaelg 0_4 at t31
+    show sevony 0_2 at f33
     sevony "Soy de Gekkou, una ciudad un poco al norte de aquí."
 
     "{th}Su sonrisa amable contrastaba con el tono frío, seguramente involuntario, de su voz."
 
-    show sevony smile at t33
-    show gaelg happy at f31
+    show sevony 0_2 at t33
+    show gaelg 0_4 at f31
     gaelg "O sea que sois japoneses... ¡Entonces... podré aprender mucho de otras culturas!"
     gaelg "Hoy es una victoria para el {b}chamán definitivo{/b}."
 
     show ryu surprise at t32
     "{th}Al oír el talento definitivo de Gael, Ryu lo miró con mucho interés."
 
-    show gaelg happy at t31
+    show gaelg 0_4 at t31
     show ryu surprise at f32
     ryu "Chamán... Qué interesante."
 
@@ -213,7 +213,7 @@ label inv_c0_truck_ryu:     # Chico rubio
 
 label inv_c0_truck_jaeke:   # Chico antipático
 
-    show jaeke stand at t21
+    show jaeke 0_0 at t21
     show takahiro stand at t22
     with dissolve
 
@@ -224,30 +224,30 @@ label inv_c0_truck_jaeke:   # Chico antipático
     takahiro "Eh, ¿y tú eres...?"
     show takahiro ask at t22
 
-    show jaeke annoyed
+    show jaeke 2_2
     "{th}El moreno le devolvió una fría mirada y no medió palabra."
 
     show takahiro ask at f22
     takahiro "Ya veo que eres alguien con quien es fácil hablar..."
     show takahiro ask at t22
 
-    show jaeke annoyed at t32
+    show jaeke 2_3 at t32
     "{th}Nada más oír eso, el mudo se levantó, se le acercó y empezó a susurrar."
 
-    show jaeke annoyed at f32
+    show jaeke 2_3 at f32
     jaeke "Ten cuidado conmigo, chaval.\nNo sabes con quién estás hablando."
-    show jaeke annoyed at t32
+    show jaeke 2_3 at t32
 
     show takahiro laugh at f22
     takahiro "Pues claro que no sé con quién estoy hablando, ni siquiera me has dicho tu nombre."
     show takahiro laugh at t22
 
-    show jaeke annoyed at t21
+    show jaeke 2_3 at t21
     pause 0.5
-    show jaeke annoyed at f21
+    show jaeke 2_4 at f21
     jaeke "Los comediantes como tú solo les hacen gracia a los pringados de la cárcel."
     jaeke "Mejor haz algo productivo, porque no tienes ninguna gracia, fracasado."
-    show jaeke annoyed at t21
+    show jaeke 2_3 at t21
 
     "{th}Vaya humos se gasta..."
 
@@ -277,37 +277,37 @@ label truck_end:
 
     akane "Esto... ¿Alguien sabe dónde estamos?"
 
-    show umi stand at t11
+    show umi 0_0 at t11
     "{th}Una chica muy guapa vestida con un gorro de marinero me dirigió la mirada al oírme."
 
-    show umi stand at f11
+    show umi 0_3 at f11
     umi "No lo sé, pero es un vehículo en movimiento, así que tampoco tiene sentido preguntarse eso hasta que lleguemos."
     umi "Lo mejor será mantener la calma."
 
-    show umi stand at t11
+    show umi 0_3 at t11
     akane "Supongo que tienes razón, pero quería preguntar por si alguien lo sabía..."
 
-    show umi stand at t21
+    show umi 0_0 at t21
     show emiko ask at f22
     emiko "¿Eh? Espera... ¿entonces de verdad nadie sabe hacia dónde vamos o siquiera dónde estamos?"
 
-    show umi stand at t31
+    show umi 0_0 at t31
     show emiko ask at t32
-    show raiden annoyed at f33
+    show raiden 1_7 at f33
     luc "Si lo supiéramos, ya habría contestado alguien, ¿no?\nA menos que se lo quiera callar."
-    show raiden laugh at hf33
+    show raiden 2_3 at hf33
     luc "Imaginaos que nos han secuestrado o algo y pretenden deshacerse de nosotros, ¡ja, ja!"
 
-    show raiden laugh at t33
+    show raiden 2_3 at t33
     akane "¡¿Secuestrarnos?! ¡¿Y qué se supone que hemos hecho para acabar en una situación así?!"
 
-    show raiden smile at f33
+    show raiden 2_4 at f33
     luc "Vamos, solo era una broma."
     luc "Yo, al menos, no he hecho nada malo. Los demás, no sé."
 
-    show umi surprise at h31
+    show umi 0_4 at h31
     show emiko surprise at h32
-    show raiden surprise at h33
+    show raiden 0_7 at h33
     play sound truck_bump
     with vpunch
     "{sy}¡Pam!"
@@ -326,10 +326,10 @@ label truck_end:
     
     "{th}Por culpa de todos esos baches, me golpeé la cabeza con el techo del vehículo."
 
-    show umi concern at focus
+    show umi 1_2 at focus
     umi "¿Te encuentras bien?"
 
-    show umi concern at t11
+    show umi 1_2 at t11
     akane "S-sí..." 
     "{th}Tal vez yo también debería entablar conversación con alguien..."
     akane "P-por cierto, ¿cómo te lla...?"
@@ -346,24 +346,24 @@ label truck_end:
     "{th}Joder... Qué daño..."
     "{th}Yo había acabado en el suelo, pero no era la única..."
 
-    show axiom hurt at s11
+    show axiom 0_4 at s11
     axiom "(...)"
 
     akane "¡Aah! ¿Estás bien?"
     "{th}Fui a buscar mi pañuelo, pero la marinera fue más rápida que yo."
     
-    show axiom hurt at t21
-    show umi concern at t22
+    show axiom 0_4 at t21
+    show umi 1_7 at t22
     pause 0.3
-    show umi concern at f22
+    show umi 1_7 at f22
     umi "¿Necesitas ayuda?\nToma, ponte esto para taponar la herida..." 
 
     hide umi 
     hide axiom
     with dissolve
 
-    show guppy sleep at s22
-    show danny sleep at s21
+    show guppy 0_20 at s22
+    show danny 1_1 at s21
     with dissolve
     "{th}Y también había dos personas durmiendo en el suelo..."
     "{th}Tener buen dormir es una cosa, pero no despertarte con todos esos baches es otra..."
@@ -373,10 +373,10 @@ label truck_end:
     scene bg truck_light with dissolve
     "{th}Y entonces, la puerta se abrió."
 
-    show raiden hurt at hf11 with vpunch
+    show raiden 0_11 at hf11 with vpunch
     luc "¡AAH, LA LUZ! ¡Mis ojos!"
 
-    show raiden hurt at t11
+    show raiden 0_11 at t11
     akane "¿Estás bie...?{nw}"
     play sound feed1
     with flash
@@ -384,21 +384,21 @@ label truck_end:
     akane "¡AGH, MIS OJOS!"
     "{th}La luz entró de golpe en el interior de la parte trasera del camión, acompañado de una corriente de aire refrescante."
 
-    show raiden annoyed at f11
+    show raiden 0_4 at f11
     luc "¿Por fin nos dejan salir del autobús?"
     
-    show raiden annoyed at t21
+    show raiden 0_4 at t21
     show takahiro ask at f22
     takahiro "Yo pensaba que era una furgoneta."
     
-    show raiden annoyed at t31
+    show raiden 0_4 at t31
     show takahiro ask at t32
-    show danny sleepy at f33
+    show danny 0_3 at f33
     danny "Agh, qué luz tan fuerte...\n¿Ya ha llegado a puerto el barco?"
     
     "{th}Se ha despertado y todo..."
 
-    show danny sleepy at t33
+    show danny 0_3 at t33
     show takahiro stand at f32
     takahiro "En cualquier caso, yo me piro de aquí..."
     play sound footsteps
@@ -408,10 +408,10 @@ label truck_end:
     hide danny with dissolve
     "{th}Uno a uno, los demás siguieron al chico y fueron saliendo del camión."
 
-    show guppy sleep at t11
+    show guppy 0_20 at t11
     pause 1.0
     "{th}¿Debería despertarla...?"
-    show guppy sleepy at hop
+    show guppy 0_7 at hop
     "{th}¡Ah! Pobre niña, parece confusa..."
 
     play sound footsteps
@@ -437,14 +437,14 @@ label entrance:
     "{th}Parecía algún tipo de campus extraño..."
 
     show ryu surprise at t21
-    show sevony stand at t22
+    show sevony 1_2 at t22
     "{th}Ryu respiraba hondo, como si intentara recuperar ahora todo el aire que no había podido inhalar mientras estaba en el camión con tanta gente."
     "{th}Sevony observaba sus alrededores, al lado de Ryu, mientras se acomodaba las gafas."
     
-    show sevony stand at f22
+    show sevony 1_2 at f22
     sevony "Curioso..."
     
-    show sevony stand at t22
+    show sevony 1_2 at t22
     show ryu stand at f21
     ryu "Cuanto menos...\nEste lugar es extraño, ¿no está todo muy preparado?"
     show ryu think at f21 
@@ -468,25 +468,25 @@ label entrance:
 # Investigación: Entrada del recinto extraño
 label inv_c0_entrance_umi:      # Hablar con la marinera
 
-    show umi stand at t11
+    show umi 0_0 at t11
     "{th}Me acerqué tímidamente a la chica del gorro..."
     akane "Mmm, perdona...\nNo he podido preguntarte tu nombre al final."
 
-    show umi think at f11
+    show umi 1_2 at f11
     umi "¿Eh? Ah, sí, cierto, fue antes de que el camión acelerara."
-    show umi stand at f11
+    show umi 0_10 at f11
     $ umi.name = "Umi Yoshiharu"
     umi "Me llamo Umi Yoshiharu, ¿y tú?"
 
-    show umi stand at t11
+    show umi 0_10 at t11
     $ akane.name = "Akane Yamamoto"
     akane "Akane, Akane Yamamoto."
 
-    show umi smile at f11
+    show umi 2_1 at f11
     umi "Encantada, Akane."
     
     "{th}Umi me observó de abajo a arriba y esbozó una sonrisa."
-    show umi smile at t11
+    show umi 2_1 at t11
     "{th}No la conozco, pero... me transmite tranquilidad."
 
     hide umi with dissolve
@@ -503,7 +503,7 @@ label inv_c0_entrance_umi:      # Hablar con la marinera
 # Posinvestigación: No hay conductor
 label fex_shadow:
     show ryu concern at t21
-    show sevony stand at t22
+    show sevony 1_4 at t22
     "{th}En ese momento llegaron Sevony y Ryu de vuelta."
 
     show ryu concern at f21
@@ -513,11 +513,11 @@ label fex_shadow:
     hide ryu
     with dissolve
 
-    show raiden annoyed at f21
+    show raiden 0_5 at f21
     show takahiro annoyed at t22
     luc "Eeeh, pues yo estoy empezando a aburrirme."
     
-    show raiden annoyed at t21
+    show raiden 0_5 at t21
     show takahiro annoyed at f22
     takahiro "Vaya por Dios... \nYo quería irme de aquí cuanto antes. En fin."
 
@@ -526,33 +526,33 @@ label fex_shadow:
     with dissolve
 
     show ryu concern at f21
-    show sevony stand at t22
+    show sevony 1_4 at t22
     ryu "Sevony... ¿qué deberíamos hacer?"
 
     show ryu concern at t21
-    show sevony concern at f22
+    show sevony 1_3 at f22
     sevony "Parece que tenemos que explorar."
 
-    show sevony concern at t22
+    show sevony 1_3 at t22
     "{th}Sevony echó una mirada alrededor.\nHabía algunos caminos que podíamos examinar."
     
-    show sevony concern at f22
+    show sevony 1_2 at f22
     sevony "Qué lugar más extraño.{nw}"
 
     show ryu surprise at h21
-    show sevony surprise at h22
+    show sevony 1_6 at h22
     play sound fex_run
     show fex shadow at leftin(x=1500)
     pause 0.5
 
     "{th}Desde el costado del camión salió una pequeña sombra que echó a correr hacia uno de los caminos."
 
-    show guppy happy at f32
-    show sevony surprise at t33
+    show guppy 0_17 at f32
+    show sevony 1_6 at t33
     show ryu hurt at t31
     play sound feed1
     pause 0.2
-    guppy "{sc}¡OOOOH!{/sc}" with vpunch
+    guppy "{sc}¡HAAALA!{/sc}" with vpunch
 
     play sound footsteps
     hide guppy with dissolve
@@ -563,34 +563,34 @@ label fex_shadow:
 
     "{th}Le ha hecho una herida en la rodilla...\nNada grave, pero sangra un poco."
 
-    show sevony surprise at f22
+    show sevony 1_5 at f22
     sevony "¡Itsuki!"
 
-    show sevony surprise at t22
+    show sevony 1_5 at t22
     show ryu hurt at f31
     ryu "N-necesito agua..."
 
     show ryu hurt at t31
-    show sevony stand at f22
+    show sevony 1_3 at f22
     sevony "García... Perdón si es mucho pedir, pero... ¿puedes intentar conseguirle agua? Deberíamos limpiarle la herida."
 
-    show gaelg think at f33
+    show gaelg 0_3 at f33
     show ryu hurt at t31
-    show sevony stand at t32
+    show sevony 1_3 at t32
     gaelg "¡Claro! Pero... ¿dónde puedo conseguir agua?"
 
-    show gaelg think at t33
+    show gaelg 0_3 at t33
     show ryu hurt at f31
     ryu "Eres muy amable, Sevony...\nVeo desde aquí que hay una fuente en la plaza.\n¿Podrías conseguirme el agua en una botella, Gael?"
 
-    show gaelg think at f33
+    show gaelg 0_3 at f33
     show ryu hurt at t31
-    show sevony stand at t32
+    show sevony 1_3 at t32
     gaelg "¡De acuerdo!"
 
-    show sevony stand at t43
-    show gaelg stand at t42
-    show gaelg stand at f42
+    show sevony 1_2 at t43
+    show gaelg 0_0 at t42
+    show gaelg 0_0 at f42
     gaelg "Ah, toma. Un amuleto. Te protegerá de todo mal.\n¡Cualquier cosa, grita! Cazaré salvajes demonios si es necesario para proteger a mis amigos."
 
     play sound footsteps
@@ -598,13 +598,13 @@ label fex_shadow:
 
     pause 0.5
 
-    show sevony stand at t43
+    show sevony 1_2 at t43
     show ryu smile at f41
     ryu "G-gracias...\nVaya."
 
     show ryu smile at t31
-    show sevony stand at t33
-    show axiom stand at f32
+    show sevony 1_2 at t33
+    show axiom 0_0 at f32
 
     axiom "Toma."
 
@@ -612,7 +612,7 @@ label fex_shadow:
     ryu "Oh... Un pañuelo."
     ryu "Gracias... Podré usarlo cuando tenga agua."
 
-    show sevony stand at f33
+    show sevony 1_4 at f33
     show ryu surprise at s31
     sevony "Y-yo me encargo de él. Creo que... lo mejor es que los demás vayáis a buscar esa sombra."
     sevony "Si la sombra es el conductor, seguro que sabe dónde estamos."
@@ -622,22 +622,22 @@ label fex_shadow:
     hide axiom
     with dissolve
 
-    show raiden annoyed at t31
-    show ichika stand at t32
-    show danny stand at t33
+    show raiden 0_5 at t31
+    show ichika 0_0 at t32
+    show danny 0_0 at t33
 
-    show raiden annoyed at f31
+    show raiden 0_6 at f31
     luc "En fin..."
 
-    show raiden annoyed at t31
-    show danny stand at f33
+    show raiden 0_6 at t31
+    show danny 0_0 at f33
     danny "No sé qué coño era eso, pero deberíamos ir..."
 
-    show danny stand at t33
+    show danny 0_0 at t33
     akane "¡E-esperad! ¿Y si no es el conductor?"
 
 
-    show ichika stand at f32
+    show ichika 0_2 at f32
     ichika "¡Da igual lo que fuera, será mejor que vayamos tras él!"
     
     play audio footsteps
@@ -680,7 +680,7 @@ label fex_search:
 
 # Investigación: Plaza
 label inv_c0_plaza_umi:         # Umi Yoshiharu
-    show umi think at focus
+    show umi 1_4 at focus
     umi "¿Cuánta pasta tienen los dueños de este sitio?"
     hide umi with dissolve
     
@@ -691,7 +691,7 @@ label inv_c0_plaza_umi:         # Umi Yoshiharu
     call screen investigation(inv_name, talk, obj, "plaza")
 
 label inv_c0_plaza_ghiang:      # Chica de los moños
-    show ghiang yell at focus
+    show ghiang 1_1 at focus
     ghiang "Veeenga, conductor, ¿dónde te has metido?"
     hide ghiang with dissolve
 
@@ -703,31 +703,31 @@ label inv_c0_plaza_ghiang:      # Chica de los moños
 
 label inv_c0_plaza_jaeke:       # Chico antipático
     show takahiro stand at t21
-    show jaeke stand at f22
+    show jaeke 0_3 at f22
     jaeke "Eh."
     jaeke "¿Sabéis algo de la situación actual?"
 
     show takahiro joke at f21
-    show jaeke stand at t22
+    show jaeke 0_3 at t22
     takahiro "Vaya, vaya. Veo que te dignas por fin a hablarme."
     show takahiro think at f21
     takahiro "Lo único que sé es que hay gente... bastante peculiar."
     
     show takahiro think at t21
-    show jaeke annoyed at f22
+    show jaeke 0_1 at f22
     jaeke "Antes has estado hablando con ellos... ¿No has sido capaz de preguntar absolutamente nada que nos sea de utilidad?"
 
-    show jaeke annoyed at t22
+    show jaeke 0_1 at t22
     show takahiro think at f21
     takahiro "Diría que todos sabemos lo mismo de este lugar, así que no creo que nadie tenga información realmente útil."
 
     show takahiro think at t21
-    show jaeke facepalm at f22
+    show jaeke 2_2 at f22
     jaeke "Pues tampoco perdías nada por preguntar por lo menos, estúpido."
-    show jaeke annoyed at f22
+    show jaeke 2_1 at f22
     jaeke "Agh... Está bien. A partir de ahora, trabajarás para mí. A ver si así consigues hacer algo bien."
 
-    show jaeke annoyed at t22
+    show jaeke 2_1 at t22
     "{th}Si sigo escuchando a ese chico, me va a acabar dando dolor de cabeza."
     
     hide jaeke
@@ -753,19 +753,19 @@ label inv_c0_plaza_tree:        # Árbol
 label inv_c0_plaza_fountain:    # Fuente
     "{th}En el centro de la plaza hay una fuente muy bonita."
 
-    show raiden stand at t21
-    show gaelg think at t22
+    show raiden 0_3 at t21
+    show gaelg 0_2 at t22
     pause 0.4
-    show gaelg think at f22
+    show gaelg 0_2 at f22
     gaelg "Fuente, fuente... ¿No había una fuente por aquí?"
-    show gaelg think at t22
+    show gaelg 0_2 at t22
     luc "(...)"
-    show gaelg think at f22
+    show gaelg 0_2 at f22
     gaelg "Decían que había una fuente, pero..."
 
     play sound feed1
-    show gaelg surprise at h22
-    show raiden yell at hf21
+    show gaelg 0_6 at h22
+    show raiden 1_12 at hf21
     luc "¡GAEL! ¡AQUÍ HAY AGUA!" with hpunch
 
     hide raiden
@@ -798,7 +798,7 @@ label inv_c0_plaza_buildings:   # Edificios en la distancia
 
 # Posinvestigación: Guppy persigue a Monofex
 label fex_chase:
-    show guppy stare at focus
+    show guppy 1_3 at focus
     stop music fadeout 2.0
     guppy "({w=0.4}.{w=0.4}.{w=0.4}.{w=0.4})"
 
@@ -819,26 +819,26 @@ label fex_chase:
     pause 1.0
 
     show takahiro laugh at f21
-    show umi smile at t22
+    show umi 0_13 at t22
     takahiro "Sí que se lo pasa bien."
     
     show takahiro laugh at t21
-    show umi smile at f22
+    show umi 0_14 at f22
     umi "Está tanteando el terreno, comprobando si el sitio es seguro."
 
-    show umi smile at t22
+    show umi 0_13 at t22
     "{th}Si sigue saltando a lo loco, se podría caer y hacer daño..."
 
     menu:
         "¿No deberíamos hacer algo...?":
             akane "¿No deberíamos hacer algo...?"
             
-            show umi smile at t22
+            show umi 0_13 at t22
             show takahiro laugh at f21
             takahiro "Qué va, es más divertido dejarlo estar."
             
             show takahiro laugh at t21
-            show umi smile at f22
+            show umi 0_14 at f22
             umi "Estará bien. Parece bastante ágil."
 
         "(...)":
@@ -854,9 +854,9 @@ label fex_chase:
 
     "{th}¡Pero si se acaba de chocar contra un tronco!"
 
-    show guppy hurt at t11
+    show guppy 2_2 at t11
     guppy "(...)"
-    show guppy panic at h11
+    show guppy 0_18 at h11
     guppy "({sc}!!!{/sc})"
 
     "{th}Pobrecita, se ha llevado un buen golpe... Y parece asustada..."
@@ -866,7 +866,7 @@ label fex_chase:
     play sound announcement
     pause 5.0
 
-    show guppy earscovered at h11
+    show guppy 2_2 at h11
     fex "{sy}¡Ejem, ejem! Atención todo el mundo. ¡Atención!"
 
     "{th}Empezó a sonar una voz chillona incorpórea. A juzgar por la calidad del sonido, provenía de los altavoces de un sistema de megafonía."
@@ -877,20 +877,20 @@ label fex_chase:
 
     akane "¿Qué...? ¿Un espectáculo?"
 
-    show ichika happy at f21
+    show ichika 0_5 at f21
     ichika "¡Qué bien! ¡Nos han preparado un espectáculo de bienvenida y todo!"
     
-    show ichika happy at t21
-    show ghiang think at f22
+    show ichika 0_7 at t21
+    show ghiang 0_1 at f22
     ghiang "No sé yo... A mí me huele a chamusquina."
 
-    show ghiang think at t22
+    show ghiang 0_1 at t22
     akane "Tampoco tenemos mucho más que hacer, ¿no? Y seguramente consigamos nueva información una vez vayamos allí..."
     akane "Esa voz... tiene que ser la persona que nos ha traído hasta aquí."
 
-    show ichika happy at t31
-    show ghiang think at t32
-    show gaelm nervous at f33
+    show ichika 0_7 at t31
+    show ghiang 0_1 at t32
+    show gaelm 0_5 at f33
 
     gaelm "S-sí... Yo diría que lo mejor es que hagamos caso... S-si queréis, claro."
 
@@ -909,7 +909,7 @@ label fex_chase:
 label sevony_exec:
     show bg entrance with fade
     
-    show sevony stand at t22
+    show sevony 1_3 at t22
     show ryu hurt at t21    
     "{th}Sevony está usando el pañuelo que le dio el de la mascarilla para limpiar la herida."
 
@@ -919,12 +919,12 @@ label sevony_exec:
     ryu "¿Cuál es tu apellido, a todo esto? Ya que tú me llamas Itsuki..."
 
     show ryu hurt at t21
-    show sevony smile at f22
+    show sevony 1_1 at f22
     sevony "Ah... Siento mis modales... Es cierto que no me he presentado adecuadamente."
-    show sevony serious at f22
+    show sevony 1_5 at f22
     sevony "{b}Maáz{/b}." with flash
 
-    show sevony serious at t22
+    show sevony 1_5 at t22
     show ryu shock at f21
     ryu "¿P-perdona?"
 
@@ -1008,9 +1008,9 @@ label sevony_exec:
 
 # Investigación: Ryu y Monofex
 label inv_c0_welcome_luc:       # Chico del pañuelo
-    show raiden stand at f11
+    show raiden 1_9 at f11
     luc "(...)"
-    show raiden laugh at f11
+    show raiden 0_16 at f11
     luc "¡Ja, ja, ja! {bt=a1-p10-s1}¡¡Cómo mola!!{/bt} ¡¿Cómo ha hecho eso?!" with hpunch
 
     hide raiden with dissolve
@@ -1022,7 +1022,7 @@ label inv_c0_welcome_luc:       # Chico del pañuelo
     call screen investigation(inv_name, talk)
 
 label inv_c0_welcome_gaelg:     # Gael García
-    show gaelg scared at f11
+    show gaelg 0_5 at f11
     gaelg "¿R-Ryu...?"
     gaelg "¿Qué... ha pasado...? ¿Cómo que «ejecución»...?"
     hide gaelg with dissolve
@@ -1055,9 +1055,9 @@ label inv_c0_welcome_emiko:     # Coletas
     call screen investigation(inv_name, talk)
 
 label inv_c0_welcome_danny:     # Dormilón
-    show danny shock at f11
+    show danny 2_2 at f11
     danny "¿Qué ha sido esa explosión...?"
-    hide danny shock with dissolve
+    hide danny 2_2 with dissolve
 
     python:
         if "danny" in talk:
@@ -1184,16 +1184,16 @@ label game_rules:
     "{th}¿No podemos salir a menos que matemos a alguien, igual que ha hecho Ryu con Sevony?"
     "{th}Mientras intentaba organizar mis pensamientos, por fin se rompió el silencio."
 
-    show gaelg sad at t22
-    show raiden lookaway at f21
+    show gaelg 0_0 at t22
+    show raiden 1_6 at f21
     luc "Oye, Gael. Siento mucho lo que ha pasado, parecía que os llevabais bastante bien."
 
-    show gaelg cry at f22
-    show raiden lookaway at t21
+    show gaelg 0_1 at f22
+    show raiden 1_6 at t21
     gaelg "Intento hacer amigos... y resulta que uno está loco y la otra acaba muerta..."
 
-    show gaelg cry at t22
-    show raiden lookaway at f21
+    show gaelg 0_0 at t22
+    show raiden 1_8 at f21
     luc "Sí, vaya tino.\nAnda, sigamos al zorro y veamos los dormitorios."
 
     play sound footsteps
@@ -1201,20 +1201,20 @@ label game_rules:
     hide raiden
     with dissolve
 
-    show guppy serious at f21
+    show guppy 0_0 at f21
     show emiko sad at t22
     guppy "Tú. Sígueme."
     
     show emiko surprise at f22
-    show guppy serious at t21
+    show guppy 0_0 at t21
     emiko "¿Eh, yo...?"
 
     show emiko surprise at t22
-    show guppy serious at f21
+    show guppy 0_2 at f21
     guppy "Sí. Sigamos al zorro."
 
     show emiko surprise at f22
-    show guppy serious at t21
+    show guppy 0_2 at t21
     emiko "Ah, ¡v-vale!"
 
     play sound footsteps
