@@ -1628,6 +1628,7 @@ screen investigation(inv_name, talk={}, obj={}, place=""):  # FIXME: Esta pantal
             text tooltip
 
 screen monopad_unlock:
+
     textbutton "Desactivar la alarma" xalign 0.5 yalign 0.5 action Stop("music"), ShowMenu("monopad_screen")
 
 screen monopad_screen:
@@ -1671,7 +1672,7 @@ screen monopad_buttons():
         xalign 1.0
         yalign 0.0
         auto "gui/back_%s.png"
-        action Return()
+        action [Return(), Hide("monopad_unlock"), Jump("safenet")]
 
 screen profile:
     tag menu
