@@ -1629,7 +1629,50 @@ screen investigation(inv_name, talk={}, obj={}, place=""):  # FIXME: Esta pantal
 
 screen monopad_unlock:
 
-    textbutton "Desactivar la alarma" xalign 0.5 yalign 0.5 action Stop("music"), ShowMenu("monopad_screen")
+    textbutton "Desactivar la alarma" xalign 0.5 yalign 0.5 action Stop("music"), Jump("monopad_4firsttime")
+
+screen monopad_screen_firsttime:
+    tag menu
+
+    $ config.thumbnail_width = config.screen_width
+    $ config.thumbnail_height = config.screen_height
+    $ FileTakeScreenshot()
+
+    add FileCurrentScreenshot() at blur
+
+    use monopad_buttons_firsttime
+
+screen monopad_buttons_firsttime():
+
+    hbox:
+        xalign 0.5
+        yalign 0.5
+        spacing 10
+
+        imagebutton:
+            auto "gui/monopad/profile_%s.png"
+            action ShowMenu("profile")
+        imagebutton:
+            auto "gui/monopad/evidence_%s.png"
+            action ShowMenu("evidence")
+        imagebutton:
+            auto "gui/monopad/map_%s.png"
+            action ShowMenu("map")
+        imagebutton:
+            auto "gui/monopad/gallery_%s.png"
+            action ShowMenu("gallery")
+        imagebutton:
+            auto "gui/monopad/option_%s.png"
+            action ShowMenu("option")
+        at move_in_right
+    
+    imagebutton:    # Botón para volver atrás
+        xanchor 1.0
+        yanchor 0.0
+        xalign 1.0
+        yalign 0.0
+        auto "gui/back_%s.png"
+        action [Return(), Jump("inv_c1_akaneroom_end")]
 
 screen monopad_screen:
     tag menu
@@ -1672,7 +1715,7 @@ screen monopad_buttons():
         xalign 1.0
         yalign 0.0
         auto "gui/back_%s.png"
-        action [Return(), Hide("monopad_unlock"), Jump("safenet")]
+        action Return()
 
 screen profile:
     tag menu

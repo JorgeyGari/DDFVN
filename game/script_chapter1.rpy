@@ -23,6 +23,9 @@ label inv_c1_akaneroom_monopad:
     
     call screen monopad_unlock
 
+label monopad_4firsttime:
+    call screen monopad_screen_firsttime  # Esta solución es horrible pero funciona
+
 label inv_c1_akaneroom_bed:
     "{th}El día fue tan cansado que acabé desplomándome en la cama anoche."
     "{th}Y eso que habían sucedido muchas cosas en las que podía haberme quedado pensando pasando la noche en vela."
@@ -33,5 +36,9 @@ label inv_c1_akaneroom_desk:
     "{th}¿Qué es eso que hay {b}encima{/b} de él...?" with flash
     call screen investigation(inv_name, talk, obj, "akaneroom")
 
-label safenet:
-    "hola"
+label inv_c1_akaneroom_end:
+    python:
+        renpy.hide_screen("monopad_unlock")
+    "{th}Es... ¿un teléfono?"
+    hide cg c1_monopad_alarm with fade
+    "{th}¿Lo habrán dejado para mí?"
