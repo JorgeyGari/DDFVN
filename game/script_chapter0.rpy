@@ -33,7 +33,7 @@ label truck:
     "{th}Me encontraba en lo que parecía ser un camión de transporte."
     "{th}Podía escuchar el motor del vehículo y, a mi alrededor, pude distinguir a más gente despertar como yo."
 
-    show ryu concern at t11
+    show ryu 0_0 at t11
     "{th}Un chico de pelo claro permanecía sentado, abrazado a sus piernas, en silencio al fondo del camión."
     "{th}Lo oí soltar un suspiro de angustia justo antes de hundir la cabeza entre las piernas."
     hide ryu with dissolve
@@ -70,27 +70,27 @@ label inv_c0_truck_ryu:     # Chico rubio
     $ gaelg.name = "Chamán"
     $ sevony.name = "Gafas"
 
-    show ryu stand at t21
+    show ryu 0_1 at t21
     show sevony 1_6 at t22
     "{th}Las gafas de la chica de pelo violeta habían salido despedidas por culpa del bache."
-    show ryu stand at s21
+    show ryu 0_1 at s21
     "{th}El rubio se agachó al oírlas caer. Habían aterrizado cerca de él."
-    show ryu stand at t32
+    show ryu 0_1 at t32
     "{th}Gateó un poco hasta alcanzarlas y se las acercó a su dueña, con una cálida sonrisa."
 
-    show ryu smile at f32
+    show ryu 0_15 at f32
     ryu "Toma, ve con cuidado... Sería una pena que se te rompieran."
 
     "{th}Lo dijo flojito, como si no quisiera llamar demasiado la atención en un ambiente tan tenso."
 
-    show ryu smile at t21
+    show ryu 0_15 at t21
     show sevony 1_4 at f22
     sevony "(...)\nMuchas gracias."
     show sevony 1_3
     sevony "Vaya carretera en la que nos han metido."
 
     show sevony 1_3 at t22
-    show ryu stand at f21
+    show ryu 0_5 at f21
     ryu "Pues... sí, la verdad."
 
     hide sevony
@@ -111,16 +111,16 @@ label inv_c0_truck_ryu:     # Chico rubio
 
     show gaelg 0_1 at t31
     pause 0.2
-    show ryu surprise at t32
+    show ryu 0_32 at t32
     show sevony 0_0 at t33
     pause 0.5
-    show ryu surprise at hf32
+    show ryu 0_32 at hf32
     ryu "¿Y-yo? V-vaya por Dios."
-    show ryu smile
+    show ryu 0_15
     $ ryu.name = "Ryu Itsuki"
     ryu "Mi nombre... es Ryu Itsuki.\nSoy un simple desempleado."
     ryu "¿Y vosotros, chica de las gafas, chico moreno?"
-    show ryu smile at t32
+    show ryu smile 0_15 at t32
 
     $ sevony.name = "Sevony"
     show sevony 0_4 at f33
@@ -140,31 +140,32 @@ label inv_c0_truck_ryu:     # Chico rubio
 
     "{th}¿En serio se le ha olvidado su propio nombre?"
 
-    show ryu stand at f32
+    show ryu 0_36 at f32
     ryu "Sevony y Gael... Tenéis nombres exóticos, son bonitos."
 
     "{th}La expresión de Ryu se había apagado."
 
+    show ryu 0_35 at f32
     ryu "Sevony... Me recuerdas a alguien, ¿sabes? Aunque tal vez solo sea mi imaginación."
-    show ryu stand at t32
+    show ryu 0_36 at t32
 
     show sevony 0_1 at hf33
     sevony "Más que seguro, su imaginación. Mucha gente pasa por la ciudad."
 
     "{th}Sevony ha contestado muy rápido..."
     show sevony 0_1 at t33
-    show ryu think at f32
+    show ryu 0_36 at f32
     ryu "Hum... Seguramente sea eso."
     ryu "He conocido a mucha gente a lo largo de mi vida, no sería la primera vez que me ocurre."
 
-    show ryu think at t32
+    show ryu 0_36 at t32
     show gaelg 0_4 at f31
     gaelg "Ryu... ¿Igual que «dragón» en japonés?"
 
     show gaelg 0_4 at t31
-    show ryu happy at hf32
+    show ryu 0_15 at hf32
     ryu "{bt=a1-p10-s1}Efectivamente.{/bt} No sé muy bien por qué escogieron ese nombre para mí..."
-    show ryu concern at s32
+    show ryu 0_36 at s32
     ryu "Un dragón da mucho miedo y escupe... fuego..."
 
     show gaelg 0_4 at hf31
@@ -181,14 +182,14 @@ label inv_c0_truck_ryu:     # Chico rubio
     gaelg "O sea que sois japoneses... ¡Entonces... podré aprender mucho de otras culturas!"
     gaelg "Hoy es una victoria para el {b}chamán definitivo{/b}."
 
-    show ryu surprise at t32
-    "{th}Al oír el talento definitivo de Gael, Ryu lo miró con mucho interés."
+    show ryu 1_6 at t32
+    "{th}Al oír el talento definitivo de Gael, Ryu lo miró con interés."
 
     show gaelg 0_4 at t31
-    show ryu surprise at f32
+    show ryu 1_5 at f32
     ryu "Chamán... Qué interesante."
 
-    show ryu surprise at t32
+    show ryu 1_5 at t32
     "{th}¿Será este el inicio de una agradable amistad?"
 
     play sound "audio/truck_bump.ogg"
@@ -436,7 +437,7 @@ label entrance:
     "{th}Ante nosotros se encontraba un recinto considerablemente grande."
     "{th}Parecía algún tipo de campus extraño..."
 
-    show ryu surprise at t21
+    show ryu 0_34 at t21
     show sevony 1_2 at t22
     "{th}Ryu respiraba hondo, como si intentara recuperar ahora todo el aire que no había podido inhalar mientras estaba en el camión con tanta gente."
     "{th}Sevony observaba sus alrededores, al lado de Ryu, mientras se acomodaba las gafas."
@@ -445,9 +446,9 @@ label entrance:
     sevony "Curioso..."
     
     show sevony 1_2 at t22
-    show ryu stand at f21
+    show ryu 0_0 at f21
     ryu "Cuanto menos...\nEste lugar es extraño, ¿no está todo muy preparado?"
-    show ryu think at f21 
+    show ryu 0_0 at f21 
     ryu "Voy a buscar al conductor del autobús."
     hide ryu with dissolve
     hide sevony with dissolve
@@ -502,11 +503,11 @@ label inv_c0_entrance_umi:      # Hablar con la marinera
 
 # Posinvestigación: No hay conductor
 label fex_shadow:
-    show ryu concern at t21
+    show ryu 2_8 at t21
     show sevony 1_4 at t22
     "{th}En ese momento llegaron Sevony y Ryu de vuelta."
 
-    show ryu concern at f21
+    show ryu 2_1 at f21
     ryu "El asiento del conductor estaba vacío... y tampoco hemos encontrado la llave para arrancar el vehículo."
 
     hide sevony
@@ -525,11 +526,11 @@ label fex_shadow:
     hide takahiro
     with dissolve
 
-    show ryu concern at f21
+    show ryu 1_7 at f21
     show sevony 1_4 at t22
     ryu "Sevony... ¿qué deberíamos hacer?"
 
-    show ryu concern at t21
+    show ryu 1_7 at t21
     show sevony 1_3 at f22
     sevony "Parece que tenemos que explorar."
 
@@ -539,7 +540,7 @@ label fex_shadow:
     show sevony 1_2 at f22
     sevony "Qué lugar más extraño.{nw}"
 
-    show ryu surprise at h21
+    show ryu 0_22 at h21
     show sevony 1_6 at h22
     play sound fex_run
     show fex shadow at leftin(x=1500)
@@ -549,7 +550,7 @@ label fex_shadow:
 
     show guppy 0_17 at f32
     show sevony 1_6 at t33
-    show ryu hurt at t31
+    show ryu 2_3 at t31
     play sound feed1
     pause 0.2
     guppy "{sc}¡HAAALA!{/sc}" with vpunch
@@ -558,7 +559,7 @@ label fex_shadow:
     hide guppy with dissolve
     "{th}La niña del pez en la cabeza se abrió paso a empujones entre Sevony y Ryu, tirando al suelo al segundo. Corrió tras la sombra."
     
-    show ryu hurt at s31
+    show ryu 2_3 at s31
     ryu "{sc}¡Ay!{/sc}{w=0.25} ¡O-oye...!"
 
     "{th}Le ha hecho una herida en la rodilla...\nNada grave, pero sangra un poco."
@@ -567,24 +568,24 @@ label fex_shadow:
     sevony "¡Itsuki!"
 
     show sevony 1_5 at t22
-    show ryu hurt at f31
+    show ryu 2_3 at f31
     ryu "N-necesito agua..."
 
-    show ryu hurt at t31
+    show ryu 2_3 at t31
     show sevony 1_3 at f22
     sevony "García... Perdón si es mucho pedir, pero... ¿puedes intentar conseguirle agua? Deberíamos limpiarle la herida."
 
     show gaelg 0_3 at f33
-    show ryu hurt at t31
+    show ryu 2_3 at t31
     show sevony 1_3 at t32
     gaelg "¡Claro! Pero... ¿dónde puedo conseguir agua?"
 
     show gaelg 0_3 at t33
-    show ryu hurt at f31
+    show ryu 2_2 at f31
     ryu "Eres muy amable, Sevony...\nVeo desde aquí que hay una fuente en la plaza.\n¿Podrías conseguirme el agua en una botella, Gael?"
 
     show gaelg 0_3 at f33
-    show ryu hurt at t31
+    show ryu 2_2 at t31
     show sevony 1_3 at t32
     gaelg "¡De acuerdo!"
 
@@ -599,21 +600,21 @@ label fex_shadow:
     pause 0.5
 
     show sevony 1_2 at t43
-    show ryu smile at f41
+    show ryu 0_19 at f41
     ryu "G-gracias...\nVaya."
 
-    show ryu smile at t31
+    show ryu 0_19 at t31
     show sevony 1_2 at t33
     show axiom 0_0 at f32
 
     axiom "Toma."
 
-    show ryu surprise at f31
+    show ryu 0_20 at f31
     ryu "Oh... Un pañuelo."
     ryu "Gracias... Podré usarlo cuando tenga agua."
 
     show sevony 1_4 at f33
-    show ryu surprise at s31
+    show ryu 0_20 at s31
     sevony "Y-yo me encargo de él. Creo que... lo mejor es que los demás vayáis a buscar esa sombra."
     sevony "Si la sombra es el conductor, seguro que sabe dónde estamos."
 
@@ -910,22 +911,22 @@ label sevony_exec:
     show bg entrance with fade
     
     show sevony 1_3 at t22
-    show ryu hurt at t21    
+    show ryu 0_20 at t21    
     "{th}Sevony está usando el pañuelo que le dio el de la mascarilla para limpiar la herida."
 
-    show ryu hurt at f21
+    show ryu 0_20 at f21
     ryu "A-ay... Eres muy amable, Sevony..."
     ryu "Estoy seguro de que me recuerdas a alguien..."
     ryu "¿Cuál es tu apellido, a todo esto? Ya que tú me llamas Itsuki..."
 
-    show ryu hurt at t21
+    show ryu 0_20 at t21
     show sevony 1_1 at f22
     sevony "Ah... Siento mis modales... Es cierto que no me he presentado adecuadamente."
     show sevony 1_5 at f22
     sevony "{b}Maáz{/b}." with flash
 
     show sevony 1_5 at t22
-    show ryu shock at f21
+    show ryu 0_22 at f21
     ryu "¿P-perdona?"
 
     scene cg c0_sevonyknife with fade
@@ -964,14 +965,14 @@ label sevony_exec:
     "{th}Todos los demás estábamos... sin palabras. Inmóviles. Incrédulos."
 
     show bg entrance with fade
-    show ryu sick at f11
+    show ryu 0_26 at f11
     ryu "Imbécil... Siempre tiene que salir algo mal... ¿Cómo se me pudo pasar? Malditas cucarachas entrometidas."
 
     play sound fex_run
     show fex 0_1 at l21
     pause 0.5
     show fex 0_1 at f21
-    show ryu sick at t11
+    show ryu 0_26 at t11
     fex "¡Pero cómo se te ocurre hacer una ejecución sin mí!"
 
     show fex 0_1 at t21
@@ -980,7 +981,7 @@ label sevony_exec:
     "{th}Y por el tamaño... tiene que ser también la sombra que perseguíamos antes."
     play sound feed1
     show fex 1_4 at t21
-    show ryu hurt at t22
+    show ryu 0_27 at t22
     with flash
     "{th}¡Ha golpeado a Ryu con esa fusta que lleva!"
 
@@ -1037,7 +1038,7 @@ label inv_c0_welcome_gaelg:     # Gael García
 
 label inv_c0_welcome_ryu:       # Ryu Itsuki
     show fex 0_2 at t21
-    show ryu hurt at t22
+    show ryu 0_27 at t22
 
     fex "¿Ni un mínimo respeto a los compañeros de trabajo?\nJoder, vaya forma de empezar el juego de muerte."
     fex "¡Venga, que tienes cosas que explicar! ¡Andando!" 
@@ -1104,13 +1105,13 @@ label game_rules:
     fex "Os vais a matar {w=0.5}los unos a los otros {w=0.5}a menos que queráis acabar como la chica cohete de hace un momento." with flash
 
     scene bg entrance with fade
-    show ryu smirk at t22
+    show ryu 0_38 at t22
     show fex 0_0 at t21
 
-    show ryu smirk at f22
+    show ryu 0_38 at f22
     ryu "En efecto...\nEl juego funcionará de manera sencilla."
     ryu "Nadie puede escapar ni salir de aquí, a menos..."
-    show ryu evil at f22
+    show ryu 0_37 at f22
     ryu "que {b}asesine{/b} a uno de sus {bt=a1-p10-s1}preciados{/bt} compañeros." with flash
 
     show ryu smirk at t22
@@ -1123,14 +1124,14 @@ label game_rules:
     ryu "{b}Cualquiera{/b} puede aprovechar esa bonita confianza que habéis construido para traicionaros y escapar." with flash
 
     scene bg entrance with fade
-    show ryu smirk at t22
+    show ryu 0_37 at t22
     show fex 1_1 at t21
 
     show fex 1_1 at f21
     fex "¡Y ni se os ocurra intentar escapar por la fuerza! Ya habéis visto lo que le pasó a vuestra amiguita."
 
     show fex 1_1 at t21
-    show ryu explain at f22
+    show ryu 0_37 at f22
     ryu "Todos aquí tenéis un {b}microchip{/b} que os hemos incrustado en el cuello."
     ryu "Está colocado de tal forma que es imposible sacarlo sin provocar heridas letales."
     ryu "Si salís de los límites del recinto, {nw}"
@@ -1139,11 +1140,11 @@ label game_rules:
     extend "morís.\n{nw}" with flash
     extend "Si Monofex lo dice, {nw}"
     extend "morís." with flash
-    show ryu sigh at f22
+    show ryu 0_38 at f22
     ryu "No os lo toméis como algo personal. Yo no os voy a molestar, así que haced como si no estuviera por aquí."
     ryu "Si os asalta cualquier duda, dirigídsela a Monofex."
 
-    show ryu sigh at t22
+    show ryu 0_38 at t22
     show fex 1_6 at f21
     fex "¡Así es! Ya está todo explicado, ¡rompan fil{nw}...!"
 
