@@ -120,7 +120,7 @@ label inv_c0_truck_ryu:     # Chico rubio
     $ ryu.name = "Ryu Itsuki"
     ryu "Mi nombre... es Ryu Itsuki.\nSoy un simple desempleado."
     ryu "¿Y vosotros, chica de las gafas, chico moreno?"
-    show ryu smile 0_15 at t32
+    show ryu 0_15 at t32
 
     $ sevony.name = "Sevony"
     show sevony 0_4 at f33
@@ -1114,7 +1114,7 @@ label game_rules:
     show ryu 0_37 at f22
     ryu "que {b}asesine{/b} a uno de sus {bt=a1-p10-s1}preciados{/bt} compañeros." with flash
 
-    show ryu smirk at t22
+    show ryu 0_37 at t22
     "{th}Ryu sacó del bolsillo el amuleto que Gael le había dado minutos antes..."
 
     play sound stomp
