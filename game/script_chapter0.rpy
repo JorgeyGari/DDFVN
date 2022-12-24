@@ -214,22 +214,22 @@ label inv_c0_truck_ryu:     # Chico rubio
 label inv_c0_truck_jaeke:   # Chico antipático
 
     show jaeke 0_0 at t21
-    show takahiro stand at t22
+    show takahiro 0_5 at t22
     with dissolve
 
     "{th}En una esquina del vehículo se encontraba un chico con cara de pocos amigos."
     "{th}Otro muchacho con ropa llamativa se le acercó."
 
-    show takahiro ask at f22
+    show takahiro 0_3 at f22
     takahiro "Eh, ¿y tú eres...?"
-    show takahiro ask at t22
+    show takahiro 0_3 at t22
 
     show jaeke 2_2
     "{th}El moreno le devolvió una fría mirada y no medió palabra."
 
-    show takahiro ask at f22
+    show takahiro 1_3 at f22
     takahiro "Ya veo que eres alguien con quien es fácil hablar..."
-    show takahiro ask at t22
+    show takahiro 1_3 at t22
 
     show jaeke 2_3 at t32
     "{th}Nada más oír eso, el mudo se levantó, se le acercó y empezó a susurrar."
@@ -238,9 +238,9 @@ label inv_c0_truck_jaeke:   # Chico antipático
     jaeke "Ten cuidado conmigo, chaval.\nNo sabes con quién estás hablando."
     show jaeke 2_3 at t32
 
-    show takahiro laugh at f22
+    show takahiro 0_2 at f22
     takahiro "Pues claro que no sé con quién estoy hablando, ni siquiera me has dicho tu nombre."
-    show takahiro laugh at t22
+    show takahiro 0_2 at t22
 
     show jaeke 2_3 at t21
     pause 0.5
@@ -288,11 +288,11 @@ label truck_end:
     akane "Supongo que tienes razón, pero quería preguntar por si alguien lo sabía..."
 
     show umi 0_0 at t21
-    show emiko ask at f22
+    show emiko 3_5 at f22
     emiko "¿Eh? Espera... ¿entonces de verdad nadie sabe hacia dónde vamos o siquiera dónde estamos?"
 
     show umi 0_0 at t31
-    show emiko ask at t32
+    show emiko 3_5 at t32
     show raiden 1_7 at f33
     luc "Si lo supiéramos, ya habría contestado alguien, ¿no?\nA menos que se lo quiera callar."
     show raiden 2_3 at hf33
@@ -306,7 +306,7 @@ label truck_end:
     luc "Yo, al menos, no he hecho nada malo. Los demás, no sé."
 
     show umi 0_4 at h31
-    show emiko surprise at h32
+    show emiko 3_10 at h32
     show raiden 0_7 at h33
     play sound truck_bump
     with vpunch
@@ -388,18 +388,18 @@ label truck_end:
     luc "¿Por fin nos dejan salir del autobús?"
     
     show raiden 0_4 at t21
-    show takahiro ask at f22
+    show takahiro 0_7 at f22
     takahiro "Yo pensaba que era una furgoneta."
     
     show raiden 0_4 at t31
-    show takahiro ask at t32
+    show takahiro 0_4 at t32
     show danny 0_3 at f33
     danny "Agh, qué luz tan fuerte...\n¿Ya ha llegado a puerto el barco?"
     
     "{th}Se ha despertado y todo..."
 
     show danny 0_3 at t33
-    show takahiro stand at f32
+    show takahiro 0_5 at f32
     takahiro "En cualquier caso, yo me piro de aquí..."
     play sound footsteps
     hide takahiro with dissolve
@@ -514,11 +514,11 @@ label fex_shadow:
     with dissolve
 
     show raiden 0_5 at f21
-    show takahiro annoyed at t22
+    show takahiro 1_3 at t22
     luc "Eeeh, pues yo estoy empezando a aburrirme."
     
     show raiden 0_5 at t21
-    show takahiro annoyed at f22
+    show takahiro 1_3 at f22
     takahiro "Vaya por Dios... \nYo quería irme de aquí cuanto antes. En fin."
 
     hide raiden
@@ -702,26 +702,26 @@ label inv_c0_plaza_ghiang:      # Chica de los moños
     call screen investigation(inv_name, talk, obj, "plaza")
 
 label inv_c0_plaza_jaeke:       # Chico antipático
-    show takahiro stand at t21
+    show takahiro 0_0 at t21
     show jaeke 0_3 at f22
     jaeke "Eh."
     jaeke "¿Sabéis algo de la situación actual?"
 
-    show takahiro joke at f21
+    show takahiro 0_12 at f21
     show jaeke 0_3 at t22
     takahiro "Vaya, vaya. Veo que te dignas por fin a hablarme."
-    show takahiro think at f21
+    show takahiro 0_6 at f21
     takahiro "Lo único que sé es que hay gente... bastante peculiar."
     
-    show takahiro think at t21
+    show takahiro 0_6 at t21
     show jaeke 0_1 at f22
     jaeke "Antes has estado hablando con ellos... ¿No has sido capaz de preguntar absolutamente nada que nos sea de utilidad?"
 
     show jaeke 0_1 at t22
-    show takahiro think at f21
+    show takahiro 0_5 at f21
     takahiro "Diría que todos sabemos lo mismo de este lugar, así que no creo que nadie tenga información realmente útil."
 
-    show takahiro think at t21
+    show takahiro 0_5 at t21
     show jaeke 2_2 at f22
     jaeke "Pues tampoco perdías nada por preguntar por lo menos, estúpido."
     show jaeke 2_1 at f22
@@ -818,11 +818,11 @@ label fex_chase:
     "{sy}¡Hop!"
     pause 1.0
 
-    show takahiro laugh at f21
+    show takahiro 0_2 at f21
     show umi 0_13 at t22
     takahiro "Sí que se lo pasa bien."
     
-    show takahiro laugh at t21
+    show takahiro 0_2 at t21
     show umi 0_14 at f22
     umi "Está tanteando el terreno, comprobando si el sitio es seguro."
 
@@ -834,10 +834,10 @@ label fex_chase:
             akane "¿No deberíamos hacer algo...?"
             
             show umi 0_13 at t22
-            show takahiro laugh at f21
+            show takahiro 0_2 at f21
             takahiro "Qué va, es más divertido dejarlo estar."
             
-            show takahiro laugh at t21
+            show takahiro 0_2 at t21
             show umi 0_14 at f22
             umi "Estará bien. Parece bastante ágil."
 
@@ -968,21 +968,23 @@ label sevony_exec:
     ryu "Imbécil... Siempre tiene que salir algo mal... ¿Cómo se me pudo pasar? Malditas cucarachas entrometidas."
 
     play sound fex_run
-    show fex angry at l21
+    show fex 0_1 at l21
     pause 0.5
-    show fex angry at f21
+    show fex 0_1 at f21
     show ryu sick at t11
     fex "¡Pero cómo se te ocurre hacer una ejecución sin mí!"
 
-    show fex angry at t21
+    show fex 0_1 at t21
     "{th}¿Eso es... un zorro que habla?"
     "{th}¡Es la voz que sonaba de los altavoces!"
     "{th}Y por el tamaño... tiene que ser también la sombra que perseguíamos antes."
     play sound feed1
-    show ryu hurt at t22 with flash
+    show fex 1_4 at t21
+    show ryu hurt at t22
+    with flash
     "{th}¡Ha golpeado a Ryu con esa fusta que lleva!"
 
-    show fex cry at f21
+    show fex 3_0 at f21
     fex "¡Ni me has esperado! ¡EL DOLOOOR...!"
 
     hide ryu
@@ -1034,19 +1036,19 @@ label inv_c0_welcome_gaelg:     # Gael García
     call screen investigation(inv_name, talk)
 
 label inv_c0_welcome_ryu:       # Ryu Itsuki
-    show fex angry at t21
+    show fex 0_2 at t21
     show ryu hurt at t22
 
     fex "¿Ni un mínimo respeto a los compañeros de trabajo?\nJoder, vaya forma de empezar el juego de muerte."
     fex "¡Venga, que tienes cosas que explicar! ¡Andando!" 
-    show fex angry at t21
+    show fex 0_2 at t21
 
     jump game_rules
 
 label inv_c0_welcome_emiko:     # Coletas
-    show emiko shock at f11
+    show emiko 3_9 at f11
     emiko "(...)"
-    hide emiko shock with dissolve
+    hide emiko 3_9 with dissolve
 
     python:
         if "emiko" in talk:
@@ -1066,9 +1068,9 @@ label inv_c0_welcome_danny:     # Dormilón
     call screen investigation(inv_name, talk)
 
 label inv_c0_welcome_takahiro:  # Coletas
-    show takahiro shock at f11
+    show takahiro 2_4 at f11
     takahiro "Me temía que ocurriera algo turbio, pero esto es pasarse..."
-    hide takahiro shock with dissolve
+    hide takahiro 2_4 with dissolve
 
     python:
         if "takahiro" in talk:
@@ -1103,7 +1105,7 @@ label game_rules:
 
     scene bg entrance with fade
     show ryu smirk at t22
-    show fex stand at t21
+    show fex 0_0 at t21
 
     show ryu smirk at f22
     ryu "En efecto...\nEl juego funcionará de manera sencilla."
@@ -1122,12 +1124,12 @@ label game_rules:
 
     scene bg entrance with fade
     show ryu smirk at t22
-    show fex angry at t21
+    show fex 1_1 at t21
 
-    show fex angry at f21
+    show fex 1_1 at f21
     fex "¡Y ni se os ocurra intentar escapar por la fuerza! Ya habéis visto lo que le pasó a vuestra amiguita."
 
-    show fex angry at t21
+    show fex 1_1 at t21
     show ryu explain at f22
     ryu "Todos aquí tenéis un {b}microchip{/b} que os hemos incrustado en el cuello."
     ryu "Está colocado de tal forma que es imposible sacarlo sin provocar heridas letales."
@@ -1142,7 +1144,7 @@ label game_rules:
     ryu "Si os asalta cualquier duda, dirigídsela a Monofex."
 
     show ryu sigh at t22
-    show fex angry at f21
+    show fex 1_6 at f21
     fex "¡Así es! Ya está todo explicado, ¡rompan fil{nw}...!"
 
     stop music
@@ -1173,9 +1175,9 @@ label game_rules:
 
     "{th}El hombre salido de la nada se llevó a Ryu a rastras, agarrándolo bien fuerte del brazo."
 
-    show fex scared at t11
+    show fex 2_1 at t11
     fex "(...)"
-    show fex scared at f11
+    show fex 2_2 at f11
     fex "B-bueno, pues... hay un dormitorio para cada uno.\nPodéis elegir el que queráis... yo os... guiaré."
     hide fex with dissolve
 
@@ -1202,18 +1204,18 @@ label game_rules:
     with dissolve
 
     show guppy 0_0 at f21
-    show emiko sad at t22
+    show emiko 0_8 at t22
     guppy "Tú. Sígueme."
     
-    show emiko surprise at f22
+    show emiko 0_6 at f22
     show guppy 0_0 at t21
     emiko "¿Eh, yo...?"
 
-    show emiko surprise at t22
+    show emiko 0_6 at t22
     show guppy 0_2 at f21
     guppy "Sí. Sigamos al zorro."
 
-    show emiko surprise at f22
+    show emiko 0_5 at f22
     show guppy 0_2 at t21
     emiko "Ah, ¡v-vale!"
 
