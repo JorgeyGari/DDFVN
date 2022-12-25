@@ -53,6 +53,8 @@ init python:
         return [(renpy.TEXT_TAG, u"bt=a1-p10-s1")]
     config.self_closing_custom_text_tags["bo"] = bouncy
 
+    monopad_unlocked = False
+
 define config.say_menu_text_filter = alter_say_strings
 define sel_char_prof = "none"
 define profile_dict = { # Un diccionario para los perfiles de cada recluso (identificados por nombre interno), donde almacenamos su nombre completo, su talento definitivo, su género, una descripción, si siguen con vida (True/False) y sus datos personales (género, altura, cumpleaños, gustos y aversiones)
@@ -152,5 +154,7 @@ label start:
     $ sevony.name = "Sevony Maáz"
     $ fex.name = "Monofex"
 #endregion
+
+    $ monopad_unlocked = False
 
     call ch1_intro from _call_ch1_intro
