@@ -605,6 +605,7 @@ screen file_slots(title):
 
     default page_name_value = FilePageNameInputValue(pattern=_("Página {}"), auto=_("Guardados automáticos"), quick=_("Guardados rápidos"))
 
+
     use game_menu(title):
 
         fixed:
@@ -1629,10 +1630,6 @@ screen investigation(inv_name, talk={}, obj={}, place=""):  # FIXME: Esta pantal
             ypos 0.8
             text tooltip
 
-screen monopad_unlock:
-
-    textbutton "Desactivar la alarma" xalign 0.5 yalign 0.5 action Stop("music"), ShowMenu("monopad_screen")
-
 screen monopad_screen:
     tag menu
 
@@ -1665,7 +1662,7 @@ screen monopad_buttons():
             action ShowMenu("gallery")
         imagebutton:
             auto "gui/monopad/option_%s.png"
-            action ShowMenu("option")
+            action ShowMenu("preferences")
         at move_in_right
     
     imagebutton:    # Botón para volver atrás
@@ -1678,6 +1675,8 @@ screen monopad_buttons():
 
 screen profile:
     tag menu
+
+    add "images/bg profile.png"
 
     # Matriz de perfiles
     vbox:
@@ -1780,6 +1779,54 @@ screen profile:
     text profile_dict[sel_char_prof][0] xanchor 1.0 yanchor 1.0 xpos config.screen_width - 478 ypos 360 size 60 font "fonts/whitneySemiboldItalic.otf" color '#000' xalign 1.0
     text profile_dict[sel_char_prof][1] yanchor 1.0 xpos 10 ypos 360 size 35 font "fonts/whitneySemiboldItalic.otf" color '#000'
 
+
+    imagebutton:    # Botón para volver atrás
+        xanchor 1.0
+        yanchor 0.0
+        xalign 1.0
+        yalign 0.0
+        auto "gui/back_%s.png"
+        action ShowMenu("monopad_screen"), SetVariable("sel_char_prof", "none")
+
+screen inventory_button:
+    textbutton "Show Inventory" action [ Show("inventory_screen"), Hide("inventory_button")] align (.95,.04)
+            
+screen inventory_screen:    
+    add "gui/inventory.png" # the background
+    modal True #prevent clicking on other stuff when inventory is shown
+    #use battle_frame(char=player, position=(.97,.20)) # we show characters stats (mp, hp) on the inv. screen
+    #use battle_frame(char=dog, position=(.97,.50))
+    $ x = 515 # coordinates of the top left item position
+    $ y = 25
+    $ i = 0
+    $ sorted_items = sorted(inventory.items, key=attrgetter('element'), reverse=True) # we sort the items, so non-consumable items that change elemental damage (guns) are listed first
+    $ next_inv_page = inv_page + 1            
+    if next_inv_page > int(len(inventory.items)/9):
+        $ next_inv_page = 0
+    for item in sorted_items:
+        if i+1 <= (inv_page+1)*9 and i+1>inv_page*9:
+            $ x += 190
+            if i%3==0:
+                $ y += 170
+                $ x = 515
+            $ pic = item.image
+            $ my_tooltip = "tooltip_inventory_" + pic.replace("gui/inv_", "").replace(".png", "") # we use tooltips to describe what the item does.
+            imagebutton idle pic hover pic xpos x ypos y action [Hide("gui_tooltip"), Show("inventory_button"), SetVariable("item", item), Hide("inventory_screen"), item_use] hovered [ Play ("sound", "audio/eye.ogg"), Show("gui_tooltip", my_picture=my_tooltip, my_tt_ypos=693) ] unhovered [Hide("gui_tooltip")] at inv_eff
+            if player.element and (player.element==item.element): #indicate the selected gun
+                add "gui/selected.png" xpos x ypos y anchor(.5,.5)
+        $ i += 1
+        if len(inventory.items)>9:
+            textbutton _("Siguiente página") action [SetVariable('inv_page', next_inv_page), Show("inventory_screen")] xpos .475 ypos .83
+
+screen gui_tooltip (my_picture="", my_tt_xpos=58, my_tt_ypos=687):
+    add my_picture xpos my_tt_xpos ypos my_tt_ypos    
+
+screen evidence:
+    tag menu
+
+    add "images/bg evidence.png"
+
+    use inventory_screen
 
     imagebutton:    # Botón para volver atrás
         xanchor 1.0

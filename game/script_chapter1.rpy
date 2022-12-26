@@ -32,6 +32,8 @@ label inv_c1_akaneroom_desk:
     call screen investigation(inv_name, talk, obj, "akaneroom")
 
 label inv_c1_akaneroom_end:
+    stop music
+    "{th}Apagué la alarma."
     "{th}Es... ¿un teléfono?"
     hide cg c1_monopad_alarm with fade
     "{th}¿Lo habrán dejado para mí?"
@@ -60,5 +62,21 @@ label inv_c1_akaneroom_end:
 
     "{th}Y tal como vino, se fue..."
     $ monopad_unlocked = True
+    
+    python:
+        player = Player("Derp", 100, 50)
+        player.hp = 50
+        player.mp = 10
+        chocolate = Item("Chocolate", hp=40, image="gui/inv_chocolate.png")
+        banana = Item("Banana", mp=20, image="gui/inv_banana.png")    
+        gun = Item("Gun", element="bullets", image="gui/inv_gun.png", cost=7)
+        laser = Item("Laser Gun", element="laser", image="gui/inv_laser.png")
+        inventory = Inventory()
+        #add items to the initial inventory:
+        inventory.add(chocolate)
+        inventory.add(chocolate)
+        inventory.add(banana)
+        
+    $ inventory.add(laser)
     "{sy}Has recibido un Monopad. Puedes acceder a él mediante la barra de menú inferior."
 
