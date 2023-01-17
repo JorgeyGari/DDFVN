@@ -261,6 +261,8 @@ screen quick_menu():
             textbutton _("Guardado rápido") action QuickSave()
             textbutton _("Carga rápida") action QuickLoad()
             textbutton _("Opciones") action ShowMenu('preferences')
+            if monopad_unlocked:
+                textbutton _("Monopad") action ShowMenu('monopad_screen')
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -602,6 +604,7 @@ screen load():
 screen file_slots(title):
 
     default page_name_value = FilePageNameInputValue(pattern=_("Página {}"), auto=_("Guardados automáticos"), quick=_("Guardados rápidos"))
+
 
     use game_menu(title):
 
@@ -1627,53 +1630,6 @@ screen investigation(inv_name, talk={}, obj={}, place=""):  # FIXME: Esta pantal
             ypos 0.8
             text tooltip
 
-screen monopad_unlock:
-
-    textbutton "Desactivar la alarma" xalign 0.5 yalign 0.5 action Stop("music"), Jump("monopad_4firsttime")
-
-screen monopad_screen_firsttime:
-    tag menu
-
-    $ config.thumbnail_width = config.screen_width
-    $ config.thumbnail_height = config.screen_height
-    $ FileTakeScreenshot()
-
-    add FileCurrentScreenshot() at blur
-
-    use monopad_buttons_firsttime
-
-screen monopad_buttons_firsttime():
-
-    hbox:
-        xalign 0.5
-        yalign 0.5
-        spacing 10
-
-        imagebutton:
-            auto "gui/monopad/profile_%s.png"
-            action ShowMenu("profile")
-        imagebutton:
-            auto "gui/monopad/evidence_%s.png"
-            action ShowMenu("evidence")
-        imagebutton:
-            auto "gui/monopad/map_%s.png"
-            action ShowMenu("map")
-        imagebutton:
-            auto "gui/monopad/gallery_%s.png"
-            action ShowMenu("gallery")
-        imagebutton:
-            auto "gui/monopad/option_%s.png"
-            action ShowMenu("option")
-        at move_in_right
-    
-    imagebutton:    # Botón para volver atrás
-        xanchor 1.0
-        yanchor 0.0
-        xalign 1.0
-        yalign 0.0
-        auto "gui/back_%s.png"
-        action [Return(), Jump("inv_c1_akaneroom_end")]
-
 screen monopad_screen:
     tag menu
 
@@ -1706,7 +1662,7 @@ screen monopad_buttons():
             action ShowMenu("gallery")
         imagebutton:
             auto "gui/monopad/option_%s.png"
-            action ShowMenu("option")
+            action ShowMenu("preferences")
         at move_in_right
     
     imagebutton:    # Botón para volver atrás
@@ -1719,6 +1675,8 @@ screen monopad_buttons():
 
 screen profile:
     tag menu
+
+    add "images/bg profile.png"
 
     # Matriz de perfiles
     vbox:
@@ -1783,7 +1741,7 @@ screen profile:
                 auto "gui/monopad/gaelmprof_%s.png"
                 action SetVariable("sel_char_prof", "gaelm"), ShowMenu("profile")
 
-    image "gui/monopad/"+sel_char_prof+"prof_full.png" xalign 1.0 yalign 1.0
+    image "gui/monopad/chibi/"+sel_char_prof+"_chibi.png" xalign 1.0 yalign 1.0
 
     frame:  # Datos del recluso
         xanchor 0.0
@@ -1829,3 +1787,65 @@ screen profile:
         yalign 0.0
         auto "gui/back_%s.png"
         action ShowMenu("monopad_screen"), SetVariable("sel_char_prof", "none")
+            
+screen inventory_screen:    
+    add "gui/inventory.png" # the background
+    modal True #prevent clicking on other stuff when inventory is shown
+    $ x = 480 # coordinates of the top left item position
+    $ y = 5
+    $ i = 0
+    $ sorted_items = sorted(inventory.items, key=attrgetter('element'), reverse=True) # we sort the items, so non-consumable items that change elemental damage (guns) are listed first
+    $ next_inv_page = inv_page + 1            
+    if next_inv_page > int(len(inventory.items)/9):
+        $ next_inv_page = 0
+    for item in sorted_items:
+        if i+1 <= (inv_page+1)*9 and i+1>inv_page*9:
+            $ x += 180
+            if i%3==0:
+                $ y += 170
+                $ x = 480
+            $ pic = item.image
+            $ my_tooltip = "tooltip_inventory_" + pic.replace("gui/inv_", "").replace(".png", "") # we use tooltips to describe what the item does.
+            imagebutton idle pic hover pic xpos x ypos y action [Hide("gui_tooltip"), Show("inventory_button"), SetVariable("item", item), Hide("inventory_screen"), item_use] hovered [ Play ("sound", "audio/eye.ogg"), Show("gui_tooltip", my_picture=my_tooltip, my_tt_ypos=630) ] unhovered [Hide("gui_tooltip")] at inv_eff
+            if player.element and (player.element==item.element): #indicate the selected gun
+                add "gui/selected.png" xpos x ypos y anchor(.5,.5)
+        $ i += 1
+        if len(inventory.items)>9:
+            textbutton _("Siguiente página") action [SetVariable('inv_page', next_inv_page), Show("inventory_screen")] xpos .475 ypos .83
+
+screen gui_tooltip (my_picture="", my_tt_xpos=50, my_tt_ypos=460):
+    add my_picture xpos my_tt_xpos ypos my_tt_ypos    
+
+screen evidence:
+    tag menu
+
+    add "images/bg evidence.png"
+
+    use inventory_screen
+
+    imagebutton:    # Botón para volver atrás
+        xanchor 1.0
+        yanchor 0.0
+        xalign 1.0
+        yalign 0.0
+        auto "gui/back_%s.png"
+        action ShowMenu("monopad_screen"), SetVariable("sel_char_prof", "none")
+
+screen map:
+    tag menu
+
+    #add f"gui/map/{sector}.png"
+
+    for place in places[sector]:
+        imagebutton:
+            auto f"gui/map/{sector}/{sector}_{place}_%s.png"
+            focus_mask True
+    
+    imagebutton:    # Botón para volver atrás
+        xanchor 1.0
+        yanchor 0.0
+        xalign 1.0
+        yalign 0.0
+        auto "gui/back_%s.png"
+        action Return()
+  
