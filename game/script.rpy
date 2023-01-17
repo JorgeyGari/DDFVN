@@ -61,19 +61,19 @@ init -1 python:
     #Tooltips:
     style.tips_top = Style(style.default)
     #style.title.font="gui/arial.ttf"
-    style.tips_top.size=14
+    #style.tips_top.size=14
     style.tips_top.color="fff"
     style.tips_top.outlines=[(3, "6b7eef", 0,0)]
-    style.tips_top.kerning = 5
+    #style.tips_top.kerning = 5
 
     style.tips_bottom = Style(style.tips_top)
-    style.tips_top.size=20
+    #style.tips_top.size=20
     style.tips_bottom.outlines=[(0, "6b7eef", 1, 1), (0, "6b7eef", 2, 2)]
-    style.tips_bottom.kerning = 2
+    #style.tips_bottom.kerning = 2
     
     style.button.background=Frame("gui/frame.png",25,25)
-    style.button.yminimum=52
-    style.button.xminimum=52
+    #style.button.yminimum=52
+    #style.button.xminimum=52
     style.button_text.color="000"
 
 
@@ -179,7 +179,7 @@ define profile_dict = { # Un diccionario para los perfiles de cada recluso (iden
         ["X", "Altura", "Cumpleaños", "Gustos", "Aversiones"]],
     "axiom":
         ["(?)", "(?)", "Descripción", True,
-        ["X", "Altura", "Cumpleaños", "Gustos", "Aversiones"]],
+        ["M", "Altura", "Cumpleaños", "Gustos", "Aversiones"]],
     "danny":
         ["(?)", "(?)", "Descripción", True,
         ["M", "Altura", "Cumpleaños", "Gustos", "Aversiones"]],
@@ -240,13 +240,19 @@ init -1:
         on hover:
             linear 0.2 alpha 2.5
 
-    image information = Text("INFORMATION", style="tips_top")
     #Tooltips-inventory:
     # FIXME: Hay una versión más moderna de LiveComposite
-    image tooltip_inventory_chocolate=LiveComposite((665, 73), (3,0), ImageReference("information"), (3,30), Text("Generic chocolate to heal\n40 points of health.", style="tips_bottom"))
-    image tooltip_inventory_banana=LiveComposite((665, 73), (3,0), ImageReference("information"), (3,30), Text("A healthy banana full of potassium! You can also use it as ammo for your guns! O.O Recharges 20 bullets.", style="tips_bottom"))
-    image tooltip_inventory_gun=LiveComposite((665, 73), (3,0), ImageReference("information"), (3,30), Text("An gun that looks like something a cop would\ncarry around. Most effective on humans.", style="tips_bottom"))
-    image tooltip_inventory_laser=LiveComposite((665, 73), (3,0), ImageReference("information"), (3,30), Text("An energy gun that shoots photon beams.\nMost effective on aliens.", style="tips_bottom"))
+    image info_chocolate = Text("CHOCOLATE", style="tips_top")
+    image tooltip_inventory_chocolate=LiveComposite((600, 73), (3,0), ImageReference("info_chocolate"), (3,30), Text("Generic chocolate to heal\n40 points of health.", style="tips_bottom"))
+
+    image info_banana = Text("BANANA", style="tips_top")
+    image tooltip_inventory_banana=LiveComposite((665, 73), (3,0), ImageReference("info_banana"), (3,30), Text("A healthy banana full of potassium! You can also use it as ammo for your guns! O.O Recharges 20 bullets.", style="tips_bottom"))
+
+    image info_gun = Text("GUN", style="tips_top")
+    image tooltip_inventory_gun=LiveComposite((665, 73), (3,0), ImageReference("info_gun"), (3,30), Text("An gun that looks like something a cop would\ncarry around. Most effective on humans.", style="tips_bottom"))
+
+    image info_laser = Text("LASER GUN", style="tips_top")
+    image tooltip_inventory_laser=LiveComposite((665, 73), (3,0), ImageReference("info_laser"), (3,30), Text("An energy gun that shoots photon beams.\nMost effective on aliens.", style="tips_bottom"))
 #endregion
 
 label start:
@@ -265,5 +271,8 @@ label start:
 #endregion
 
     $ monopad_unlocked = False
+    $ places = {
+        "oppidum": ["dininghall", "gym", "kitchen", "plaza", "roomsa", "roomsb", "shack", "supermarket"]
+    }
 
     call ch1_intro from _call_ch1_intro

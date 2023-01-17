@@ -1,4 +1,8 @@
 label ch1_intro:
+    $ sector = "oppidum"
+    $ place = "roomsb"
+    $ name = "Dormitorios"
+
     scene black with fade
     play music alarm_clock
     pause 2.0
@@ -79,4 +83,3 @@ label inv_c1_akaneroom_end:
         
     $ inventory.add(laser)
     "{sy}Has recibido un Monopad. Puedes acceder a él mediante la barra de menú inferior."
-
