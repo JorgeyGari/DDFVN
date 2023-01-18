@@ -1592,9 +1592,9 @@ screen investigation(inv_name, talk={}, obj={}, place=""):  # FIXME: Esta pantal
             xpos obj[o][0]  # El elemento 0 de la tupla es la posición en X
             ypos obj[o][1] - 5  # El 1, la posición en Y
             # Le restamos 46 px porque Ren'Py es rarito, no sé, pero funciona
-            idle "button/"+place+"/"+o+".png"
-            hover "button/"+place+"/"+o+".png"
-            action Jump(inv_name+"_"+o)
+            idle f"button/{place}/{o}.png"
+            hover f"button/{place}/{o}.png"
+            action Jump(f"{inv_name}_{o}")
             hover_sound "audio/eye.ogg"
             hovered [SetField(mtt, 'redraw', True), mtt.Action(Image("gui/eye_icon.png"))]
             unhovered SetField(mtt, 'redraw', False)
@@ -1605,8 +1605,8 @@ screen investigation(inv_name, talk={}, obj={}, place=""):  # FIXME: Esta pantal
         imagebutton:
             xpos 0
             ypos y
-            auto "icon/"+char+"_%s.png"
-            action Jump(inv_name+"_"+char)
+            auto f"icon/{char}_%s.png"
+            action Jump(f"{inv_name}_{char}")
             tooltip talk[char]
             at move_in_right
         $ y += 120  # El siguiente botón irá 120 px debajo del anterior
@@ -1741,7 +1741,7 @@ screen profile:
                 auto "gui/monopad/gaelmprof_%s.png"
                 action SetVariable("sel_char_prof", "gaelm"), ShowMenu("profile")
 
-    image "gui/monopad/chibi/"+sel_char_prof+"_chibi.png" xalign 1.0 yalign 1.0
+    image f"gui/monopad/chibi/{sel_char_prof}_chibi.png" xalign 1.0 yalign 1.0 at move_in_right
 
     frame:  # Datos del recluso
         xanchor 0.0
@@ -1834,12 +1834,14 @@ screen evidence:
 screen map:
     tag menu
 
-    #add f"gui/map/{sector}.png"
+    image f"gui/map/{sector}.png" xalign 0.5
 
     for place in places[sector]:
         imagebutton:
+            xalign 0.5
             auto f"gui/map/{sector}/{sector}_{place}_%s.png"
             focus_mask True
+            action Return()
     
     imagebutton:    # Botón para volver atrás
         xanchor 1.0

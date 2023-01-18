@@ -6,3 +6,4 @@ game/cache
 *.rpyc
 .vscode
 game/audio/originales
+Inventory
