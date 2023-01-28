@@ -1834,7 +1834,7 @@ screen evidence:
 screen map:
     tag menu
 
-    image f"gui/map/{sector}.png" xalign 0.5
+    image "bg grid"
 
     for place in places[sector]:
         imagebutton:
@@ -1849,5 +1849,82 @@ screen map:
         xalign 1.0
         yalign 0.0
         auto "gui/back_%s.png"
-        action Return()
-  
+        action ShowMenu("monopad_screen")
+
+screen gallery:
+
+    tag menu
+
+    add "bg grid"
+
+    grid 3 3:
+
+        xfill True
+        yfill True
+
+        # Call make_button to show a particular button.
+        add g.make_button("c0_breaking", "gui/gallery/thumb/c0_breaking.png", locked = "lock", xalign=0.5, yalign=0.5)
+        add g.make_button("c0_sevonyknife", "gui/gallery/thumb/c0_sevonyknife.png", locked = "lock", xalign=0.5, yalign=0.5)
+        add g.make_button("c0_ryubutton", "gui/gallery/thumb/c0_ryubutton.png", locked = "lock", xalign=0.5, yalign=0.5)
+
+        add g.make_button("c0_skyexplosion", "gui/gallery/thumb/c0_skyexplosion.png", locked = "lock", xalign=0.5, yalign=0.5)
+        add g.make_button("c0_ryueye", "gui/gallery/thumb/c0_ryueye.png", locked = "lock", xalign=0.5, yalign=0.5)
+        add g.make_button("c0_monofexintro", "gui/gallery/thumb/c0_monofexintro.png", locked = "lock", xalign=0.5, yalign=0.5)
+
+        add g.make_button("c0_fercloseup", "gui/gallery/thumb/c0_fercloseup.png", locked = "lock", xalign=0.5, yalign=0.5)
+        add g.make_button("c0_ferintro", "gui/gallery/thumb/c0_ferintro.png", locked = "lock", xalign=0.5, yalign=0.5)
+        add g.make_button("c0_fersmoke", "gui/gallery/thumb/c0_fersmoke.png", locked = "lock", xalign=0.5, yalign=0.5)
+
+    imagebutton:    # Botón para la página siguiente
+        xanchor 1.0
+        yanchor 0.5
+        xalign 1.0
+        yalign 0.5
+        auto "gui/right_%s.png"
+        action ShowMenu("gallery2")
+
+    imagebutton:    # Botón para volver atrás
+        xanchor 1.0
+        yanchor 0.0
+        xalign 1.0
+        yalign 0.0
+        auto "gui/back_%s.png"
+        action ShowMenu("monopad_screen")
+
+screen gallery2:
+
+    tag menu
+
+    add "bg grid"
+
+    grid 3 3:
+
+        xfill True
+        yfill True
+
+        # Call make_button to show a particular button.
+        null
+        null
+        null
+        null
+        null
+        null
+        null
+        null
+        null
+
+    imagebutton:    # Botón para la página anterior
+        xanchor 0.0
+        yanchor 0.5
+        xalign 0.0
+        yalign 0.5
+        auto "gui/left_%s.png"
+        action ShowMenu("gallery")
+
+    imagebutton:    # Botón para volver atrás
+        xanchor 1.0
+        yanchor 0.0
+        xalign 1.0
+        yalign 0.0
+        auto "gui/back_%s.png"
+        action ShowMenu("monopad_screen")

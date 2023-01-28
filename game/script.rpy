@@ -275,4 +275,63 @@ label start:
         "oppidum": ["dininghall", "gym", "kitchen", "plaza", "roomsa", "roomsb", "shack", "supermarket"]
     }
 
+#region Galería
+    init python:
+
+        # Step 1. Create the gallery object.
+        g = Gallery()
+
+        g.button("c0_breaking")
+        g.condition("persistent.c0_breaking")
+        g.image("images/CGs/Prólogo/cg c0_breaking.png")
+        
+        g.button("c0_fercloseup")
+        g.condition("persistent.c0_fercloseup")
+        g.image("images/CGs/Prólogo/cg c0_fercloseup.png")
+
+        g.button("c0_ferintro")
+        g.condition("persistent.c0_ferintro")
+        g.image("images/CGs/Prólogo/cg c0_ferintro.png")
+
+        g.button("c0_fersmoke")
+        g.condition("persistent.c0_fersmoke")
+        g.image("images/CGs/Prólogo/cg c0_fersmoke.png")
+
+        g.button("c0_monofexintro")
+        g.condition("persistent.c0_monofexintro")
+        g.image("images/CGs/Prólogo/cg c0_monofexintro.png")
+
+        g.button("c0_ryubutton")
+        g.condition("persistent.c0_ryubutton")
+        g.image("images/CGs/Prólogo/cg c0_ryubutton.png")
+
+        g.button("c0_ryueye")
+        g.condition("persistent.c0_ryueye")
+        g.image("images/CGs/Prólogo/cg c0_ryueye.png")
+
+        g.button("c0_ryuvoid")
+        g.condition("persistent.c0_ryuvoid")
+        g.image("images/CGs/Prólogo/cg c0_ryuvoid.png")
+
+        g.button("c0_sevonyknife")
+        g.condition("persistent.c0_sevonyknife")
+        g.image("images/CGs/Prólogo/cg c0_sevonyknife.png")
+
+        g.button("c0_skyexplosion")
+        g.condition("persistent.c0_skyexplosion")
+        g.image("images/CGs/Prólogo/cg c0_skyexplosion.png")
+
+    default persistent.c0_breaking = True
+    default persistent.c0_fercloseup = True
+    default persistent.c0_ferintro = True
+    default persistent.c0_fersmoke = True
+    default persistent.c0_monofexintro = True
+    default persistent.c0_ryubutton = True
+    default persistent.c0_ryueye = True
+    default persistent.c0_ryuvoid = True
+    default persistent.c0_sevonyknife = True
+    default persistent.c0_skyexplosion = True
+    
+#endregion
+
     call ch1_intro from _call_ch1_intro
